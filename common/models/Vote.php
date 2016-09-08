@@ -29,7 +29,7 @@ class Vote extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%Vote}}';
+        return '{{%vote}}';
     }
 
     public function behaviors()
