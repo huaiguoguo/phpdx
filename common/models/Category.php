@@ -29,7 +29,7 @@ class Category extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%Category}}';
+        return '{{%category}}';
     }
 
     public function behaviors()
