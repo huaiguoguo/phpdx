@@ -7,9 +7,9 @@ return [
         ],
         'db'          => [
             'class'       => 'yii\db\Connection',
-            'dsn'         => 'mysql:host=101.201.53.87;dbname=bdm236195351_db',
-            'username'    => 'bdm236195351',
-            'password'    => 'mWJShjR3cLG4zBHYd0',
+            'dsn'         => 'mysql:host=localhost;dbname=phpdx',
+            'username'    => 'root',
+            'password'    => '7c2a5b53',
             'charset'     => 'utf8',
             'tablePrefix' => 'dx_',
         ],
