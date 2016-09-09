@@ -63,7 +63,7 @@ AppAsset::register($this);
             </div>
             <div id="top-navbar-collapse" class="navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="<?=Url::toRoute(['/']);?>">首页</a></li>
+                    <li class=""><a href="<?=Url::toRoute(['site/index']);?>">首页</a></li>
                     <li class=""><a href="<?=Url::toRoute(['topics/index']);?>">社区</a></li>
 <!--                    <li class=""><a href="/categories/6?filter=recent">教程</a></li>-->
 <!--                    <li class=""><a href="/categories/1">招聘</a></li>-->
