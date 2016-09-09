@@ -142,60 +142,42 @@ use yii\helpers\Markdown;
 
                 <div class="btn-group">
 
+                    <?php if(!Yii::$app->user->isGuest):?>
                     <a data-ajax="post" href="javascript:void(0);"
                        data-url="<?= \yii\helpers\Url::toRoute(['topics/upvote']); ?>"
                        title="Up Vote"
-                       data-csrf_param= <?= Yii::$app->request->csrfParam; ?>
-                       data-csrf_token = <?= Yii::$app->request->csrfToken; ?>
+                       data-csrf_param= '<?= Yii::$app->request->csrfParam; ?>'
+                       data-csrf_token = '<?= Yii::$app->request->csrfToken; ?>'
                     data-content="点赞相当于收藏，可以在个人页面的「赞过的话题」导航里查看"
                     id="up-vote"
                     class="vote btn btn-primary btn-inverted popover-with-html ">
                     <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                     点赞
                     </a>
+                        <?php else:?>
+                        <a class="vote btn btn-primary btn-inverted popover-with-html">
+
+                            登录点赞
+                        </a>
+                        <?php endif;?>
 
                 </div>
 
                 <div class="voted-users">
 
                     <div class="user-lists">
-                        <a href="https://phphub.org/users/438" data-userId="438">
-                            <img class="img-thumbnail avatar avatar-middle"
-                                 src="https://dn-phphub.qbox.me/uploads/avatars/438_1468372885.jpeg?imageView2/1/w/100/h/100"
-                                 style="width:48px;height:48px;">
-                        </a>
-                        <a href="https://phphub.org/users/5632" data-userId="5632">
-                            <img class="img-thumbnail avatar avatar-middle"
-                                 src="https://dn-phphub.qbox.me/uploads/avatars/5632_1472688495.png?imageView2/1/w/100/h/100"
-                                 style="width:48px;height:48px;">
-                        </a>
-                        <a href="https://phphub.org/users/5502" data-userId="5502">
-                            <img class="img-thumbnail avatar avatar-middle"
-                                 src="https://dn-phphub.qbox.me/uploads/avatars/5502_1471884784.png?imageView2/1/w/100/h/100"
-                                 style="width:48px;height:48px;">
-                        </a>
-                        <a href="https://phphub.org/users/4103" data-userId="4103">
-                            <img class="img-thumbnail avatar avatar-middle"
-                                 src="https://dn-phphub.qbox.me/uploads/avatars/4103_1460337320.png?imageView2/1/w/100/h/100"
-                                 style="width:48px;height:48px;">
-                        </a>
-                        <a href="https://phphub.org/users/5306" data-userId="5306">
-                            <img class="img-thumbnail avatar avatar-middle"
-                                 src="https://dn-phphub.qbox.me/uploads/avatars/5306_1470714129.jpeg?imageView2/1/w/100/h/100"
-                                 style="width:48px;height:48px;">
-                        </a>
-                        <a href="https://phphub.org/users/1035" data-userId="1035">
-                            <img class="img-thumbnail avatar avatar-middle"
-                                 src="https://dn-phphub.qbox.me/uploads/avatars/1035_1427371042.jpeg?imageView2/1/w/100/h/100"
-                                 style="width:48px;height:48px;">
-                        </a>
-                        <a href="https://phphub.org/users/1" data-userId="1">
-                            <img class="img-thumbnail avatar avatar-middle"
-                                 src="https://dn-phphub.qbox.me/uploads/avatars/1_1471136343.jpg?imageView2/1/w/100/h/100"
-                                 style="width:48px;height:48px;">
-                        </a>
-                    </div>
 
+                        <?php
+                        $votes = $detail->votes;
+                        foreach ($votes as $key=>$value):
+                        ?>
+                        <a href="<?=\yii\helpers\Url::toRoute(['user/index', 'id'=>$value->created_by]);?>" data-userId="438">
+                            <img class="img-thumbnail avatar avatar-middle"
+                                 src="<?=$value->user->avatar;?>"
+                                 style="width:48px;height:48px;">
+                        </a>
+                        <?php endforeach;?>
+                    </div>
                     <a class="voted-template" href="" data-userId="" style="display:none">
                         <img class="img-thumbnail avatar avatar-middle" src="" style="width:48px;height:48px;">
                     </a>
@@ -207,7 +189,7 @@ use yii\helpers\Markdown;
         <!-- Reply List -->
         <div class="replies panel panel-default list-panel replies-index padding-md">
             <div class="panel-heading">
-                <div class="total">回复数量: <b>6</b></div>
+                <div class="total">回复数量: <b><?=count($detail->comments);?></b></div>
             </div>
 
             <div class="panel-body">
@@ -221,9 +203,10 @@ use yii\helpers\Markdown;
                         <li class="list-group-item media" style="margin-top: 0px;">
 
                             <div class="avatar pull-left">
-                                <a href="https://phphub.org/users/2447">
-                                    <img class="media-object img-thumbnail avatar avatar-middle" alt="M1racle"
-                                         src="https://dn-phphub.qbox.me/uploads/avatars/2447_1443275733.jpeg?imageView2/1/w/100/h/100"
+                                <a href="<?=\yii\helpers\Url::toRoute(['user/index', 'id'=>$value->created_by]);?>">
+                                    <img class="media-object img-thumbnail avatar avatar-middle"
+                                         alt="<?=$value->user->username;?>"
+                                         src="<?=$value->user->avatar;?>"
                                          style="width:48px;height:48px;"/>
                                 </a>
                             </div>
@@ -282,8 +265,8 @@ use yii\helpers\Markdown;
 
 
             <form method="POST" action="<?=\yii\helpers\Url::toRoute(['topics/replies']);?>" accept-charset="UTF-8" id="reply-form">
-                <input type="hidden" name="_token" value="K7sMA0lwNF91wxuJnByQtf5zMUyksrYaIOn1BpGB">
-                <input type="hidden" name="topic_id" value="2694"/>
+                <input type="hidden" name="<?=Yii::$app->request->csrfParam;?>" value="<?=Yii::$app->request->csrfToken;?>">
+                <input type="hidden" name="topic_id" value="<?=$detail->id;?>"/>
 
                 <div id="reply_notice" class="box">
                     <ul class="helpblock list">
@@ -304,7 +287,7 @@ use yii\helpers\Markdown;
                 </div>
 
                 <div class="form-group">
-                        <textarea class="form-control" rows="5" placeholder="请使用 Markdown 格式书写 ;-)"
+                        <textarea class="form-control" <?php if(Yii::$app->user->isGuest):?> disabled="disabled" placeholder="需要登录后才能发表评论." <?php endif;?> rows="5" placeholder="请使用 Markdown 格式书写 ;-)"
                                   style="overflow:hidden" id="reply_content" name="body" cols="50"></textarea>
                 </div>
 

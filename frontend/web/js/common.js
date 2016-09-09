@@ -491,7 +491,8 @@
                         url: $(this).attr('action'),
                         data: {
                             body: commentText,
-                            topic_id: $('[name=topic_id]').val()
+                            topic_id: $('[name=topic_id]').val(),
+                            csrf_frontend: $('[name=csrf_frontend]').val()
                         },
                     }).done(function(data) {
                         if (data.status === 200) {

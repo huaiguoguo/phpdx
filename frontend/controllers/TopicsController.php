@@ -104,7 +104,7 @@ class TopicsController extends Controller
                     "user"          => [
                         "id"                 => 1427,
                         "github_id"          => 1888094,
-                        "github_url"         => "https=>//github.com/huaiguoguo",
+                        "github_url"         => "https://github.com/huaiguoguo",
                         "email"              => "290559038@qq.com",
                         "name"               => "huaiguoguo",
                         "remember_token"     => "uv1X9Seg5VKTs0DJMvvbNUtMLAL00jQIvZEJO2XcE6LIH5qlRcmT82NeKhDP",

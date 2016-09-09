@@ -68,7 +68,7 @@ class Vote extends ActiveRecord
 
     public function getUser()
     {
-        return self::hasMany(User::className(), ['id' => 'created_by']);
+        return self::hasOne(User::className(), ['id' => 'created_by']);
     }
 
     public function getTopic()
