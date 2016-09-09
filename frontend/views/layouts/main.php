@@ -59,12 +59,11 @@ AppAsset::register($this);
     <div role="navigation" class="navbar navbar-default navbar-static-top topnav">
         <div class="container">
             <div class="navbar-header hidden-xs">
-                <a href="/" class="navbar-brand">
-                    <img src="/img/phpdx.jpg" alt="PHPHub">
-                </a>
+                <a href="/" class="navbar-brand"> <img src="/img/logo.png" > </a>
             </div>
             <div id="top-navbar-collapse" class="navbar-collapse">
                 <ul class="nav navbar-nav">
+                    <li class=""><a href="<?=Url::toRoute(['/']);?>">首页</a></li>
                     <li class=""><a href="<?=Url::toRoute(['topics/index']);?>">社区</a></li>
 <!--                    <li class=""><a href="/categories/6?filter=recent">教程</a></li>-->
 <!--                    <li class=""><a href="/categories/1">招聘</a></li>-->
@@ -153,7 +152,7 @@ AppAsset::register($this);
 
                 <div class="col-sm-5 col-lg-5">
                     <h4>
-                        <img src="https://dn-phphub.qbox.me/assets/images/banner_transparent.png" alt="" width="160"/>
+                        <img src=" " alt="" width="160"/>
                         <span class="pull-right text-md padding-top-lg" style="padding-top: 18px;">
                       <a class="popover-with-html" data-content="查看源代码" target="_blank" style="padding-right:8px"
                          href="https://github.com/summerblue/phphub5"><i class="fa fa-github-alt"
@@ -206,9 +205,11 @@ AppAsset::register($this);
                             <h4>其他信息</h4>
                             <ul class="list-unstyled">
                                 <li><a href="/about">关于我们</a></li>
-                                <li><a href="https://phphub.org/hall_of_fames"><i class="fa fa-star"
-                                                                                  aria-hidden="true"></i> 名人堂</a></li>
-                                <li class="popover-with-html" data-content="新手 QQ 群">Q 群：579866868</li>
+                                <li><a href="https://phphub.org/hall_of_fames">
+                                        <i class="fa fa-star"  aria-hidden="true"></i> 名人堂</a>
+                                </li>
+                                <li class="popover-with-html" data-content="QQ 求职群">Q 求职群：302373687</li>
+                                <li class="popover-with-html" data-content="QQ Yii框架群">Q Yii2群：70324424</li>
                             </ul>
                         </div>
                         <div class="col-sm-3">
