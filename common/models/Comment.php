@@ -61,7 +61,7 @@ class Comment extends \yii\db\ActiveRecord
 
 
     public function getUser(){
-        return self::hasOne(User::className(), ['id'=>'user_id']);
+        return self::hasOne(User::className(), ['id'=>'created_by']);
     }
 
 

@@ -56,7 +56,7 @@
                     <?php foreach ($list as $key => $value): ?>
                         <li class="list-group-item media" style="margin-top: 0px;">
 
-                            <a class="reply_last_time hidden-xs" href="/topics/2741">
+                            <a class="reply_last_time hidden-xs" href="<?=\yii\helpers\Url::toRoute(['topics/detail', 'id'=>$value->id]);?>">
                                 <img class="user_small_avatar avatar-circle"
                                      src="https://dn-phphub.qbox.me/uploads/avatars/5662_1472806137.jpeg?imageView2/1/w/100/h/100">
 
@@ -64,7 +64,7 @@
                             </a>
 
                             <div class="avatar pull-left">
-                                <a href="/users/5662">
+                                <a href="<?=\yii\helpers\Url::toRoute(['user/index', 'id'=>$value->created_by]);?>">
                                     <img class="media-object img-thumbnail avatar avatar-middle" alt="<?=$value->user->realname;?>"
                                          src="<?=$value->user->avatar;?>" onerror="this.src='http://tc.sinaimg.cn/maxwidth.800/tc.service.weibo.com/i_guancha_cn/6d98c59df1f820c3b826b2d6b2e8917f.jpg'"/>
                                 </a>
@@ -72,23 +72,21 @@
 
                             <div class="reply_count_area hidden-xs">
                                 <div class="count_of_votes" title="投票数">
-                                    6
+                                    <?php echo count($value->votes);?>
                                 </div>
                                 <div class="count_set">
-                    <span class="count_of_replies" title="回复数">
-                      7
-                    </span>
+                                <span class="count_of_replies" title="回复数">
+                                    <?php echo count($value->comments);?>
+                                </span>
                                     <span class="count_seperator">/</span>
-                                    <span class="count_of_visits" title="查看数">
-                      430
-                    </span>
+                                    <span class="count_of_visits" title="查看数"> 0 </span>
                                 </div>
                             </div>
 
                             <div class="infos">
                                 <div class="media-heading">
                                     <span class="hidden-xs label label-success">分享</span>
-                                    <a href="#" title="<?=$value->title;?>">
+                                    <a href="<?=\yii\helpers\Url::toRoute(['topics/detail', 'id'=>$value->id]);?>" title="<?=$value->title;?>">
                                         <?=$value->title;?>
                                     </a>
                                 </div>
@@ -316,7 +314,7 @@
 
     </div>
     <div class="clearfix"></div>
-
+<!--
     <div class="banner-container rbs row">
         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
             <div class="item">
@@ -379,6 +377,7 @@
             </div>
         </div>
     </div>
+    -->
     <div class="banner-container rbs row">
     </div>
 

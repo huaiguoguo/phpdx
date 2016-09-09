@@ -142,15 +142,16 @@ use yii\helpers\Markdown;
 
                 <div class="btn-group">
 
-                    <a data-ajax="post" href="javascript:void(0);" data-url="<?=\yii\helpers\Url::toRoute(['topics/upvote']);?>"
+                    <a data-ajax="post" href="javascript:void(0);"
+                       data-url="<?= \yii\helpers\Url::toRoute(['topics/upvote']); ?>"
                        title="Up Vote"
-                       data-csrf_param = <?=Yii::$app->request->csrfParam;?>
-                       data-csrf_token = <?=Yii::$app->request->csrfToken;?>
-                       data-content="点赞相当于收藏，可以在个人页面的「赞过的话题」导航里查看"
-                       id="up-vote"
-                       class="vote btn btn-primary btn-inverted popover-with-html ">
-                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                        点赞
+                       data-csrf_param= <?= Yii::$app->request->csrfParam; ?>
+                       data-csrf_token = <?= Yii::$app->request->csrfToken; ?>
+                    data-content="点赞相当于收藏，可以在个人页面的「赞过的话题」导航里查看"
+                    id="up-vote"
+                    class="vote btn btn-primary btn-inverted popover-with-html ">
+                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                    点赞
                     </a>
 
                 </div>
@@ -212,343 +213,54 @@ use yii\helpers\Markdown;
             <div class="panel-body">
 
                 <ul class="list-group row">
+                    <?php $list = $detail->comments;
+                    foreach ($list as $key => $value): ?>
+                        <li class="list-group-item media" style="margin-top: 0px;">
 
-
-                    <li class="list-group-item media"
-                        style="margin-top: 0px;"
-                    >
-
-                        <div class="avatar pull-left">
-                            <a href="https://phphub.org/users/5374">
-                                <img class="media-object img-thumbnail avatar avatar-middle" alt="Patrick95"
-                                     src="https://dn-phphub.qbox.me/uploads/avatars/5374_1470927010.jpeg?imageView2/1/w/100/h/100"
-                                     style="width:48px;height:48px;"/>
-                            </a>
-                        </div>
-
-                        <div class="infos">
-
-                            <div class="media-heading">
-
-                                <a href="https://phphub.org/users/5374" title="Patrick95"
-                                   class="remove-padding-left author">
-                                    Patrick95
+                            <div class="avatar pull-left">
+                                <a href="https://phphub.org/users/2447">
+                                    <img class="media-object img-thumbnail avatar avatar-middle" alt="M1racle"
+                                         src="https://dn-phphub.qbox.me/uploads/avatars/2447_1443275733.jpeg?imageView2/1/w/100/h/100"
+                                         style="width:48px;height:48px;"/>
                                 </a>
-                                <span class="introduction">
-             ，Laravel初学者。
-        </span>
+                            </div>
 
-                                <span class="operate pull-right">
-
-                    <a class="comment-vote" data-ajax="post" id="reply-up-vote-12539" href="javascript:void(0);"
-                       data-url="https://phphub.org/replies/12539/vote" title="Vote Up">
-             <i class="fa fa-thumbs-o-up" style="font-size:14px;"></i> <span class="vote-count"></span>
-          </a>
-          <span> ⋅  </span>
-
-                    <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne('Patrick95');"
-                       title="回复 Patrick95"></a>
-        </span>
-
-                                <div class="meta">
-                                    <a name="reply1" class="anchor" href="#reply1" aria-hidden="true">#1</a>
-
-
-                                    <span> ⋅  </span>
-                                    <abbr class="timeago" title="2016-08-27 17:21:41">2016-08-27 17:21:41</abbr>
-
+                            <div class="infos">
+                                <div class="media-heading">
+                                    <a href="<?=\yii\helpers\Url::toRoute(['user/index', 'id'=>$value->created_by]);?>" title="<?=$value->user->username;?>"
+                                       class="remove-padding-left author">
+                                        <?=$value->user->username;?>
+                                    </a>
+                                    <span class="introduction"><?=$value->user->introduction;?></span>
+                                    <span class="operate pull-right">
+                                      <a class="comment-vote" data-ajax="post" id="reply-up-vote-12827" href="javascript:void(0);" data-url="https://phphub.org/replies/12827/vote" title="Vote Up">
+                                         <i class="fa fa-thumbs-o-up" style="font-size:14px;"></i>
+                                         <span class="vote-count"></span>
+                                      </a>
+                                      <span> ⋅  </span>
+                                      <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne('<?=$value->user->username;?>');" title="回复 <?=$value->user->username;?>"></a>
+                                    </span>
+                                    <div class="meta">
+                                        <a name="reply<?=$key;?>" class="anchor" href="#reply<?=$key;?>" aria-hidden="true">#<?=$key;?></a>
+                                        <span> ⋅  </span>
+                                        <abbr class="timeago" title="<?=date("Y-m-d H:i:s", $value->created_at);?>"><?=date("Y-m-d H:i:s", $value->created_at);?></abbr>
+                                    </div>
                                 </div>
 
-                            </div>
+                                <div class="media-body markdown-reply content-body">
+                                    <p>
 
-                            <div class="media-body markdown-reply content-body">
-                                <p>前端是妹子UI~</p>
-                            </div>
-
-                        </div>
-
-                    </li>
-
-
-                    <li class="list-group-item media"
-                        style="margin-top: 0px;"
-                    >
-
-                        <div class="avatar pull-left">
-                            <a href="https://phphub.org/users/2447">
-                                <img class="media-object img-thumbnail avatar avatar-middle" alt="M1racle"
-                                     src="https://dn-phphub.qbox.me/uploads/avatars/2447_1443275733.jpeg?imageView2/1/w/100/h/100"
-                                     style="width:48px;height:48px;"/>
-                            </a>
-                        </div>
-
-                        <div class="infos">
-
-                            <div class="media-heading">
-
-                                <a href="https://phphub.org/users/2447" title="M1racle"
-                                   class="remove-padding-left author">
-                                    M1racle
-                                </a>
-                                <span class="introduction">
-             ，php 初心者
-        </span>
-
-                                <span class="operate pull-right">
-
-                    <a class="comment-vote" data-ajax="post" id="reply-up-vote-12543" href="javascript:void(0);"
-                       data-url="https://phphub.org/replies/12543/vote" title="Vote Up">
-             <i class="fa fa-thumbs-o-up" style="font-size:14px;"></i> <span class="vote-count"></span>
-          </a>
-          <span> ⋅  </span>
-
-                    <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne('M1racle');"
-                       title="回复 M1racle"></a>
-        </span>
-
-                                <div class="meta">
-                                    <a name="reply2" class="anchor" href="#reply2" aria-hidden="true">#2</a>
-
-
-                                    <span> ⋅  </span>
-                                    <abbr class="timeago" title="2016-08-27 18:16:00">2016-08-27 18:16:00</abbr>
-
+                                        <?=$value->content;?>
+                                    </p>
                                 </div>
-
                             </div>
+                        </li>
 
-                            <div class="media-body markdown-reply content-body">
-                                <p><a href="https://phphub.org/users/5374">@Patrick95</a> 没错，全部样式都是</p>
-                            </div>
-
-                        </div>
-
-                    </li>
-
-
-                    <li class="list-group-item media"
-                        style="margin-top: 0px;"
-                    >
-
-                        <div class="avatar pull-left">
-                            <a href="https://phphub.org/users/5658">
-                                <img class="media-object img-thumbnail avatar avatar-middle" alt="奔跑吧小少年"
-                                     src="https://dn-phphub.qbox.me/uploads/avatars/5658_1472798839.jpeg?imageView2/1/w/100/h/100"
-                                     style="width:48px;height:48px;"/>
-                            </a>
-                        </div>
-
-                        <div class="infos">
-
-                            <div class="media-heading">
-
-                                <a href="https://phphub.org/users/5658" title="奔跑吧小少年"
-                                   class="remove-padding-left author">
-                                    奔跑吧小少年
-                                </a>
-
-                                <span class="operate pull-right">
-
-                    <a class="comment-vote" data-ajax="post" id="reply-up-vote-12790" href="javascript:void(0);"
-                       data-url="https://phphub.org/replies/12790/vote" title="Vote Up">
-             <i class="fa fa-thumbs-o-up" style="font-size:14px;"></i> <span class="vote-count"></span>
-          </a>
-          <span> ⋅  </span>
-
-                    <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne('奔跑吧小少年');"
-                       title="回复 奔跑吧小少年"></a>
-        </span>
-
-                                <div class="meta">
-                                    <a name="reply3" class="anchor" href="#reply3" aria-hidden="true">#3</a>
-
-
-                                    <span> ⋅  </span>
-                                    <abbr class="timeago" title="2016-09-02 14:48:47">2016-09-02 14:48:47</abbr>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media-body markdown-reply content-body">
-                                <p>大神、、 求一份数据库 1051597956@qq.com</p>
-                            </div>
-
-                        </div>
-
-                    </li>
-
-
-                    <li class="list-group-item media"
-                        style="margin-top: 0px;"
-                    >
-
-                        <div class="avatar pull-left">
-                            <a href="https://phphub.org/users/1010">
-                                <img class="media-object img-thumbnail avatar avatar-middle" alt="uuking"
-                                     src="https://dn-phphub.qbox.me/uploads/avatars/1010_1427371033.png?imageView2/1/w/100/h/100"
-                                     style="width:48px;height:48px;"/>
-                            </a>
-                        </div>
-
-                        <div class="infos">
-
-                            <div class="media-heading">
-
-                                <a href="https://phphub.org/users/1010" title="uuking"
-                                   class="remove-padding-left author">
-                                    uuking
-                                </a>
-                                <span class="introduction">
-             ，没理由
-        </span>
-
-                                <span class="operate pull-right">
-
-                    <a class="comment-vote" data-ajax="post" id="reply-up-vote-12798" href="javascript:void(0);"
-                       data-url="https://phphub.org/replies/12798/vote" title="Vote Up">
-             <i class="fa fa-thumbs-o-up" style="font-size:14px;"></i> <span class="vote-count"></span>
-          </a>
-          <span> ⋅  </span>
-
-                    <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne('uuking');"
-                       title="回复 uuking"></a>
-        </span>
-
-                                <div class="meta">
-                                    <a name="reply4" class="anchor" href="#reply4" aria-hidden="true">#4</a>
-
-
-                                    <span> ⋅  </span>
-                                    <abbr class="timeago" title="2016-09-02 17:32:27">2016-09-02 17:32:27</abbr>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media-body markdown-reply content-body">
-                                <p>撸了多久？</p>
-                            </div>
-
-                        </div>
-
-                    </li>
-
-
-                    <li class="list-group-item media"
-                        style="margin-top: 0px;"
-                    >
-
-                        <div class="avatar pull-left">
-                            <a href="https://phphub.org/users/2447">
-                                <img class="media-object img-thumbnail avatar avatar-middle" alt="M1racle"
-                                     src="https://dn-phphub.qbox.me/uploads/avatars/2447_1443275733.jpeg?imageView2/1/w/100/h/100"
-                                     style="width:48px;height:48px;"/>
-                            </a>
-                        </div>
-
-                        <div class="infos">
-
-                            <div class="media-heading">
-
-                                <a href="https://phphub.org/users/2447" title="M1racle"
-                                   class="remove-padding-left author">
-                                    M1racle
-                                </a>
-                                <span class="introduction">
-             ，php 初心者
-        </span>
-
-                                <span class="operate pull-right">
-
-                    <a class="comment-vote" data-ajax="post" id="reply-up-vote-12827" href="javascript:void(0);"
-                       data-url="https://phphub.org/replies/12827/vote" title="Vote Up">
-             <i class="fa fa-thumbs-o-up" style="font-size:14px;"></i> <span class="vote-count"></span>
-          </a>
-          <span> ⋅  </span>
-
-                    <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne('M1racle');"
-                       title="回复 M1racle"></a>
-        </span>
-
-                                <div class="meta">
-                                    <a name="reply5" class="anchor" href="#reply5" aria-hidden="true">#5</a>
-
-
-                                    <span> ⋅  </span>
-                                    <abbr class="timeago" title="2016-09-02 20:13:34">2016-09-02 20:13:34</abbr>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media-body markdown-reply content-body">
-                                <p><a href="https://phphub.org/users/5658">@奔跑吧小少年</a> 已经写好migrate了，可以直接用 php
-                                    artisan migrate</p>
-                            </div>
-
-                        </div>
-
-                    </li>
-
+                    <?php endforeach; ?>
                     <a name="last-reply" class="anchor" href="#last-reply" aria-hidden="true"></a>
-
-                    <li class="list-group-item media"
-                        style="margin-top: 0px;"
-                    >
-
-                        <div class="avatar pull-left">
-                            <a href="https://phphub.org/users/2447">
-                                <img class="media-object img-thumbnail avatar avatar-middle" alt="M1racle"
-                                     src="https://dn-phphub.qbox.me/uploads/avatars/2447_1443275733.jpeg?imageView2/1/w/100/h/100"
-                                     style="width:48px;height:48px;"/>
-                            </a>
-                        </div>
-
-                        <div class="infos">
-
-                            <div class="media-heading">
-
-                                <a href="https://phphub.org/users/2447" title="M1racle"
-                                   class="remove-padding-left author">
-                                    M1racle
-                                </a>
-                                <span class="introduction">
-             ，php 初心者
-        </span>
-
-                                <span class="operate pull-right">
-
-                    <a class="comment-vote" data-ajax="post" id="reply-up-vote-12828" href="javascript:void(0);"
-                       data-url="https://phphub.org/replies/12828/vote" title="Vote Up">
-             <i class="fa fa-thumbs-o-up" style="font-size:14px;"></i> <span class="vote-count"></span>
-          </a>
-          <span> ⋅  </span>
-
-                    <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne('M1racle');"
-                       title="回复 M1racle"></a>
-        </span>
-
-                                <div class="meta">
-                                    <a name="reply6" class="anchor" href="#reply6" aria-hidden="true">#6</a>
-
-
-                                    <span> ⋅  </span>
-                                    <abbr class="timeago" title="2016-09-02 20:14:10">2016-09-02 20:14:10</abbr>
-
-                                </div>
-
-                            </div>
-
-                            <div class="media-body markdown-reply content-body">
-                                <p><a href="https://phphub.org/users/1010">@uuking</a> 主要写了4天晚上，现在没事就搞一点</p>
-                            </div>
-
-                        </div>
-
-                    </li>
-
                 </ul>
+
+
                 <div id="replies-empty-block" class="empty-block hide">暂无评论~~</div>
 
                 <!-- Pager -->
@@ -562,7 +274,7 @@ use yii\helpers\Markdown;
         <div class="reply-box form box-block">
 
 
-            <form method="POST" action="https://phphub.org/replies" accept-charset="UTF-8" id="reply-form">
+            <form method="POST" action="<?=\yii\helpers\Url::toRoute(['topics/replies']);?>" accept-charset="UTF-8" id="reply-form">
                 <input type="hidden" name="_token" value="K7sMA0lwNF91wxuJnByQtf5zMUyksrYaIOn1BpGB">
                 <input type="hidden" name="topic_id" value="2694"/>
 
@@ -608,12 +320,13 @@ use yii\helpers\Markdown;
         <div class="panel panel-default corner-radius">
 
             <div class="panel-heading text-center">
-                <h3 class="panel-title">作者：<?=$detail->user->username;?></h3>
+                <h3 class="panel-title">作者：<?= $detail->user->username; ?></h3>
             </div>
 
             <div class="panel-body text-center topic-author-box">
                 <a href="https://phphub.org/users/2447">
-                    <img src="<?=$detail->user->avatar;?>" style="width:80px; height:80px;margin:5px;" class="img-thumbnail avatar"/>
+                    <img src="<?= $detail->user->avatar; ?>" style="width:80px; height:80px;margin:5px;"
+                         class="img-thumbnail avatar"/>
                 </a>
 
                 <div class="media-body padding-top-sm">
@@ -628,12 +341,13 @@ use yii\helpers\Markdown;
                     <ul class="list-inline">
 
                         <li>
-                            <a href="https://github.com/<?=$detail->user->github_name;?>" target="_blank">
+                            <a href="https://github.com/<?= $detail->user->github_name; ?>" target="_blank">
                                 <i class="fa fa-github-alt"></i> GitHub
                             </a>
                         </li>
                         <li>
-                            <a href="<?= $detail->user->personal_website; ?>" rel="nofollow" target="_blank" class="url">
+                            <a href="<?= $detail->user->personal_website; ?>" rel="nofollow" target="_blank"
+                               class="url">
                                 <i class="fa fa-globe"></i> Website
                             </a>
                         </li>
@@ -652,15 +366,15 @@ use yii\helpers\Markdown;
             <div class="panel-body">
                 <ul class="list">
                     <?php
-                    $topics=$detail->user->topics;
-                    foreach($topics as $key=>$value):?>
-                    <li>
-                        <a href="https://phphub.org/topics/2702" class="popover-with-html"
-                           data-content="<?=$value->title;?>">
-                            <?=$value->title;?>
-                        </a>
-                    </li>
-                    <?php endforeach;?>
+                    $topics = $detail->user->topics;
+                    foreach ($topics as $key => $value):?>
+                        <li>
+                            <a href="https://phphub.org/topics/2702" class="popover-with-html"
+                               data-content="<?= $value->title; ?>">
+                                <?= $value->title; ?>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>
@@ -672,36 +386,15 @@ use yii\helpers\Markdown;
             </div>
             <div class="panel-body">
                 <ul class="list">
-                    <li>
-                        <a href="https://phphub.org/topics/2622" class="popover-with-html"
-                           data-content="Laravel-china.org 现支持查看英文文档">
-                            Laravel-china.org 现支持查看英文文档
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://phphub.org/topics/2530" class="popover-with-html"
-                           data-content="下载量最高的 100 个 Laravel 扩展包推荐">
-                            下载量最高的 100 个 Laravel 扩展包推荐
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://phphub.org/topics/2744" class="popover-with-html"
-                           data-content="关于 Laravel 使用 Redis 来存储 Session 的问题">
-                            关于 Laravel 使用 Redis 来存储 Session 的问题
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://phphub.org/topics/2736" class="popover-with-html"
-                           data-content="安装 PHPHub-Web 的时候遇到无效的符号链接">
-                            安装 PHPHub-Web 的时候遇到无效的符号链接
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://phphub.org/topics/2741" class="popover-with-html"
-                           data-content="Camel - 软负载管理中间件，通过界面及接口管理 Nginx 集群 来自大众点评～">
-                            Camel - 软负载管理中间件，通过界面及接口管理 Nginx 集群 来自大众点评～
-                        </a>
-                    </li>
+                    <?php $list = [];
+                    foreach ($list as $key => $value): ?>
+                        <li>
+                            <a href="https://phphub.org/topics/2622" class="popover-with-html"
+                               data-content="Laravel-china.org 现支持查看英文文档">
+                                Laravel-china.org 现支持查看英文文档
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>
@@ -731,36 +424,15 @@ use yii\helpers\Markdown;
             </div>
             <div class="panel-body">
                 <ul class="list">
-                    <li>
-                        <a href="https://phphub.org/topics/2622" class="popover-with-html"
-                           data-content="Laravel-china.org 现支持查看英文文档">
-                            Laravel-china.org 现支持查看英文文档
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://phphub.org/topics/2530" class="popover-with-html"
-                           data-content="下载量最高的 100 个 Laravel 扩展包推荐">
-                            下载量最高的 100 个 Laravel 扩展包推荐
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://phphub.org/topics/2744" class="popover-with-html"
-                           data-content="关于 Laravel 使用 Redis 来存储 Session 的问题">
-                            关于 Laravel 使用 Redis 来存储 Session 的问题
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://phphub.org/topics/2736" class="popover-with-html"
-                           data-content="安装 PHPHub-Web 的时候遇到无效的符号链接">
-                            安装 PHPHub-Web 的时候遇到无效的符号链接
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://phphub.org/topics/2741" class="popover-with-html"
-                           data-content="Camel - 软负载管理中间件，通过界面及接口管理 Nginx 集群 来自大众点评～">
-                            Camel - 软负载管理中间件，通过界面及接口管理 Nginx 集群 来自大众点评～
-                        </a>
-                    </li>
+                    <?php $list = [];
+                    foreach ($list as $key => $value): ?>
+                        <li>
+                            <a href="https://phphub.org/topics/2622" class="popover-with-html"
+                               data-content="Laravel-china.org 现支持查看英文文档">
+                                Laravel-china.org 现支持查看英文文档
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>
@@ -768,8 +440,8 @@ use yii\helpers\Markdown;
 
         <div class="panel panel-default corner-radius">
             <div class="panel-body text-center" style="color:#a5a5a5">
-                Power by <a href="https://github.com/summerblue/phphub5" target="_blank"
-                            style="color:inherit">PHPHub</a>
+                Power by <a href="javascript:alert('以后有链接了加上')" target="_blank"
+                            style="color:inherit">火柴</a>
             </div>
         </div>
 
@@ -787,7 +459,7 @@ use yii\helpers\Markdown;
 
     $(document).ready(function () {
         var $config = {
-            title: '自己撸的 blog from PHPHub - PHP，Laravel的中文社区 #laravel# @phphub  @李桂龙_CJ ',
+            title: '自己撸的 blog from PHPdx - PHP，Yii2的中文社区 #laravel# @phphub  @李桂龙_CJ ',
             wechatQrcodeTitle: "微信扫一扫：分享", // 微信二维码提示文字
             wechatQrcodeHelper: '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>',
             sites: ['weibo', 'wechat', 'facebook', 'twitter', 'google', 'qzone', 'qq', 'douban'],

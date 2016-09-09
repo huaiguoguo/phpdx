@@ -52,7 +52,7 @@ use yii\helpers\Url;
 
                             <span class="meta">
 
-        <a href="https://phphub.org/categories/1" title="招聘"> 招聘  </a>
+        <a href="javascript:void()" title="招聘"> 招聘  </a>
         <span> ⋅ </span> <?=count($value->topic->votes);?> 点赞
         <span> ⋅ </span> <?=count($value->topic->comments);?> 回复
         <span> ⋅ </span>

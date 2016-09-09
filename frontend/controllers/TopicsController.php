@@ -44,12 +44,14 @@ class TopicsController extends Controller
             $TopicModel->created_by = Yii::$app->user->identity->getId();
             if ($TopicModel->save()) {
                 Yii::$app->session->setFlash('success', '添加成功');
+
                 return $this->redirect('/');
             }
         }
 
-        $data['CateList'] = Category::find()->select(['id','category_name'])->asArray()->all();
-        $data['Topic'] = $TopicModel;
+        $data['CateList'] = Category::find()->select(['id', 'category_name'])->asArray()->all();
+        $data['Topic']    = $TopicModel;
+
         return $this->render('create', $data);
     }
 
@@ -80,6 +82,59 @@ class TopicsController extends Controller
     }
 
 
+    public function actionReplies()
+    {
+
+        if (Yii::$app->request->isAjax && Yii::$app->request->isPost) {
+            $response         = Yii::$app->response;
+            $response->format = Response::FORMAT_JSON;
+            $response->setStatusCode(200);
+            $info           = [
+                'status'        => 200,
+                'message'       => 200,
+                'reply'         => [
+                    "body"          => "<p>你希望多少钱</p>",
+                    "topic_id"      => "2762",
+                    "user_id"       => 1427,
+                    "body_original" => "你希望多少钱",
+                    "source"        => null,
+                    "updated_at"    => "2016-09-09 18=>10=>07",
+                    "created_at"    => "2016-09-09 18=>10=>07",
+                    "id"            => 13298,
+                    "user"          => [
+                        "id"                 => 1427,
+                        "github_id"          => 1888094,
+                        "github_url"         => "https=>//github.com/huaiguoguo",
+                        "email"              => "290559038@qq.com",
+                        "name"               => "huaiguoguo",
+                        "remember_token"     => "uv1X9Seg5VKTs0DJMvvbNUtMLAL00jQIvZEJO2XcE6LIH5qlRcmT82NeKhDP",
+                        "is_banned"          => "no",
+                        "image_url"          => "https=>//dn-phphub.qbox.me/uploads/avatars/1427_1436517055.jpeg?imageView2/1/w/100/h/100",
+                        "topic_count"        => 0,
+                        "reply_count"        => 3,
+                        "city"               => null,
+                        "company"            => null,
+                        "twitter_account"    => null,
+                        "personal_website"   => "",
+                        "signature"          => null,
+                        "introduction"       => null,
+                        "last_actived_at"    => "2016-09-09 18=>09=>44",
+                        "deleted_at"         => null,
+                        "created_at"         => "2015-04-27 10=>20=>29",
+                        "updated_at"         => "2016-09-09 18=>10=>08",
+                        "notification_count" => 0,
+                        "github_name"        => "huaiguoguo",
+                        "real_name"          => null,
+                        "avatar"             => "1427_1436517055.jpeg",
+                        "login_token"        => "Pl1N5jlH1m6BeKmBB0mk29V46iqg"
+                    ]
+                ],
+                'manage_topics' => 'no',
+            ];
+            $response->data = $info;
+            $response->send();
+        }
+    }
 
 
     public function actionUpvote()
