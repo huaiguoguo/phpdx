@@ -197,6 +197,7 @@ AppAsset::register($this);
                                 <li>社区会员: <?=\common\models\User::find()->count();?></li>
                                 <li>主题数: <?=\common\models\Topic::find()->count();?></li>
                                 <li>评论数: <?=\common\models\Comment::find()->count();?></li>
+
                             </ul>
                         </div>
 
@@ -234,7 +235,7 @@ AppAsset::register($this);
 
 <!--<script src="https://dn-phphub.qbox.me//build/assets/js/scripts-b7d580e6f4.js"></script>-->
 
-
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257015623'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1257015623%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
