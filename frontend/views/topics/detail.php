@@ -211,10 +211,13 @@ use yii\helpers\Markdown;
             </div>
 
             <div class="panel-body">
-
+                <?php
+                $list = $detail->comments;
+                if($list):
+                ?>
                 <ul class="list-group row">
-                    <?php $list = $detail->comments;
-                    foreach ($list as $key => $value): ?>
+
+                    <?php foreach ($list as $key => $value): ?>
                         <li class="list-group-item media" style="margin-top: 0px;">
 
                             <div class="avatar pull-left">
@@ -241,7 +244,7 @@ use yii\helpers\Markdown;
                                       <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne('<?=$value->user->username;?>');" title="回复 <?=$value->user->username;?>"></a>
                                     </span>
                                     <div class="meta">
-                                        <a name="reply<?=$key;?>" class="anchor" href="#reply<?=$key;?>" aria-hidden="true">#<?=$key;?></a>
+                                        <a name="reply<?=$key+1;?>" class="anchor" href="#reply<?=$key+1;?>" aria-hidden="true">#<?=$key+1;?></a>
                                         <span> ⋅  </span>
                                         <abbr class="timeago" title="<?=date("Y-m-d H:i:s", $value->created_at);?>"><?=date("Y-m-d H:i:s", $value->created_at);?></abbr>
                                     </div>
@@ -260,8 +263,12 @@ use yii\helpers\Markdown;
                     <a name="last-reply" class="anchor" href="#last-reply" aria-hidden="true"></a>
                 </ul>
 
+                <?php else:?>
+
 
                 <div id="replies-empty-block" class="empty-block hide">暂无评论~~</div>
+
+                <?php endif;?>
 
                 <!-- Pager -->
                 <div class="pull-right" style="padding-right:20px">
