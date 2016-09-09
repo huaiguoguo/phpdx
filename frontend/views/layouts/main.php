@@ -59,17 +59,18 @@ AppAsset::register($this);
     <div role="navigation" class="navbar navbar-default navbar-static-top topnav">
         <div class="container">
             <div class="navbar-header hidden-xs">
-
-                <a href="/" class="navbar-brand">PHPHub</a>
+                <a href="/" class="navbar-brand">
+                    <img src="/img/phpdx.jpg" alt="PHPHub">
+                </a>
             </div>
             <div id="top-navbar-collapse" class="navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class=""><a href="<?=Url::toRoute(['topics/index']);?>">社区</a></li>
-                    <li class=""><a href="/categories/6?filter=recent">教程</a></li>
-                    <li class=""><a href="/categories/1">招聘</a></li>
-                    <li class=""><a href="/categories/4">问答</a></li>
-                    <li class=""><a href="/sites">酷站</a></li>
-                    <li class=""><a href="/topics/2541">Wiki</a></li>
+<!--                    <li class=""><a href="/categories/6?filter=recent">教程</a></li>-->
+<!--                    <li class=""><a href="/categories/1">招聘</a></li>-->
+<!--                    <li class=""><a href="/categories/4">问答</a></li>-->
+<!--                    <li class=""><a href="/sites">酷站</a></li>-->
+<!--                    <li class=""><a href="/topics/2541">Wiki</a></li>-->
                 </ul>
 
                 <div class="navbar-right">
