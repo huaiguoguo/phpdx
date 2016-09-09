@@ -73,12 +73,12 @@ AppAsset::register($this);
                 </ul>
 
                 <div class="navbar-right">
-                    <form method="GET" action="https://phphub.org/search" accept-charset="UTF-8"
+                    <forms method="GET" action="" accept-charset="UTF-8"
                           class="navbar-form navbar-left" target="_blank">
                         <div class="form-group">
                             <input class="form-control search-input mac-style" placeholder="搜索" name="q" type="text">
                         </div>
-                    </form>
+                    </forms>
 
 
                     <ul class="nav navbar-nav github-login">
@@ -155,12 +155,12 @@ AppAsset::register($this);
                         <img src=" " alt="" width="160"/>
                         <span class="pull-right text-md padding-top-lg" style="padding-top: 18px;">
                       <a class="popover-with-html" data-content="查看源代码" target="_blank" style="padding-right:8px"
-                         href="https://github.com/summerblue/phphub5"><i class="fa fa-github-alt"
+                         href=""><i class="fa fa-github-alt"
                                                                          aria-hidden="true"></i></a>
                       <a class="popover-with-html" data-content="关注 PHPHub 微博账号" target="_blank"
-                         style="padding-right:8px" href="http://weibo.com/phphub"><i class="fa fa-weibo"
+                         style="padding-right:8px" href="http://weibo.com/huaiguoguo"><i class="fa fa-weibo"
                                                                                      aria-hidden="true"></i></a>
-                      <a class="popover-with-html" data-content="扫码关注微信订阅号：PHPHub" target="_blank"
+                      <a class="popover-with-html" data-content="扫码关注微信订阅号：huochai2015" target="_blank"
                          style="padding-right:8px"
                          href="https://dn-phphub.qbox.me/uploads/images/201607/19/1/5KAh3F8EhD.jpg"><i
                               class="fa fa-weixin" aria-hidden="true"></i></a>
@@ -178,6 +178,7 @@ AppAsset::register($this);
                 <div class="col-sm-6 col-lg-6 col-lg-offset-1">
 
                     <div class="row">
+                        <!--
                         <div class="col-sm-3">
                             <h4>赞助商</h4>
                             <ul class="list-unstyled">
@@ -192,8 +193,8 @@ AppAsset::register($this);
                                         data-content="本站 CDN 服务由七牛赞助"></a>
                             </ul>
                         </div>
-
-                        <div class="col-sm-3">
+-->
+                        <div class="col-sm-4">
                             <h4>统计信息</h4>
                             <ul class="list-unstyled">
                                 <li>社区会员: 5603</li>
@@ -201,21 +202,22 @@ AppAsset::register($this);
                                 <li>评论数: 11955</li>
                             </ul>
                         </div>
-                        <div class="col-sm-3">
+
+                        <div class="col-sm-5">
                             <h4>其他信息</h4>
                             <ul class="list-unstyled">
-                                <li><a href="/about">关于我们</a></li>
-                                <li><a href="https://phphub.org/hall_of_fames">
-                                        <i class="fa fa-star"  aria-hidden="true"></i> 名人堂</a>
-                                </li>
-                                <li class="popover-with-html" data-content="QQ 求职群">Q 求职群：302373687</li>
-                                <li class="popover-with-html" data-content="QQ Yii框架群">Q Yii2群：70324424</li>
+<!--                                <li><a href="/about">关于我们</a></li>-->
+<!--                                <li><a href="https://phphub.org/hall_of_fames">-->
+<!--                                        <i class="fa fa-star"  aria-hidden="true"></i> 名人堂</a>-->
+<!--                                </li>-->
+                                <li class="popover-with-html" data-content="求职群">求职群: 302373687</li>
+                                <li class="popover-with-html" data-content="Yii框架群">Yii2群: 70324424</li>
                             </ul>
                         </div>
                         <div class="col-sm-3">
                             <h4>微信订阅号</h4>
                             <img class="image-border popover-with-html" data-content="扫码，或者搜索微信订阅号：PHPHub"
-                                 src="https://dn-phphub.qbox.me/uploads/images/201607/19/1/5KAh3F8EhD.jpg"
+                                 src="/img/qrcode2.jpg"
                                  style="width:100px;height:100px;">
                         </div>
 
