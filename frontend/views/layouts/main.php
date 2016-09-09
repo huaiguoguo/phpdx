@@ -30,8 +30,8 @@ AppAsset::register($this);
             'user_avatar': "",
             'user_link': "",
             'routes': {
-                'notificationsCount': 'https://phphub.org/notifications/count',
-                'upload_image': 'https://phphub.org/upload_image'
+                'notificationsCount': 'https://abc.org/notifications/count',
+                'upload_image': 'https://abc.org/upload_image'
             },
             'token': 'K7sMA0lwNF91wxuJnByQtf5zMUyksrYaIOn1BpGB',
             'environment': 'production',
@@ -204,7 +204,7 @@ AppAsset::register($this);
                             <h4>其他信息</h4>
                             <ul class="list-unstyled">
 <!--                                <li><a href="/about">关于我们</a></li>-->
-<!--                                <li><a href="https://phphub.org/hall_of_fames">-->
+<!--                                <li><a href="https://abc.org/hall_of_fames">-->
 <!--                                        <i class="fa fa-star"  aria-hidden="true"></i> 名人堂</a>-->
 <!--                                </li>-->
                                 <li class="popover-with-html" data-content="求职群">求职群: 302373687</li>

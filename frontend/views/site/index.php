@@ -35,7 +35,7 @@ $this->title = 'phpdx';
         </div>
         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
             <div class="item">
-                <a href="https://phphub.org/categories/1" target="_self">
+                <a href="https://abc.org/categories/1" target="_self">
                     <p class="img"><span
                             style="background-image:url(https://dn-phphub.qbox.me/uploads/banners/0wgbAVabZB9GA2yaU8AY.png?imageView2/1/w/424/h/212)"></span>
                     </p>
@@ -55,7 +55,7 @@ $this->title = 'phpdx';
         </div>
         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
             <div class="item">
-                <a href="https://cs.phphub.org/" target="_blank">
+                <a href="https://cs.abc.org/" target="_blank">
                     <p class="img"><span
                             style="background-image:url(https://dn-phphub.qbox.me/uploads/banners/YCkIqPrz6v8MV0keu4pW.png?imageView2/1/w/424/h/212)"></span>
                     </p>
@@ -65,7 +65,7 @@ $this->title = 'phpdx';
         </div>
         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
             <div class="item">
-                <a href="https://psr.phphub.org/" target="_blank">
+                <a href="https://psr.abc.org/" target="_blank">
                     <p class="img"><span
                             style="background-image:url(https://dn-phphub.qbox.me/uploads/banners/0pyH7UgXhF7PTBkLZRak.png?imageView2/1/w/424/h/212)"></span>
                     </p>

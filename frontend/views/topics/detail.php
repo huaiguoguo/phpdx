@@ -19,10 +19,10 @@ $comments = $detail->comments;
         'cdnDomain': 'https://dn-phphub.qbox.me/',
         'user_id': 1427,
         'user_avatar': "https://dn-phphub.qbox.me/uploads/avatars/1427_1436517055.jpeg?imageView2/1/w/100/h/100",
-        'user_link': "https://phphub.org/users/1427",
+        'user_link': "https://abc.org/users/1427",
         'routes': {
-            'notificationsCount': 'https://phphub.org/notifications/count',
-            'upload_image': 'https://phphub.org/upload_image'
+            'notificationsCount': 'https://abc.org/notifications/count',
+            'upload_image': 'https://abc.org/upload_image'
         },
         'token': 'K7sMA0lwNF91wxuJnByQtf5zMUyksrYaIOn1BpGB',
         'environment': 'production',
@@ -32,6 +32,17 @@ $comments = $detail->comments;
     var ShowCrxHint = 'no';
 </script>
 
+<style>
+    .topics-show .ribbon .ribbon-anchored {
+        background: #fff2f2;
+        border-top: 1px solid #ffdba5;
+        border-bottom: 1px solid #ffdba5;
+        margin: 0px -30px 10px -30px;
+        padding: 4px 30px;
+        color: #ff3d00;
+        font-size: 14px;
+    }
+</style>
 
 <div class="container main-container">
 
@@ -58,7 +69,7 @@ $comments = $detail->comments;
                     ⋅
 
                     最后回复由
-                    <a href="https://phphub.org/users/2447"> <?=$comments[count($comments)-1]->user->username;?> </a>
+                    <a href="https://abc.org/users/2447"> <?=$comments[count($comments)-1]->user->username;?> </a>
                     于 <abbr title="2016-09-02 20:14:10" class="timeago"><?=date("Y-m-d H:i:s", $comments[count($comments)-1]->created_at);?></abbr>
                     ⋅
 
@@ -76,15 +87,28 @@ $comments = $detail->comments;
 
                 <div data-lang-excellent="本帖已被设为精华帖！" data-lang-wiki="本帖已被设为社区 Wiki！" class="ribbon-container">
                     <div class="ribbon">
+
                         <div class="ribbon-excellent">
                             <i class="fa fa-trophy"></i> 本帖已被设为精华帖！
                         </div>
 
+                        <div class="ribbon-anchored">
+                            <i class="fa fa-anchor"></i> 此贴已被下沉，请查看 <a href="https://abc.org/topics/2802">下沉说明</a> 进行修改。
+                        </div>
+
                     </div>
                 </div>
+
             </div>
 
             <div class="appends-container" data-lang-append="附言">
+                <div class="appends">
+                    <span class="meta">附言 0 &nbsp;·&nbsp; <abbr title="" class="timeago popover-with-html" data-content="几秒前" data-original-title="2016-09-09 21:46:32">几秒前</abbr></span>
+                    <div class="sep5"></div>
+                    <div class="markdown-reply append-content">
+                        <p>test</p>
+                    </div>
+                </div>
             </div>
 
             <div class="panel-footer operate">
@@ -94,7 +118,13 @@ $comments = $detail->comments;
                 </div>
 
                 <div class="pull-right actions">
+                    <a id="topic-append-button" href="javascript:void(0);" class="admin  popover-with-html" data-toggle="modal" data-target="#exampleModal" data-content="帖子附言，添加附言后所有参与讨论的用户都能收到消息提醒，包括点赞和评论的用户" data-original-title="" title="">
+                        <i class="fa fa-plus"></i>
+                    </a>
 
+                    <a id="topic-edit-button" href="https://abc.org/topics/2809/edit" data-content="编辑" class="admin  popover-with-html" data-original-title="" title="">
+                        <i class="fa fa-pencil-square-o"></i>
+                    </a>
 
                 </div>
                 <div class="clearfix"></div>
@@ -111,7 +141,7 @@ $comments = $detail->comments;
                             <h4 class="modal-title" id="exampleModalLabel">添加附言</h4>
                         </div>
 
-                        <form method="POST" action="https://phphub.org/topics/2694/append" accept-charset="UTF-8">
+                        <form method="POST" action="https://abc.org/topics/2694/append" accept-charset="UTF-8">
                             <input type="hidden" name="_token" value="K7sMA0lwNF91wxuJnByQtf5zMUyksrYaIOn1BpGB">
                             <div class="modal-body">
 
@@ -223,7 +253,7 @@ $comments = $detail->comments;
                                     </a>
                                     <span class="introduction"><?=$value->user->introduction;?></span>
                                     <span class="operate pull-right">
-                                      <a class="comment-vote" data-ajax="post" id="reply-up-vote-12827" href="javascript:void(0);" data-url="https://phphub.org/replies/12827/vote" title="Vote Up">
+                                      <a class="comment-vote" data-ajax="post" id="reply-up-vote-12827" href="javascript:void(0);" data-url="https://abc.org/replies/12827/vote" title="Vote Up">
                                          <i class="fa fa-thumbs-o-up" style="font-size:14px;"></i>
                                          <span class="vote-count"></span>
                                       </a>
@@ -280,8 +310,8 @@ $comments = $detail->comments;
                         <li>支持 Markdown 格式, <strong>**粗体**</strong>、~~删除线~~、<code>`单行代码`</code>, 更多语法请见这里 <a
                                 href="https://github.com/riku/Markdown-Syntax-CN/blob/master/syntax.md">Markdown
                                 语法</a></li>
-                        <li>支持表情，使用方法请见 <a href="https://phphub.org/topics/45" target="_blank">Emoji 自动补全来咯</a>，可用的
-                            Emoji 请见 :metal: :point_right: <a href="https://phphub.org/ecc/index.html"
+                        <li>支持表情，使用方法请见 <a href="https://abc.org/topics/45" target="_blank">Emoji 自动补全来咯</a>，可用的
+                            Emoji 请见 :metal: :point_right: <a href="https://abc.org/ecc/index.html"
                                                               target="_blank" rel="nofollow"> Emoji 列表 </a> :star:
                             :sparkles:
                         </li>
@@ -318,7 +348,7 @@ $comments = $detail->comments;
             </div>
 
             <div class="panel-body text-center topic-author-box">
-                <a href="https://phphub.org/users/2447">
+                <a href="https://abc.org/users/2447">
                     <img src="<?= $detail->user->avatar; ?>" style="width:80px; height:80px;margin:5px;"
                          class="img-thumbnail avatar"/>
                 </a>
@@ -363,7 +393,7 @@ $comments = $detail->comments;
                     $topics = $detail->user->topics;
                     foreach ($topics as $key => $value):?>
                         <li>
-                            <a href="https://phphub.org/topics/2702" class="popover-with-html"
+                            <a href="https://abc.org/topics/2702" class="popover-with-html"
                                data-content="<?= $value->title; ?>">
                                 <?= $value->title; ?>
                             </a>
@@ -383,7 +413,7 @@ $comments = $detail->comments;
                     <?php $list = [];
                     foreach ($list as $key => $value): ?>
                         <li>
-                            <a href="https://phphub.org/topics/2622" class="popover-with-html"
+                            <a href="https://abc.org/topics/2622" class="popover-with-html"
                                data-content="Laravel-china.org 现支持查看英文文档">
                                 Laravel-china.org 现支持查看英文文档
                             </a>
@@ -421,7 +451,7 @@ $comments = $detail->comments;
                     <?php $list = [];
                     foreach ($list as $key => $value): ?>
                         <li>
-                            <a href="https://phphub.org/topics/2622" class="popover-with-html"
+                            <a href="https://abc.org/topics/2622" class="popover-with-html"
                                data-content="Laravel-china.org 现支持查看英文文档">
                                 Laravel-china.org 现支持查看英文文档
                             </a>

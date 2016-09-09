@@ -15,10 +15,10 @@ use yii\helpers\Url;
         'cdnDomain': 'https://dn-phphub.qbox.me/',
         'user_id': 1427,
         'user_avatar': "https://dn-phphub.qbox.me/uploads/avatars/1427_1436517055.jpeg?imageView2/1/w/100/h/100",
-        'user_link': "https://phphub.org/users/1427",
+        'user_link': "https://abc.org/users/1427",
         'routes': {
-            'notificationsCount': 'https://phphub.org/notifications/count',
-            'upload_image': 'https://phphub.org/upload_image'
+            'notificationsCount': 'https://abc.org/notifications/count',
+            'upload_image': 'https://abc.org/upload_image'
         },
         'token': 'K7sMA0lwNF91wxuJnByQtf5zMUyksrYaIOn1BpGB',
         'environment': 'production',
@@ -66,16 +66,16 @@ use yii\helpers\Url;
                     </ul>
                     <div class="pull-right add-padding-vertically"> <ul class="pagination">
                             <li class="disabled"><span>«</span></li> <li class="active"><span>1</span></li>
-                            <li><a href="https://phphub.org/users/1/votes?page=2">2</a></li>
-                            <li><a href="https://phphub.org/users/1/votes?page=3">3</a></li>
-                            <li><a href="https://phphub.org/users/1/votes?page=4">4</a></li>
-                            <li><a href="https://phphub.org/users/1/votes?page=5">5</a></li>
-                            <li><a href="https://phphub.org/users/1/votes?page=6">6</a></li>
-                            <li><a href="https://phphub.org/users/1/votes?page=7">7</a></li>
-                            <li><a href="https://phphub.org/users/1/votes?page=8">8</a></li>
+                            <li><a href="https://abc.org/users/1/votes?page=2">2</a></li>
+                            <li><a href="https://abc.org/users/1/votes?page=3">3</a></li>
+                            <li><a href="https://abc.org/users/1/votes?page=4">4</a></li>
+                            <li><a href="https://abc.org/users/1/votes?page=5">5</a></li>
+                            <li><a href="https://abc.org/users/1/votes?page=6">6</a></li>
+                            <li><a href="https://abc.org/users/1/votes?page=7">7</a></li>
+                            <li><a href="https://abc.org/users/1/votes?page=8">8</a></li>
                             <li class="disabled"><span>...</span></li>
-                            <li><a href="https://phphub.org/users/1/votes?page=18">18</a></li>
-                            <li><a href="https://phphub.org/users/1/votes?page=19">19</a></li> <li><a href="https://phphub.org/users/1/votes?page=2" rel="next">»</a></li>
+                            <li><a href="https://abc.org/users/1/votes?page=18">18</a></li>
+                            <li><a href="https://abc.org/users/1/votes?page=19">19</a></li> <li><a href="https://abc.org/users/1/votes?page=2" rel="next">»</a></li>
                         </ul>
                     </div>
 

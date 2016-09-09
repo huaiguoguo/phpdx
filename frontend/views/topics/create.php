@@ -39,14 +39,14 @@ $request = Yii::$app->request;
 
                 <div class="category-hint alert alert-warning category-1 " style="display:none">
                     PHPHub 是国内最大的 PHP & Laravel 社区，招聘、求职、外包等相关的话题，都可以在此主题下发布。<br>请遵照 <a
-                        href="https://phphub.org/topics/817">PHPHub 招聘贴发布规范</a>，不遵循规范，会被视为对用户的不尊重，管理员会做沉贴操作，沉贴后用户基本上看不到帖子。符合规范，我们会为话题加精并推荐到网站首页、手机端首页、精华帖周报邮件、<a
+                        href="https://abc.org/topics/817">PHPHub 招聘贴发布规范</a>，不遵循规范，会被视为对用户的不尊重，管理员会做沉贴操作，沉贴后用户基本上看不到帖子。符合规范，我们会为话题加精并推荐到网站首页、手机端首页、精华帖周报邮件、<a
                         href="http://weibo.com/phphub">微博官方账号</a>。
                 </div>
                 <div class="category-hint alert alert-warning category-3 " style="display:none">
                     社区公告，小朋友不要做坏事哦。
                 </div>
                 <div class="category-hint alert alert-warning category-4 " style="display:none">
-                    新手问答，请仔细阅读 <a href="https://phphub.org/topics/535">关于《提问的智慧》</a>，质量太低的问题，不遵循规范，会被视为对用户的不尊重，管理员会做沉贴操作，沉贴后用户基本上看不到帖子。排版清晰，信息完整的，我们会为话题加精，加精后的帖子将会被推荐到网站首页、手机端首页、精华帖周报邮件、<a
+                    新手问答，请仔细阅读 <a href="https://abc.org/topics/535">关于《提问的智慧》</a>，质量太低的问题，不遵循规范，会被视为对用户的不尊重，管理员会做沉贴操作，沉贴后用户基本上看不到帖子。排版清晰，信息完整的，我们会为话题加精，加精后的帖子将会被推荐到网站首页、手机端首页、精华帖周报邮件、<a
                         href="http://weibo.com/phphub">微博官方账号</a>。
                 </div>
                 <div class="category-hint alert alert-warning category-5 " style="display:none">
@@ -68,8 +68,8 @@ $request = Yii::$app->request;
                         <li>支持 Markdown 格式, <strong>**粗体**</strong>、~~删除线~~、<code>`单行代码`</code>, 更多语法请见这里 <a
                                 href="https://github.com/riku/Markdown-Syntax-CN/blob/master/syntax.md">Markdown
                                 语法</a></li>
-                        <li>支持表情，使用方法请见 <a href="https://phphub.org/topics/45" target="_blank">Emoji 自动补全来咯</a>，可用的
-                            Emoji 请见 :metal: :point_right: <a href="https://phphub.org/ecc/index.html"
+                        <li>支持表情，使用方法请见 <a href="https://abc.org/topics/45" target="_blank">Emoji 自动补全来咯</a>，可用的
+                            Emoji 请见 :metal: :point_right: <a href="https://abc.org/ecc/index.html"
                                                               target="_blank" rel="nofollow"> Emoji 列表 </a> :star:
                             :sparkles:
                         </li>

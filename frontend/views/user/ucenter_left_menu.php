@@ -56,7 +56,7 @@ use yii\helpers\Url;
                 <div class="col-xs-4">
                     <a class="counter"
                        href="<?= Url::toRoute(['user/follower', 'id' => $userinfo->id]); ?>"><?= count($userinfo->followers); ?></a>
-                    <a class="text" href="https://phphub.org/users/1427/followers">关注者</a>
+                    <a class="text" href="https://abc.org/users/1427/followers">关注者</a>
                 </div>
                 <div class="col-xs-4">
                     <a class="counter"
@@ -102,9 +102,9 @@ use yii\helpers\Url;
                     if (!in_array($userinfo->getId(), $newFollower)):
                         ?>
                         <a data-method="post" class="btn btn-warning btn-block" href="javascript:void(0);"
-                           data-url="https://phphub.org/users/follow/1" id="user-edit-button" style="cursor:pointer;">
+                           data-url="https://abc.org/users/follow/1" id="user-edit-button" style="cursor:pointer;">
                             <i class="fa fa-plus"></i> 关注
-                            <form action="https://phphub.org/users/follow/1" method="POST" style="display:none">
+                            <form action="https://abc.org/users/follow/1" method="POST" style="display:none">
                                 <input type="hidden" name="_method" value="post">
                                 <input type="hidden" name="_token" value="K7sMA0lwNF91wxuJnByQtf5zMUyksrYaIOn1BpGB">
                             </form>
@@ -112,10 +112,10 @@ use yii\helpers\Url;
                     <?php else: ?>
 
                         <a data-method="post" class="btn btn-danger btn-block" href="javascript:void(0);"
-                           data-url="https://phphub.org/users/follow/1" id="user-edit-button" style="cursor:pointer;">
+                           data-url="https://abc.org/users/follow/1" id="user-edit-button" style="cursor:pointer;">
                             <i class="fa fa-minus"></i> 取消关注
 
-                            <form action="https://phphub.org/users/follow/1" method="POST" style="display:none">
+                            <form action="https://abc.org/users/follow/1" method="POST" style="display:none">
                                 <input type="hidden" name="_method" value="post">
                                 <input type="hidden" name="_token" value="K7sMA0lwNF91wxuJnByQtf5zMUyksrYaIOn1BpGB">
                             </form>
