@@ -19,7 +19,11 @@ class UserController extends Controller
     {
         $data = [];
 
+        if(Yii::$app->request->get('id') == 0){
+            return $this->redirect('/');
+        }
         $data['userinfo'] = Yii::$app->user->identity;
+
         if(Yii::$app->user->isGuest  || Yii::$app->request->get('id')){
             $id = Yii::$app->request->get('id');
             $data['userinfo'] = User::findOne($id);
