@@ -57,6 +57,31 @@ class TopicsController extends Controller
     }
 
 
+    public function actionEdit(){
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect('/');
+        }
+
+        $data       = [];
+        $TopicModel = Topic::findOne(Yii::$app->request->get('id'));
+
+        if ($TopicModel && $TopicModel->load(Yii::$app->request->post()) && $TopicModel->validate()) {
+            $TopicModel->created_by = Yii::$app->user->identity->getId();
+            if ($TopicModel->save()) {
+                Yii::$app->session->setFlash('success', '更新成功');
+                return $this->redirect('/');
+            }
+        }
+
+        $data['CateList'] = Category::find()->select(['id', 'category_name'])->asArray()->all();
+        $data['Topic']    = $TopicModel;
+        return $this->render('create', $data);
+    }
+
+
+
+
+
     public function actionDetail()
     {
         $data           = [];

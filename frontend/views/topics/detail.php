@@ -118,13 +118,16 @@ $comments = $detail->comments;
                 </div>
 
                 <div class="pull-right actions">
+                    <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity->getId() == $detail->created_by ):?>
                     <a id="topic-append-button" href="javascript:void(0);" class="admin  popover-with-html" data-toggle="modal" data-target="#exampleModal" data-content="帖子附言，添加附言后所有参与讨论的用户都能收到消息提醒，包括点赞和评论的用户" data-original-title="" title="">
                         <i class="fa fa-plus"></i>
                     </a>
 
-                    <a id="topic-edit-button" href="https://abc.org/topics/2809/edit" data-content="编辑" class="admin  popover-with-html" data-original-title="" title="">
+                    <a id="topic-edit-button" href="<?=\yii\helpers\Url::toRoute(['topics/edit', 'id'=>$detail->id]);?>" data-content="编辑" class="admin  popover-with-html" data-original-title="" title="">
                         <i class="fa fa-pencil-square-o"></i>
                     </a>
+
+                    <?php endif;?>
 
                 </div>
                 <div class="clearfix"></div>
@@ -348,10 +351,21 @@ $comments = $detail->comments;
             </div>
 
             <div class="panel-body text-center topic-author-box">
-                <a href="https://abc.org/users/2447">
+
+
+
+                <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity->getId() == $detail->created_by ):?>
+                <a class="pull-right popover-with-html text-lg animated rubberBand edit-btn" href="<?=\yii\helpers\Url::toRoute(['user/edit', 'id'=>$detail->created_by]);?>" data-content="编辑个人资料" data-original-title="" title="">
+                    <i class="fa fa-cog"></i>
+                </a>
+                <?php endif;?>
+
+                <a href="<?=\yii\helpers\Url::toRoute(['user/index', 'id'=>$detail->created_by]);?>">
                     <img src="<?= $detail->user->avatar; ?>" style="width:80px; height:80px;margin:5px;"
                          class="img-thumbnail avatar"/>
                 </a>
+
+
 
                 <div class="media-body padding-top-sm">
                     <div class="media-heading">
