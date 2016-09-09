@@ -147,7 +147,7 @@ AppAsset::register($this);
 
                 <div class="col-sm-5 col-lg-5">
                     <h4>
-                        <img src=" " alt="" width="160"/>
+                        <img src="/img/logo.png" alt="" width="50"/>
                         <span class="pull-right text-md padding-top-lg" style="padding-top: 18px;">
                       <a class="popover-with-html" data-content="查看源代码" target="_blank" style="padding-right:8px"
                          href="javascript:void()"><i class="fa fa-github-alt"
