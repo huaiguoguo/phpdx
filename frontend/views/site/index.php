@@ -12,16 +12,16 @@ $this->title = 'phpdx';
 
 <div class="container main-container">
     <div class="box text-center site-intro rm-link-color">
-        PHPHub 是积极向上的 PHP & Laravel 开发者社区
-        <a href="https://github.com/summerblue/phphub5" target="_blank">
-            <i class="fa fa-github-alt" style="font-size:17px"></i> 源代码
-        </a>、
-        <a href="http://weibo.com/u/5963322692" target="_blank">
+        我们是积极向上的 PHP & Yii2 开发者社区
+<!--        <a href="https://github.com/summerblue/phphub5" target="_blank">-->
+<!--            <i class="fa fa-github-alt" style="font-size:17px"></i> 源代码-->
+<!--        </a>、-->
+        <a href="http://weibo.com/huaiguoguo" target="_blank">
             <i class="fa fa-weibo" style="font-size:17px"></i>
         </a>
-            微博账号</a>、QQ群：579866868
+            微博账号</a>、QQ群：530718741
     </div>
-
+<!--
     <div class="banner-container rbs row">
         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
             <div class="item">
@@ -84,12 +84,12 @@ $this->title = 'phpdx';
             </div>
         </div>
     </div>
-
+-->
     <div class="panel panel-default list-panel home-topic-list">
         <div class="panel-heading">
             <h3 class="panel-title text-center">
                 社区精华帖 &nbsp;
-                <a href="https://phphub.org/feed" style="color: #E5974E; font-size: 14px;" target="_blank">
+                <a href="<?=Url::toRoute(['topics/index']);?>" style="color: #E5974E; font-size: 14px;" target="_blank">
                     <i class="fa fa-rss"></i>
                 </a>
             </h3>
@@ -101,14 +101,14 @@ $this->title = 'phpdx';
                 <?php foreach($topiclist as $key=>$value):?>
                 <li class="list-group-item media col-md-6" style="margin-top: 0px;">
 
-                    <a class="reply_last_time hidden-xs meta" href="https://phphub.org/topics/2741">
+                    <a class="reply_last_time hidden-xs meta" href="<?=Url::toRoute(['topics/detail', 'id'=>$value->id]);?>">
                         <?=count($value->votes);?> 点赞
                         <span> ⋅ </span>
                         <?=count($value->comments);?> 回复
                     </a>
 
                     <div class="avatar pull-left">
-                        <a href="https://phphub.org/users/5662">
+                        <a href="<?=Url::toRoute(['user/index', 'id'=>$value->created_by]);?>">
                             <img class="media-object img-thumbnail avatar avatar-middle" alt="<?=$value->user->realname;?>"
                                  src="<?=$value->user->avatar;?>"/>
                         </a>
@@ -129,7 +129,7 @@ $this->title = 'phpdx';
 
         <div class="panel-footer text-right">
 
-            <a href="topics?filter=excellent" class="more-excellent-topic-link">
+            <a href="javascript:alert('正在使劲开发当中');" class="more-excellent-topic-link">
                 查看更多精华帖 <i class="fa fa-arrow-right" aria-hidden="true"></i>
             </a>
         </div>

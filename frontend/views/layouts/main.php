@@ -15,17 +15,12 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
-
     <meta charset="<?= Yii::$app->charset ?>">
-
     <title><?= $this->title; ?></title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <meta name="keywords" content="php,laravel,php论坛,laravel论坛,php社区,laravel社区,laravel教程,php教程,laravel视频,php开源,php新手,php7,laravel5"/>
-    <meta name="author" content="PHPHub"/>
-    <meta name="description" content=" PHPHub 是 PHP 和 Laravel 的中文社区，致力于推动 Laravel，PHP7、php-fig 等 PHP 新技术，新理念在中国的发展，是国内最靠谱的 PHP 论坛。 "/>
-
-
+    <meta name="keywords" content="php,Yii2,php论坛,Yii2论坛,php社区,Yii2社区,Yii2教程,php教程,Yii2视频,php开源,php新手,php7,Yii2"/>
+    <meta name="author" content="huochai2016"/>
+    <meta name="description" content=" PHPHub 是 PHP 和 Yii2 的中文社区，致力于推动 Yii2，PHP7、php-fig 等 PHP 新技术，新理念在中国的发展，是国内最靠谱的 PHP 论坛。 "/>
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title);?>tttt</title>
     <script>
@@ -155,14 +150,16 @@ AppAsset::register($this);
                         <img src=" " alt="" width="160"/>
                         <span class="pull-right text-md padding-top-lg" style="padding-top: 18px;">
                       <a class="popover-with-html" data-content="查看源代码" target="_blank" style="padding-right:8px"
-                         href=""><i class="fa fa-github-alt"
+                         href="javascript:void()"><i class="fa fa-github-alt"
                                                                          aria-hidden="true"></i></a>
-                      <a class="popover-with-html" data-content="关注 PHPHub 微博账号" target="_blank"
+                            <!--
+                      <a class="popover-with-html" data-content="关注 PHPdx 微博账号" target="_blank"
                          style="padding-right:8px" href="http://weibo.com/huaiguoguo"><i class="fa fa-weibo"
                                                                                      aria-hidden="true"></i></a>
+                                                                                     -->
                       <a class="popover-with-html" data-content="扫码关注微信订阅号：huochai2015" target="_blank"
                          style="padding-right:8px"
-                         href="https://dn-phphub.qbox.me/uploads/images/201607/19/1/5KAh3F8EhD.jpg"><i
+                         href="/img/qrcode2.jpg"><i
                               class="fa fa-weixin" aria-hidden="true"></i></a>
                       <a class="popover-with-html" data-content="下载 Chrome 消息通知插件" target="_blank"
                          style="padding-right:8px"
@@ -170,9 +167,9 @@ AppAsset::register($this);
                               class="fa fa-chrome" aria-hidden="true"></i></a>
                   </span>
                     </h4>
-                    <p class="padding-top-xsm">我们是中国最靠谱的 PHP &amp; Laravel 开发者社区，致力于打造一个 PHPer 分享创造、结识伙伴、协同互助的平台。</p>
+                    <p class="padding-top-xsm">我们是中国最靠谱的 PHP &amp; Yii2 开发者社区，致力于打造一个 PHPer 分享创造、结识伙伴、协同互助的平台。</p>
                     <span style="font-size:0.9em">♥ Do what you love, love what you do. - <a
-                            href="http://estgroupe.com/">The EST Group</a></span>
+                            href="javascript:void()">The EST Group</a></span>
                 </div>
 
                 <div class="col-sm-6 col-lg-6 col-lg-offset-1">
@@ -197,9 +194,9 @@ AppAsset::register($this);
                         <div class="col-sm-4">
                             <h4>统计信息</h4>
                             <ul class="list-unstyled">
-                                <li>社区会员: 5603</li>
-                                <li>主题数: 2479</li>
-                                <li>评论数: 11955</li>
+                                <li>社区会员: <?=\common\models\User::find()->count();?></li>
+                                <li>主题数: <?=\common\models\Topic::find()->count();?></li>
+                                <li>评论数: <?=\common\models\Comment::find()->count();?></li>
                             </ul>
                         </div>
 
@@ -216,7 +213,7 @@ AppAsset::register($this);
                         </div>
                         <div class="col-sm-3">
                             <h4>微信订阅号</h4>
-                            <img class="image-border popover-with-html" data-content="扫码，或者搜索微信订阅号：PHPHub"
+                            <img class="image-border popover-with-html" data-content="扫码，或者搜索微信订阅号：huochai2015"
                                  src="/img/qrcode2.jpg"
                                  style="width:100px;height:100px;">
                         </div>
