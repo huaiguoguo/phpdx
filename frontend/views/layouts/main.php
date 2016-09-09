@@ -84,15 +84,15 @@ AppAsset::register($this);
                     <ul class="nav navbar-nav github-login">
 
                         <?php if (Yii::$app->user->isGuest): ?>
-                            <a href="javascript:void()"
+                            <a href="<?=Url::toRoute(['site/login']);?>"
                                class="btn btn-success login-btn weichat-login-btn">
                                 <i class="fa fa-weixin"></i>
                                 登 录
                             </a>
 
-                            <a href="javascript:void()" class="btn btn-info login-btn">
+                            <a href="<?=Url::toRoute(['site/signup']);?>" class="btn btn-info login-btn">
                                 <i class="fa fa-github-alt"></i>
-                                登 录
+                                注 册
                             </a>
 
                         <?php else: ?>

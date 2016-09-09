@@ -13,82 +13,65 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 
-<div class="loginColumns middle-box text-center loginscreen  animated fadeInDown">
-    <div>
-        <h3>注册</h3>
-        <!--        <form class="m-t" role="form" action="--><? //=Url::toRoute(['/site/signup']);?><!--">-->
-        <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-
-        <?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder' => '用户名'])->label(""); ?>
-        <?= $form->field($model, 'mobile')->textInput(['placeholder' => '手机', 'type' => 'number'])->label(""); ?>
-        <?= $form->field($model, 'email')->textInput(['placeholder' => '邮箱', 'type' => 'email'])->label(""); ?>
-        <?= $form->field($model, 'password')->textInput(['placeholder' => '密码', 'type' => 'password'])->label(""); ?>
-
-        <!--
-        <div class="form-group">
-            <div class="checkbox i-checks">
-                <label> <input type="radio" name="SignupForm[level]" checked value="1"><i></i> 金主 </label>
-                <label> <input type="radio" name="SignupForm[level]" value="2"><i></i> 作手 </label>
-                <label> <input type="radio" name="SignupForm[level]" value="3"><i></i> 主理师 </label>
-            </div>
-        </div>
-        -->
-
-        <div class="form-group">
-            <?= Html::submitButton('注册', ['class' => 'btn btn-primary block full-width m-b', 'name' => 'login-button']) ?>
-        </div>
-
-        <p class="text-muted text-center">
-            <small>已经有账号?</small>
-        </p>
-        <?= Html::a('登录', Url::toRoute(['/site/login']), ['class' => 'btn btn-sm btn-white btn-block', 'name' => 'login-button']) ?>
 
 
-        <!--
+<div id="main" class="main-container container">
 
-            <div class="form-group has-error">
-                <input type="text" class="form-control" name="username" placeholder="用户名" required="">
-            </div>
-            <div class="form-group">
-                <input type="number" minlength="11" maxlength="11" class="form-control" name="mobile" placeholder="手机" required="">
-            </div>
-            <div class="form-group">
-                <input type="email" class="form-control" name="email" placeholder="邮箱" required="">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="密码" required="">
-            </div>
-            <div class="form-group">
-                <div class="checkbox i-checks">
-                    <label> <input type="radio" name="level[]"><i></i> 金主 </label>
-                    <label> <input type="radio" name="level[]"><i></i> 作手 </label>
-                    <label> <input type="radio" name="level[]"><i></i> 主理师 </label>
+
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">注册新用户</div>
+                <div class="panel-body">
+
+                        <?php $form = ActiveForm::begin(
+                            [
+                                'options'            => [
+                                                         'id'             => 'new_user',
+                                                         'class'          => "simple_form ",
+                                                         'accept-charset' => "UTF-8",
+                                                         'data-remote'    => "true",
+                                                         'novalidate'     => "novalidate"
+                                ],
+                                'enableClientScript' => true
+                            ]
+                        );
+                        ?>
+                        <input name="utf8" type="hidden" value="✓">
+
+                    <?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder'=>'用户名', 'id'=>"user_login", 'class'=>'form-control input-lg'])->label(''); ?>
+                    <?= $form->field($model, 'email')->textInput(['autofocus' => true,'type'=>'email', 'placeholder'=>'Email', 'id'=>"user_email", 'class'=>'form-control input-lg'])->label(''); ?>
+                    <?= $form->field($model, 'email_public')->checkbox(['autofocus' => true,'value'=>1, 'id'=>"user_email_public"])->label('公开 Email'); ?>
+                    <?= $form->field($model, 'password')->passwordInput(['autofocus' => true, 'placeholder'=>'密码', 'id'=>"user_password", 'class'=>'form-control input-lg'])->label(''); ?>
+                    <?= $form->field($model, 'password_confirmation')->passwordInput(['autofocus' => true, 'placeholder'=>'确认密码', 'id'=>"user_password_confirmation", 'class'=>'form-control input-lg'])->label(''); ?>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input class="form-control input-lg" placeholder="验证码" name="_rucaptcha" type="text" autocorrect="off" autocapitalize="off" pattern="[0-9a-z]*" maxlength="4" autocomplete="off">
+                                <span class="input-group-addon input-group-captcha"><a class="rucaptcha-image-box" href="#"><img class="rucaptcha-image" src="https://ruby-china.org/rucaptcha/" alt="Rucaptcha"></a></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <?= Html::submitButton('提交注册信息', ['class' => 'btn btn-lg btn-primary', 'name' => 'login-button', 'data-disable-with'=>"正在提交"]); ?>
+                            / <?= Html::a('登录', \yii\helpers\Url::toRoute(['site/login']), ['class' => 'btn btn-lg btn-default']); ?>
+                        </div>
+                    <?php ActiveForm::end(); ?>
                 </div>
             </div>
-
-            <button type="submit" class="btn btn-primary block full-width m-b">注册</button>
-
-            <p class="text-muted text-center">
-                <small>已经有账号?</small>
-            </p>
-            <a class="btn btn-sm btn-white btn-block" href="<?= Url::toRoute(['/site/login']); ?>">登录</a>
-            -->
-        <?php ActiveForm::end(); ?>
-        <!--        </form>-->
+        </div>
     </div>
+
 </div>
+
+
+
+
 
 
 <?php $this->beginBlock('icheck'); ?>
 
-<!--<script>-->
-    $(document).ready(function () {
-        $('.i-checks').iCheck({
-            checkboxClass: 'icheckbox_square-green',
-            radioClass: 'iradio_square-green',
-        });
-    });
-//</script>
 
 <?php
 $this->endBlock();

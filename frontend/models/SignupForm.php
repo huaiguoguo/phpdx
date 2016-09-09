@@ -12,7 +12,8 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
-    public $mobile;
+    public $password_confirmation;
+    public $email_public;
     public $rememberMe;
 
 
@@ -22,8 +23,7 @@ class SignupForm extends Model
     public function rules()
     {
         return [
-            [['username','email','mobile'], 'trim'],
-            [['username','mobile','email','password'], 'required', 'message'=>'{attribute}不能为空'],
+            [['username', 'email', 'password', 'password_confirmation', 'email_public'], 'required', 'message' => '{attribute}不能为空'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => '此用户名已被占用'],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
@@ -31,7 +31,9 @@ class SignupForm extends Model
             ['email', 'string', 'max' => 255],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => '此邮箱已被占用'],
 
-            ['password', 'string', 'min' => 6],
+            [['username', 'email'], 'trim'],
+            [['password', 'password_confirmation'], 'string', 'min' => 6],
+            ['email_public', 'in', 'range' => [0, 1]],
         ];
     }
 
@@ -45,14 +47,13 @@ class SignupForm extends Model
         if (!$this->validate()) {
             return null;
         }
-        
-        $user = new User();
-        $user->username = $this->username;
-        $user->email = $this->email;
-        $user->mobile = $this->mobile;
+
+        $user               = new User();
+        $user->username     = $this->username;
+        $user->email        = $this->email;
+        $user->email_public = $this->email_public;
         $user->setPassword($this->password);
         $user->generateAuthKey();
-        
         return $user->save() ? $user : null;
     }
 
@@ -60,11 +61,11 @@ class SignupForm extends Model
     public function attributeLabels()
     {
         return [
-            'username'   => '用户名',
-            'mobile'     => '手机',
-            'email'      => '邮箱',
-            'password'   => '密码',
-            'rememberMe' => '记住',
+            'username'              => '用户名',
+            'email'                 => '邮箱',
+            'email_public'          => '邮箱公开',
+            'password'              => '密码',
+            'password_confirmation' => '确认密码',
         ];
     }
 

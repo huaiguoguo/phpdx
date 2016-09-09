@@ -101,7 +101,7 @@ class FrontendLoginForm extends Model
             'mobile'     => '手机',
             'email'      => '邮箱',
             'password'   => '密码',
-            'rememberMe' => '记住',
+            'rememberMe' => '记住登录状态（60 天）',
         ];
     }
 

@@ -16,6 +16,7 @@ use yii\web\IdentityInterface;
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
+ * @property string $email_public
  * @property string $mobile
  * @property string $auth_key
  * @property integer $status
@@ -55,11 +56,13 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['github_name', 'email'], 'required'],
+//            [['github_name', 'email'], 'required'],
             ['email', 'email'],
+            ['email_public', 'default', 'value' => 1],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
-            [['introduction', 'realname', 'city', 'company', 'weibo_name', 'weibo_link', 'twitter_account'], 'string']
+            [['introduction', 'realname', 'city', 'company', 'weibo_name', 'weibo_link', 'twitter_account'], 'string'],
+            [['email_public'], 'integer']
         ];
     }
 
@@ -79,7 +82,8 @@ class User extends ActiveRecord implements IdentityInterface
             'personal_website' => '个人网站',
             'wechat_qrcode'    => '微信账号二维码',
             'payment_qrcode'   => '支付二维码',
-            'introduction'     => '个人简介'
+            'introduction'     => '个人简介',
+            'email_public'     => '邮箱公开'
         ];
     }
 
