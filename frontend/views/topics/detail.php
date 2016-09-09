@@ -449,7 +449,7 @@ use yii\helpers\Markdown;
 
     $(document).ready(function () {
         var $config = {
-            title: '自己撸的 blog from PHPdx - PHP，Yii2的中文社区 #laravel# @phphub  @李桂龙_CJ ',
+            title: '<?=$detail->title;?> from PHPdx - PHP，Yii2的中文社区 ',
             wechatQrcodeTitle: "微信扫一扫：分享", // 微信二维码提示文字
             wechatQrcodeHelper: '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>',
             sites: ['weibo', 'wechat', 'facebook', 'twitter', 'google', 'qzone', 'qq', 'douban'],
