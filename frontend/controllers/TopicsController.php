@@ -61,8 +61,6 @@ class TopicsController extends Controller
         $data           = [];
         $data['error']  = '';
         $data['detail'] = Topic::findOne(Yii::$app->request->get('id'));
-
-
         $comment                         = new Comment();
         $postData                        = Yii::$app->request->post();
         $postData['Comment']['user_id']  = Yii::$app->user->getId();
@@ -74,10 +72,7 @@ class TopicsController extends Controller
                 }
             }
         }
-
-
         $data['comment'] = $comment;
-
         return $this->render('detail', $data);
     }
 
@@ -96,7 +91,7 @@ class TopicsController extends Controller
                     "body"          => "<p>你希望多少钱</p>",
                     "topic_id"      => "2762",
                     "user_id"       => 1427,
-                    "body_original" => "你希望多少钱",
+                    "body_original" => "恭喜发财, 红包拿来",
                     "source"        => null,
                     "updated_at"    => "2016-09-09 18=>10=>07",
                     "created_at"    => "2016-09-09 18=>10=>07",
