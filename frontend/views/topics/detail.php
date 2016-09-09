@@ -9,6 +9,8 @@
 
 use yii\helpers\Markdown;
 
+$comments = $detail->comments;
+
 ?>
 
 
@@ -43,22 +45,24 @@ use yii\helpers\Markdown;
 
                 <div class="meta inline-block">
 
-                    <a href="https://phphub.org/categories/5" class="remove-padding-left">
-                        <i class="fa fa-folder text-md" aria-hidden="true"></i> 分享
+                    <a href="javascript:void();" class="remove-padding-left">
+                        <i class="fa fa-folder text-md" aria-hidden="true"></i> <?=$detail->category->category_name;?>
                     </a>
                     ⋅
-                    <a href="https://phphub.org/users/2447"> M1racle </a>
+
+                    <a href="<?=\yii\helpers\Url::toRoute(['user/index', 'id'=>$detail->created_by]);?>">
+                         </a>
                     ⋅
                     于 <abbr title="2016-08-27 11:54:01"
                             class="timeago"><?= date("Y-m-d H:i:s", $detail->created_at); ?></abbr>
                     ⋅
 
                     最后回复由
-                    <a href="https://phphub.org/users/2447"> M1racle </a>
-                    于 <abbr title="2016-09-02 20:14:10" class="timeago">2016-09-02 20:14:10</abbr>
+                    <a href="https://phphub.org/users/2447"> <?=$comments[count($comments)-1]->user->username;?> </a>
+                    于 <abbr title="2016-09-02 20:14:10" class="timeago"><?=date("Y-m-d H:i:s", $comments[count($comments)-1]->created_at);?></abbr>
                     ⋅
 
-                    711 阅读
+                    <?=count($detail->looks);?> 阅读
 
                 </div>
                 <div class="clearfix"></div>

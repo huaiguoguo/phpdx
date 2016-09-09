@@ -9,6 +9,7 @@
 namespace frontend\controllers;
 
 use common\models\Category;
+use common\models\Looks;
 use yii;
 use yii\web\Response;
 use common\models\Comment;
@@ -72,6 +73,12 @@ class TopicsController extends Controller
                 }
             }
         }
+
+        $looks = new Looks();
+        $looks->topic_id = Yii::$app->request->get('id');
+        $looks->created_by = Yii::$app->user->isGuest?0:Yii::$app->user->identity->getId();
+        $looks->save();
+
         $data['comment'] = $comment;
         return $this->render('detail', $data);
     }

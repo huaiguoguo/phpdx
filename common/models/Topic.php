@@ -80,6 +80,11 @@ class Topic extends \yii\db\ActiveRecord
     }
 
 
+    public function getLooks(){
+        return self::hasMany(Looks::className(), ['topic_id'=>'id']);
+    }
+
+
 
 
 }
