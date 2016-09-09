@@ -211,7 +211,7 @@ AppAsset::register($this);
 <!--                                        <i class="fa fa-star"  aria-hidden="true"></i> 名人堂</a>-->
 <!--                                </li>-->
                                 <li class="popover-with-html" data-content="求职群">求职群: 302373687</li>
-                                <li class="popover-with-html" data-content="Yii框架群">Yii2群: 70324424</li>
+                                <li class="popover-with-html" data-content="Yii框架群">Yii2群 : 70324424</li>
                             </ul>
                         </div>
                         <div class="col-sm-3">

@@ -8,6 +8,7 @@
 
 namespace frontend\controllers;
 
+use common\models\Category;
 use yii;
 use yii\web\Response;
 use common\models\Comment;
@@ -48,6 +49,8 @@ class TopicsController extends Controller
             }
         }
 
+
+        $data['CateList'] = Category::find()->select(['id','category_name'])->asArray()->all();
         $data['Topic'] = $TopicModel;
         return $this->render('create', $data);
     }

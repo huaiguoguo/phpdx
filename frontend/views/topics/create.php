@@ -10,6 +10,7 @@ use kucha\ueditor\UEditor;
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\helpers\ArrayHelper;
 
 $request = Yii::$app->request;
 ?>
@@ -34,7 +35,7 @@ $request = Yii::$app->request;
 
                 <input type="hidden" name="<?= $request->csrfParam; ?>" value="<?= $request->csrfToken; ?>">
 
-                <?= $activeform->field($Topic, 'category_id')->dropDownList(['1' => '招聘', '2' => '问答', '3' => '分享', '4' => '教程'], ['prompt' => '请选择分类', 'id' => "category-select"])->label(''); ?>
+                <?= $activeform->field($Topic, 'category_id')->dropDownList(ArrayHelper::map($CateList,'id','category_name'), ['prompt' => '请选择分类', 'id' => "category-select"])->label(''); ?>
 
                 <div class="category-hint alert alert-warning category-1 " style="display:none">
                     PHPHub 是国内最大的 PHP & Laravel 社区，招聘、求职、外包等相关的话题，都可以在此主题下发布。<br>请遵照 <a
