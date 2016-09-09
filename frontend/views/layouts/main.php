@@ -84,13 +84,13 @@ AppAsset::register($this);
                     <ul class="nav navbar-nav github-login">
 
                         <?php if (Yii::$app->user->isGuest): ?>
-                            <a href="https://phphub.org/auth/oauth?driver=wechat"
+                            <a href="javascript:void()"
                                class="btn btn-success login-btn weichat-login-btn">
                                 <i class="fa fa-weixin"></i>
                                 登 录
                             </a>
 
-                            <a href="https://phphub.org/auth/oauth?driver=github" class="btn btn-info login-btn">
+                            <a href="javascript:void()" class="btn btn-info login-btn">
                                 <i class="fa fa-github-alt"></i>
                                 登 录
                             </a>
@@ -103,7 +103,7 @@ AppAsset::register($this);
                                 </a>
                             </li>
                             <li>
-                                <a href="https://phphub.org/notifications" class="text-warning">
+                                <a href="javascript:void()" class="text-warning">
                                     <span class="badge badge-fade popover-with-html" data-content="消息提醒"
                                           id="notification-count">  0 </span>
                                 </a>
