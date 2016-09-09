@@ -116,7 +116,7 @@ $this->title = 'phpdx';
 
                     <div class="infos">
                         <div class="media-heading">
-                            <span class="hidden-xs label label-default">分享</span>
+                            <span class="hidden-xs label label-default"><?=$value->category->category_name;?></span>
                             <a href="<?=Url::toRoute(['/topics/detail', 'id'=>$value->id]);?>" title="<?=$value->title;?>"><?=$value->title;?></a>
                         </div>
                     </div>
