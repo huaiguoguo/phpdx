@@ -37,7 +37,7 @@ use yii\helpers\Html;
                     <?= $form->field($model, 'password')->passwordInput(['autofocus' => true, 'id'=>"user_password", 'class'=>'form-control input-lg'])->label('密 码'); ?>
 
 
-                    <?= $form->field($model, 'rememberMe')->checkbox(['autofocus' => true, 'value'=>1, 'id'=>"user_remember_me"])->label(''); ?>
+                    <?= $form->field($model, 'rememberMe')->checkbox(['id'=>"user_remember_me"])->label(''); ?>
 
                     <div class="form-actions">
                         <?= Html::submitButton('登录', ['class' => 'btn btn-primary', 'name' => 'commit', 'data-disable-with' => "正在登录"]) ?>

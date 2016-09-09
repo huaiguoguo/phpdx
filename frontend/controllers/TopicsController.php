@@ -34,7 +34,6 @@ class TopicsController extends Controller
 
     public function actionCreate()
     {
-
         if (Yii::$app->user->isGuest) {
             return $this->redirect('/');
         }
@@ -48,7 +47,6 @@ class TopicsController extends Controller
                 return $this->redirect('/');
             }
         }
-
 
         $data['CateList'] = Category::find()->select(['id','category_name'])->asArray()->all();
         $data['Topic'] = $TopicModel;

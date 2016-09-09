@@ -59,7 +59,7 @@ class FrontendLoginForm extends Model
     public function login()
     {
         if ($this->validate()) {
-            return Yii::$app->user->login($this->getUser(), 60 * 30);
+            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 60*60: 600);
         } else {
             return false;
         }
@@ -101,7 +101,7 @@ class FrontendLoginForm extends Model
             'mobile'     => '手机',
             'email'      => '邮箱',
             'password'   => '密码',
-            'rememberMe' => '记住登录状态（60 天）',
+            'rememberMe' => '记住登录状态（1个小时）',
         ];
     }
 
