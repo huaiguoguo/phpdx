@@ -66,11 +66,13 @@ $comments = $detail->comments;
                     ⋅
                     于 <abbr title="2016-08-27 11:54:01"
                             class="timeago"><?= date("Y-m-d H:i:s", $detail->created_at); ?></abbr>
+                    <?php if(count($comments)):?>
                     ⋅
 
                     最后回复由
                     <a href="https://abc.org/users/2447"> <?=$comments[count($comments)-1]->user->username;?> </a>
                     于 <abbr title="2016-09-02 20:14:10" class="timeago"><?=date("Y-m-d H:i:s", $comments[count($comments)-1]->created_at);?></abbr>
+                    <?php endif;?>
                     ⋅
 
                     <?=count($detail->looks);?> 阅读
