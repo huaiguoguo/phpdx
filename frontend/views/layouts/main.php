@@ -20,7 +20,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <meta name="keywords" content="php,Yii2,php论坛,Yii2论坛,php社区,Yii2社区,Yii2教程,php教程,Yii2视频,php开源,php新手,php7,Yii2"/>
     <meta name="author" content="huochai2016"/>
-    <meta name="description" content=" PHPHub 是 PHP 和 Yii2 的中文社区，致力于推动 Yii2，PHP7、php-fig 等 PHP 新技术，新理念在中国的发展，是国内最靠谱的 PHP 论坛。 "/>
+    <meta name="description" content=" PHPdx 是 PHP 和 Yii2 的中文社区，致力于推动 Yii2，PHP7、php-fig 等 PHP 新技术，新理念在中国的发展，是国内最靠谱的 PHP 论坛。 "/>
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title);?>tttt</title>
     <script>
