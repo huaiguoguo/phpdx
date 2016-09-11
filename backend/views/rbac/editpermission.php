@@ -46,7 +46,7 @@ use yii\widgets\ActiveForm;
 
                         <div class="form-group"><label class="col-sm-2 control-label">排序</label>
                             <div class="col-sm-8">
-                                <input type="number" name="PermissionForm[sort]" placeholder="排序"  class="form-control">
+                                <input type="number" name="PermissionForm[sort]" value="<?=$AuthObj->sort;?>" placeholder="排序"  class="form-control">
                             </div>
                         </div>
 

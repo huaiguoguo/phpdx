@@ -7,9 +7,6 @@
  */
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-
-$this->title = '皮皮金融';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <!DOCTYPE html>

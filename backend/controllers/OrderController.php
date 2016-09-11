@@ -9,6 +9,7 @@
 namespace backend\controllers;
 
 
+use common\models\Order;
 use yii\web\Controller;
 
 class OrderController extends Controller
@@ -16,6 +17,8 @@ class OrderController extends Controller
     public function actionIndex()
     {
         $data = [];
+
+        $data['order'] = Order::find()->all();
 
         return $this->render('index', $data);
     }

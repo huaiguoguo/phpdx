@@ -89,10 +89,10 @@ class HoComm
     {
         $route = "/" . Yii::$app->requestedAction->uniqueId;
         $menu = Yii::$app->cache->get("menu");
-        if (!$menu || $isFind) {
+        if ("" == $menu || null == $menu || $isFind==true) {
             $menu = [];
             $menu[] = self::getMenuHead();
-            $menuData = AuthItem::find()->where(['type' => 2, 'level' => 1])->all();
+            $menuData = AuthItem::find()->where(['type' => 2, 'level' => 1])->orderBy('sort desc')->all();
             foreach ($menuData as $key => $value) {
                 $activeUrl = [];
                 $activeUrl[]  = $value->name;
@@ -122,7 +122,8 @@ class HoComm
                 $TempMenu['active'] = in_array($route, $activeUrl);
                 $menu[]             = $TempMenu;
             }
-            Yii::$app->cache->set('menu', $menu, 0);
+            Yii::$app->cache->delete('menu');
+            Yii::$app->cache->set('menu', $menu);
         }
         return $menu;
     }
@@ -173,13 +174,57 @@ class HoComm
     public static function CheckStr($Str)
     {
         $emailValidate = new EmailValidator();
-        if(preg_match("/^1[34578]{1}\d{9}$/", $Str)){
+        if (preg_match("/^1[34578]{1}\d{9}$/", $Str)) {
             return "mobile";
-        }else if(preg_match($emailValidate->pattern, $Str)){
+        } else if (preg_match($emailValidate->pattern, $Str)) {
             return "email";
-        }else{
+        } else {
             return "strings";
         }
+    }
+
+
+
+    /**
+     * @author: 火柴<290559038@qq.com>
+     * @descri: 成功提示信息
+     * @param $msg
+     */
+    public static function success($msg)
+    {
+        Yii::$app->session->setFlash('success', $msg);
+    }
+
+
+
+    /**
+     * @author: 火柴<290559038@qq.com>
+     * @descri: 错误提示信息
+     * @param $msg
+     */
+    public static function info($msg)
+    {
+        Yii::$app->session->setFlash('info', $msg);
+    }
+
+    /**
+     * @author: 火柴<290559038@qq.com>
+     * @descri: 警告提示信息
+     * @param $msg
+     */
+    public static function warning($msg)
+    {
+        Yii::$app->session->setFlash('warning', $msg);
+    }
+
+    /**
+     * @author: 火柴<290559038@qq.com>
+     * @descri: 错误提示信息
+     * @param $msg
+     */
+    public static function error($msg)
+    {
+        Yii::$app->session->setFlash('error', $msg);
     }
 
 

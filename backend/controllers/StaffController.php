@@ -9,6 +9,7 @@
 namespace backend\controllers;
 
 
+use common\models\Admin;
 use yii\web\Controller;
 
 class StaffController extends Controller
@@ -17,7 +18,7 @@ class StaffController extends Controller
     public function actionIndex()
     {
         $data = [];
-
+        $data['user'] = Admin::find()->all();
         return $this->render('index', $data);
     }
 

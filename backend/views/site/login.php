@@ -7,7 +7,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = '皮皮金融';
+$this->title = 'phpdx';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -73,7 +73,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </form>
                 -->
                 <p class="m-t">
-                    <small>皮皮金库 &copy; 2016</small>
+                    <small>phpdx &copy; 2014</small>
                 </p>
             </div>
         </div>

@@ -1,6 +1,8 @@
 <?php
 namespace backend\controllers;
 
+use common\core\HoComm;
+use common\extend\EController;
 use common\models\BackendLoginForm;
 use Yii;
 use yii\web\Controller;
@@ -11,7 +13,7 @@ use common\models\LoginForm;
 /**
  * Site controller
  */
-class SiteController extends Controller
+class SiteController extends EController
 {
     /**
      * @inheritdoc
@@ -24,17 +26,17 @@ class SiteController extends Controller
                 'rules' => [
                     [
                         'actions' => ['login', 'error'],
-                        'allow' => true,
+                        'allow'   => true,
                     ],
                     [
                         'actions' => ['logout', 'index'],
-                        'allow' => true,
-                        'roles' => ['@'],
+                        'allow'   => true,
+                        'roles'   => ['@'],
                     ],
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
+            'verbs'  => [
+                'class'   => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['get', 'post'],
                 ],
@@ -61,9 +63,6 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-
-
-        Yii::$app->session->setFlash('success', 'This is the message');
         return $this->render('index');
     }
 
@@ -81,6 +80,8 @@ class SiteController extends Controller
 
         $model = new BackendLoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            HoComm::success('登陆成功');
+
             return $this->goBack();
         } else {
             return $this->render('login', [

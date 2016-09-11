@@ -35,7 +35,7 @@ var ajax_config = {
 
 
 var template = function (data) {
-    optoins = "";
+    optoins = "<option value=''>请选择</option>";
     $.each(data.data, function (i, val) {
         optoins += "<option value='" + val.name + "'>" + val.description + "</option>";
     })

@@ -24,7 +24,12 @@ class AppAsset extends AssetBundle
         "css/plugins/toastr/toastr.min.css",
         "css/plugins/codemirror/codemirror.css",
         "css/plugins/codemirror/ambiance.css",
-        "css/style.css",
+
+        "css/plugins/dropzone/basic.css",
+        "css/plugins/dropzone/dropzone.css",
+
+
+        "css/style.css"
         //        "/js/plugins/zTree-zTree_v3-2/css/zTreeStyle/zTreeStyle.css"
     ];
     
@@ -43,6 +48,7 @@ class AppAsset extends AssetBundle
         "/js/inspinia.js",
         "/js/plugins/pace/pace.min.js",
         "/js/plugins/toastr/toastr.min.js",
+        "js/plugins/dropzone/dropzone.js",
         "/js/common.js"
     ];
 

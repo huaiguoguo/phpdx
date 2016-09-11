@@ -56,6 +56,7 @@ AppAsset::register($this);
 //    ]
 //];
 
+//dump(HoComm::getMenuCopy(true));
 ?>
 
 
@@ -91,7 +92,7 @@ AppAsset::register($this);
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
-                        <span class="m-r-sm text-muted welcome-message">欢迎访问皮皮金库管理平台.</span>
+                        <span class="m-r-sm text-muted welcome-message">同学,你好.</span>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle count-info" data-toggle="dropdown" href="full_height.html#">
@@ -193,7 +194,7 @@ AppAsset::register($this);
 
 
                     <li>
-                        <a href="<?= \yii\helpers\Url::toRoute(['logout']); ?>">
+                        <a href="<?= \yii\helpers\Url::toRoute(['/site/logout']); ?>">
                             <i class="fa fa-sign-out"></i> 退出
                         </a>
                     </li>
@@ -235,19 +236,19 @@ var csrfParam = <?= Yii::$app->request->csrfParam; ?>;
 var <?= Yii::$app->request->csrfParam; ?> = '<?= Yii::$app->request->csrfToken; ?>';
 
 <!--<script>-->
-var Success = '<?= Yii::$app->session->getFlash('success'); ?>';
-var Info = '<?= Yii::$app->session->getFlash('info'); ?>';
-var Warning = '<?= Yii::$app->session->getFlash('warning'); ?>';
-var Error = '<?= Yii::$app->session->getFlash('error'); ?>';
+var success = '<?= Yii::$app->session->getFlash('success'); ?>';
+var info = '<?= Yii::$app->session->getFlash('info'); ?>';
+var warning = '<?= Yii::$app->session->getFlash('warning'); ?>';
+var error = '<?= Yii::$app->session->getFlash('error'); ?>';
 
-if($.trim(Success)){
-toastr.success(Success);
-}else if($.trim(Info)){
-toastr.info(Info);
-}else if($.trim(Warning)){
-toastr.warning(Warning);
-}else if($.trim(Error)){
-toastr.error(Error);
+if($.trim(success)){
+toastr.success(success);
+}else if($.trim(info)){
+toastr.info(info);
+}else if($.trim(warning)){
+toastr.warning(warning);
+}else if($.trim(error)){
+toastr.error(error);
 }
 
 <?php
