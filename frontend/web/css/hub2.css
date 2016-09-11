@@ -11737,7 +11737,7 @@ body {
     background-color: #fff; }
 
 .search-input {
-    background-image: url("/assets/images/icon-search.png");
+    background-image: url("/img/icon-search.png");
     background-repeat: no-repeat;
     background-position: 10px;
     padding-left: 25px;
@@ -12340,7 +12340,7 @@ embed {
 
 /* Image style */
 #scrollUp {
-    background-image: url("/assets/images/top.png");
+    background-image: url("/img/top.png");
     bottom: 20px;
     right: 20px;
     width: 38px;
