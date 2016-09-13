@@ -87,6 +87,7 @@ $comments = $detail->comments;
                     <p> <?= Markdown::processParagraph($detail->content, 'extra'); ?> </p>
                 </div>
 
+                <!--
                 <div data-lang-excellent="本帖已被设为精华帖！" data-lang-wiki="本帖已被设为社区 Wiki！" class="ribbon-container">
                     <div class="ribbon">
 
@@ -97,9 +98,9 @@ $comments = $detail->comments;
                         <div class="ribbon-anchored">
                             <i class="fa fa-anchor"></i> 此贴已被下沉，请查看 <a href="https://abc.org/topics/2802">下沉说明</a> 进行修改。
                         </div>
-
                     </div>
                 </div>
+                -->
 
             </div>
 
