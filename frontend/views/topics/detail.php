@@ -87,10 +87,10 @@ $comments = $detail->comments;
                     <p> <?= Markdown::processParagraph($detail->content, 'extra'); ?> </p>
                 </div>
 
-                <!--
+
                 <div data-lang-excellent="本帖已被设为精华帖！" data-lang-wiki="本帖已被设为社区 Wiki！" class="ribbon-container">
                     <div class="ribbon">
-
+<!--
                         <div class="ribbon-excellent">
                             <i class="fa fa-trophy"></i> 本帖已被设为精华帖！
                         </div>
@@ -98,20 +98,23 @@ $comments = $detail->comments;
                         <div class="ribbon-anchored">
                             <i class="fa fa-anchor"></i> 此贴已被下沉，请查看 <a href="https://abc.org/topics/2802">下沉说明</a> 进行修改。
                         </div>
+                        -->
                     </div>
                 </div>
-                -->
 
             </div>
 
             <div class="appends-container" data-lang-append="附言">
+                <!--
                 <div class="appends">
                     <span class="meta">附言 0 &nbsp;·&nbsp; <abbr title="" class="timeago popover-with-html" data-content="几秒前" data-original-title="2016-09-09 21:46:32">几秒前</abbr></span>
                     <div class="sep5"></div>
+
                     <div class="markdown-reply append-content">
                         <p>test</p>
                     </div>
                 </div>
+                -->
             </div>
 
             <div class="panel-footer operate">
