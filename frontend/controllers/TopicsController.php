@@ -57,29 +57,31 @@ class TopicsController extends Controller
     }
 
 
-    public function actionEdit(){
+    public function actionEdit()
+    {
         if (Yii::$app->user->isGuest) {
             return $this->redirect('/');
         }
 
         $data       = [];
         $TopicModel = Topic::findOne(Yii::$app->request->get('id'));
-
+        if (!$TopicModel) {
+            return $this->redirect('/');
+        }
         if ($TopicModel && $TopicModel->load(Yii::$app->request->post()) && $TopicModel->validate()) {
             $TopicModel->created_by = Yii::$app->user->identity->getId();
             if ($TopicModel->save()) {
                 Yii::$app->session->setFlash('success', '更新成功');
+
                 return $this->redirect('/');
             }
         }
 
         $data['CateList'] = Category::find()->select(['id', 'category_name'])->asArray()->all();
         $data['Topic']    = $TopicModel;
+
         return $this->render('create', $data);
     }
-
-
-
 
 
     public function actionDetail()
@@ -87,6 +89,11 @@ class TopicsController extends Controller
         $data           = [];
         $data['error']  = '';
         $data['detail'] = Topic::findOne(Yii::$app->request->get('id'));
+
+        if (!$data['detail']) {
+            return $this->redirect('/');
+        }
+
         $comment                         = new Comment();
         $postData                        = Yii::$app->request->post();
         $postData['Comment']['user_id']  = Yii::$app->user->getId();
@@ -99,12 +106,13 @@ class TopicsController extends Controller
             }
         }
 
-        $looks = new Looks();
-        $looks->topic_id = Yii::$app->request->get('id');
-        $looks->created_by = Yii::$app->user->isGuest?0:Yii::$app->user->identity->getId();
+        $looks             = new Looks();
+        $looks->topic_id   = Yii::$app->request->get('id');
+        $looks->created_by = Yii::$app->user->isGuest ? 0 : Yii::$app->user->identity->getId();
         $looks->save();
 
         $data['comment'] = $comment;
+
         return $this->render('detail', $data);
     }
 
