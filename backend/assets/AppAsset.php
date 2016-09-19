@@ -27,7 +27,7 @@ class AppAsset extends AssetBundle
 
         "css/plugins/dropzone/basic.css",
         "css/plugins/dropzone/dropzone.css",
-
+        "css/plugins/sweetalert/sweetalert.css",
 
         "css/style.css"
         //        "/js/plugins/zTree-zTree_v3-2/css/zTreeStyle/zTreeStyle.css"
@@ -49,6 +49,7 @@ class AppAsset extends AssetBundle
         "/js/plugins/pace/pace.min.js",
         "/js/plugins/toastr/toastr.min.js",
         "js/plugins/dropzone/dropzone.js",
+        "js/plugins/sweetalert/sweetalert.min.js",
         "/js/common.js"
     ];
 
