@@ -86,11 +86,10 @@ class TopicsController extends Controller
 
     public function actionDetail()
     {
+//            ->with('category')->with('comments')->with('user')
         $data           = [];
         $data['error']  = '';
-        $data['detail'] = Topic::find()
-//            ->with('category')->with('comments')->with('user')
-            ->one(Yii::$app->request->get('id'));
+        $data['detail'] = Topic::findOne(Yii::$app->request->get('id'));
 
         if (!$data['detail']) {
             return $this->redirect('/');
