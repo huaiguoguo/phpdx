@@ -84,7 +84,7 @@ $comments = $detail->comments;
             <div class="content-body entry-content panel-body ">
 
                 <div class="markdown-body" id="emojify">
-                    <p> <?= Markdown::processParagraph($detail->content, 'extra'); ?> </p>
+                    <p> <?= Markdown::process($detail->content, 'extra'); ?> </p>
                 </div>
 
 
