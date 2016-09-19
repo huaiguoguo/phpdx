@@ -208,7 +208,8 @@ AppAsset::register($this);
 <!--                                <li><a href="https://abc.org/hall_of_fames">-->
 <!--                                        <i class="fa fa-star"  aria-hidden="true"></i> 名人堂</a>-->
 <!--                                </li>-->
-                                <li class="popover-with-html" data-content="求职群">求职群: 302373687</li>
+                                <li class="popover-with-html" data-content="求职群1">求职群: 302373687</li>
+                                <li class="popover-with-html" data-content="求职群2">求职群: 450230174</li>
                                 <li class="popover-with-html" data-content="Yii框架群">Yii2群 : 70324424</li>
                             </ul>
                         </div>
