@@ -80,7 +80,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $data['topiclist'] = Topic::find()->limit(20)->all();
+        $data['topiclist'] = Topic::find()->where(['<', 'status', 5])->with('user')->with('looks')->limit(20)->all();
 
         return $this->render('index', $data);
     }

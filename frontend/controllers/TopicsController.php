@@ -27,7 +27,7 @@ class TopicsController extends Controller
             return $this->render('index');
         }
 
-        $data['list'] = Topic::find()->all();
+        $data['list'] = Topic::find()->where(['<', 'status', 5])->with('user')->with('looks')->all();
 
         return $this->render('index', $data);
     }
