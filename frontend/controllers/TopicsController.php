@@ -88,7 +88,7 @@ class TopicsController extends Controller
     {
         $data           = [];
         $data['error']  = '';
-        $data['detail'] = Topic::find()->one(Yii::$app->request->get('id'));
+        $data['detail'] = Topic::findOne(Yii::$app->request->get('id'));
 
         if (!$data['detail']) {
             return $this->redirect('/');
