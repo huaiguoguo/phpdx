@@ -148,54 +148,13 @@
             <div class="panel-body">
                 <div class="users-label">
 
-                    <a class="popover-with-html users-label-item" href="/users/1"
-                       data-content="Summer - Life-long learner">
-                        <img class="avatar-small inline-block"
-                             src="https://dn-phphub.qbox.me/uploads/avatars/1_1471136343.jpg?imageView2/1/w/100/h/100">
-                        Summer
-                    </a>
-                    <a class="popover-with-html users-label-item" href="/users/4430"
-                       data-content="luo975974740 - 未来的你一定会感谢今天努力的自己!">
-                        <img class="avatar-small inline-block"
-                             src="https://dn-phphub.qbox.me/uploads/avatars/4430_1470104433.png?imageView2/1/w/100/h/100">
-                        luo975974740
-                    </a>
-                    <a class="popover-with-html users-label-item" href="/users/5"
-                       data-content="Aufree - 混迹于 GitHub（Aufree）微博（@李锦发），请叫我发哥">
-                        <img class="avatar-small inline-block"
-                             src="https://dn-phphub.qbox.me/uploads/avatars/5_1471144144.png?imageView2/1/w/100/h/100">
-                        Aufree
-                    </a>
-                    <a class="popover-with-html users-label-item" href="/users/1289"
-                       data-content="nophp">
-                        <img class="avatar-small inline-block"
-                             src="https://dn-phphub.qbox.me/uploads/avatars/1289_1473143048.jpg?imageView2/1/w/100/h/100">
-                        nophp
-                    </a>
-                    <a class="popover-with-html users-label-item" href="/users/161"
-                       data-content="zhuzhichao - Lalala Demacian !">
-                        <img class="avatar-small inline-block"
-                             src="https://dn-phphub.qbox.me/uploads/avatars/161_1427370700.png?imageView2/1/w/100/h/100">
-                        zhuzhichao
-                    </a>
-                    <a class="popover-with-html users-label-item" href="/users/3268"
-                       data-content="hackvijay">
-                        <img class="avatar-small inline-block"
-                             src="https://dn-phphub.qbox.me/uploads/avatars/3268_1450862526.png?imageView2/1/w/100/h/100">
-                        hackvijay
-                    </a>
-                    <a class="popover-with-html users-label-item" href="/users/2447"
-                       data-content="M1racle - php 初心者">
-                        <img class="avatar-small inline-block"
-                             src="https://dn-phphub.qbox.me/uploads/avatars/2447_1443275733.jpeg?imageView2/1/w/100/h/100">
-                        M1racle
-                    </a>
-                    <a class="popover-with-html users-label-item" href="/users/5280"
-                       data-content="gamedev">
-                        <img class="avatar-small inline-block"
-                             src="https://dn-phphub.qbox.me/uploads/avatars/5280_1470623984.jpeg?imageView2/1/w/100/h/100">
-                        gamedev
-                    </a>
+<!--                    -->
+<!--                    <a class="popover-with-html users-label-item" href="/users/1"-->
+<!--                       data-content="Summer - Life-long learner">-->
+<!--                        <img class="avatar-small inline-block"-->
+<!--                             src="https://dn-phphub.qbox.me/uploads/avatars/1_1471136343.jpg?imageView2/1/w/100/h/100">-->
+<!--                        Summer-->
+<!--                    </a>-->
 
                 </div>
             </div>

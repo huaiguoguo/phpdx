@@ -60,11 +60,12 @@ AppAsset::register($this);
                 <ul class="nav navbar-nav">
                     <li class=""><a href="/">首页</a></li>
                     <li class=""><a href="<?=Url::toRoute(['topics/index']);?>">社区</a></li>
-<!--                    <li class=""><a href="/categories/6?filter=recent">教程</a></li>-->
-<!--                    <li class=""><a href="/categories/1">招聘</a></li>-->
-<!--                    <li class=""><a href="/categories/4">问答</a></li>-->
-<!--                    <li class=""><a href="/sites">酷站</a></li>-->
-<!--                    <li class=""><a href="/topics/2541">Wiki</a></li>-->
+<!--                    <li class=""><a href="--><?//=Url::toRoute(['topics/index']);?><!--">教程</a></li>-->
+<!--                    <li class=""><a href="--><?//=Url::toRoute(['topics/index']);?><!--">招聘</a></li>-->
+<!--                    <li class=""><a href="--><?//=Url::toRoute(['topics/index']);?><!--">问答</a></li>-->
+<!--                    <li class=""><a href="--><?//=Url::toRoute(['topics/index']);?><!--">酷站</a></li>-->
+<!--                    <li class=""><a href="--><?//=Url::toRoute(['topics/index']);?><!--">Wiki</a></li>-->
+
                 </ul>
 
                 <div class="navbar-right">
