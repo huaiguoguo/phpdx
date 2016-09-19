@@ -32,7 +32,7 @@ class PermissionForm extends Model
         return [
             [['name', 'description'], 'required', 'message' => '请填写{attribute}'],
             //[['name'], 'unique', 'targetClass' => '\common\models\Authitem', 'message' => '此标识已经添加过了' ],
-            [['level', 'sort'], 'number'],
+            [['level', 'sort'], 'integer'],
             [['name', 'parent_permission', 'child_permission'], 'string', 'max' => 30],
             [['description'], 'string', 'max' => 255],
         ];
@@ -99,7 +99,8 @@ class PermissionForm extends Model
 
         $item = $auth->getPermission($name);
         $item->name = $this->name;
-        $item->description = $this->description;;
+        $item->description = $this->description;
+        $item->sort = $this->sort;
 
         if($auth->update($name, $item)){
             HoComm::getMenuCopy(true);

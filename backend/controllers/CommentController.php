@@ -10,12 +10,15 @@ namespace backend\controllers;
 
 use yii;
 use yii\web\Controller;
+use common\models\Comment;
 
 class CommentController extends Controller
 {
     public function actionIndex()
     {
         $data = [];
+
+        $data['comment'] = Comment::find()->with('user')->with('user')->with('topic')->with('look')->all();
 
         return $this->render('index', $data);
     }

@@ -2,9 +2,10 @@
 /**
  * Created by PhpStorm.
  * Author: 火柴<290559038@qq.com>
- * Date: 2016/7/6
- * Time: 15:45
+ * Date: 2016/9/19
+ * Time: 10:28
  */
+
 
 use backend\assets\AppAsset;
 use yii\web\View;
@@ -19,8 +20,8 @@ use yii\helpers\Url;
         <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
-                    <label class="control-label" for="product_name">权限名称</label>
-                    <input type="text" id="product_name" name="product_name" value="" placeholder="权限名称"
+                    <label class="control-label" for="product_name">帖子名称</label>
+                    <input type="text" id="product_name" name="post_name" value="" placeholder="权限名称"
                            class="form-control">
                 </div>
             </div>
@@ -55,7 +56,7 @@ use yii\helpers\Url;
             <div class="ibox">
 
                 <div class="ibox-title">
-                    <a href="<?= Url::toRoute("add-permission") ?>" class="btn btn-primary"> 新增权限 </a>
+<!--                    <a href="--><?//= Url::toRoute("edit-post") ?><!--" class="btn btn-primary"> 新增权限 </a>-->
                 </div>
 
                 <div class="ibox-content">
@@ -64,42 +65,46 @@ use yii\helpers\Url;
                         <thead>
                         <tr>
 
-                            <th data-toggle="true">权限名称</th>
-                            <th data-hide="phone">权限标识</th>
-                            <th data-hide="all">Description</th>
-                            <th data-hide="phone">排序</th>
-                            <th data-hide="phone,tablet">Quantity</th>
-                            <th data-hide="phone">Status</th>
+                            <th data-toggle="true">标题</th>
+                            <th data-hide="phone">内容</th>
+                            <th data-hide="phone">作者</th>
+                            <th data-hide="phone, tablet">创建时间</th>
+                            <th data-hide="phone, tablet">浏览次数</th>
+                            <th data-hide="all">修改时间</th>
+                            <th data-hide="phone">状态</th>
                             <th class="text-right" data-sort-ignore="true">Action</th>
 
                         </tr>
                         </thead>
                         <tbody>
 
-                        <?php foreach ($permission as $key => $value): ?>
+                        <?php foreach ($post as $key => $value): ?>
                             <tr>
                                 <td>
-                                    <?=$value->description;?>
+                                    <?=$value->title;?>
                                 </td>
                                 <td>
-                                    <?=$value->name;?>
+                                    <?=mb_substr($value->content, 0, 20, 'utf-8');?>
                                 </td>
                                 <td>
-                                     readable English.
+                                    <?=$value->user->username;?>
                                 </td>
                                 <td>
-                                    <?=$value->sort;?>
+                                    <?=date("Y-m-d H:i:s", $value->created_at);?>
                                 </td>
                                 <td>
-                                    2300
+                                    <?=count($value->looks);?>
+                                </td>
+                                <td>
+                                    <?=date("Y-m-d H:i:s", $value->updated_at);?>
                                 </td>
                                 <td>
                                     <span class="label label-primary">Enable</span>
                                 </td>
                                 <td class="text-right">
                                     <div class="btn-group">
-                                        <button class="btn-white btn btn-xs"><a href="<?=Url::toRoute(['edit-permission']);?>">查看</a></button>
-                                        <button class="btn-white btn btn-xs"><a href="<?=Url::toRoute(['edit-permission', 'name'=>$value->name]);?>">编辑</a></button>
+                                        <button class="btn-white btn btn-xs"><a href="<?=Url::toRoute(['edit-post']);?>">查看</a></button>
+                                        <button class="btn-white btn btn-xs"><a href="<?=Url::toRoute(['edit-post', 'id'=>$value->id]);?>">编辑</a></button>
                                     </div>
                                 </td>
                             </tr>
@@ -140,4 +145,3 @@ $('.footable').footable();
 $this->endBlock();
 $this->registerJs($this->blocks['footable'], View::POS_END, 0);
 ?>
-

@@ -68,6 +68,45 @@ class CDBManager extends DbManager{
 
 
 
+
+    /**
+     * @inheritdoc
+     */
+    protected function updateItem($name, $item)
+    {
+        if ($item->name !== $name && !$this->supportsCascadeUpdate()) {
+            $this->db->createCommand()
+                ->update($this->itemChildTable, ['parent' => $item->name], ['parent' => $name])
+                ->execute();
+            $this->db->createCommand()
+                ->update($this->itemChildTable, ['child' => $item->name], ['child' => $name])
+                ->execute();
+            $this->db->createCommand()
+                ->update($this->assignmentTable, ['item_name' => $item->name], ['item_name' => $name])
+                ->execute();
+        }
+
+        $item->updatedAt = time();
+
+        $this->db->createCommand()
+            ->update($this->itemTable, [
+                'name' => $item->name,
+                'description' => $item->description,
+                'rule_name' => $item->ruleName,
+                'data' => $item->data === null ? null : serialize($item->data),
+                'updated_at' => $item->updatedAt,
+                'sort' => $item->sort
+            ], [
+                         'name' => $name,
+                     ])->execute();
+
+        $this->invalidateCache();
+
+        return true;
+    }
+
+
+
     /**
      * @inheritdoc
      */
