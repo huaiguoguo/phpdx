@@ -70,4 +70,9 @@ class Comment extends \yii\db\ActiveRecord
     }
 
 
+    public function getLook(){
+        return self::hasOne(Looks::className(), ['topic_id'=>'id']);
+    }
+
+
 }

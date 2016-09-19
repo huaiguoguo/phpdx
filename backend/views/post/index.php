@@ -72,7 +72,7 @@ use yii\helpers\Url;
                             <th data-hide="phone, tablet">浏览次数</th>
                             <th data-hide="all">修改时间</th>
                             <th data-hide="phone">状态</th>
-                            <th class="text-right" data-sort-ignore="true">Action</th>
+                            <th class="text-right" data-sort-ignore="true">操作</th>
 
                         </tr>
                         </thead>
@@ -81,7 +81,7 @@ use yii\helpers\Url;
                         <?php foreach ($post as $key => $value): ?>
                             <tr>
                                 <td>
-                                    <?=$value->title;?>
+                                    <?=mb_substr($value->title, 0, 20, 'utf-8');?>
                                 </td>
                                 <td>
                                     <?=mb_substr($value->content, 0, 20, 'utf-8');?>
