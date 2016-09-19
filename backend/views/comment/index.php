@@ -70,7 +70,7 @@ use yii\helpers\Url;
                             <th data-hide="phone, tablet">评论时间</th>
                             <th data-hide="all">修改时间</th>
                             <th data-hide="phone">状态</th>
-                            <th class="text-right" data-sort-ignore="true">Action</th>
+                            <th class="text-right" data-sort-ignore="true">操作</th>
 
                         </tr>
                         </thead>
