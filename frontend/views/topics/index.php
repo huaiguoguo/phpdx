@@ -166,24 +166,7 @@
             </div>
             <div class="panel-body">
                 <ul class="list">
-                    <li>
-                        <a href="/topics/2752" class="popover-with-html"
-                           data-content="Laravel 5.3 文档翻译召集 ">
-                            Laravel 5.3 文档翻译召集
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/topics/2749" class="popover-with-html"
-                           data-content="iOS 客户端恢复下载，老用户需要重新下载">
-                            iOS 客户端恢复下载，老用户需要重新下载
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/topics/2782" class="popover-with-html"
-                           data-content="Laravel 中一些全局性的数据 该如何共享与传递">
-                            Laravel 中一些全局性的数据 该如何共享与传递
-                        </a>
-                    </li>
+                    
                     <li>
                         <a href="/topics/2776" class="popover-with-html"
                            data-content="今天看了一篇文章 大家一起讨论下">
