@@ -82,7 +82,7 @@ use yii\helpers\Url;
                                     <?=mb_substr($value->content, 0, 20, 'utf-8');?>
                                 </td>
                                 <td>
-                                    <?=mb_substr($value->title, 0, 20, 'utf-8');?>
+                                    <?=mb_substr($value->topic->title, 0, 20, 'utf-8');?>
                                 </td>
                                 <td>
                                     <?=$value->user->username;?>
