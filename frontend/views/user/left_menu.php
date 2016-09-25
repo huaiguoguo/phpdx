@@ -16,6 +16,11 @@ use yii\helpers\Url;
             <i class="text-md fa fa-list-alt" aria-hidden="true"></i>
             &nbsp;个人信息
         </a>
+
+        <a href="<?=Url::toRoute(['/user/edit', 'id'=>Yii::$app->user->identity->getId()]);?>" class="list-group-item">
+            <i class="text-md fa fa-list-alt" aria-hidden="true"></i>
+            &nbsp;个人
+        </a>
         <!--
         <a href="<?=Url::toRoute(['/user/edit_avatar', 'id'=>Yii::$app->user->identity->getId()]);?>" class="list-group-item ">
             <i class="text-md fa fa-picture-o" aria-hidden="true"></i>

@@ -166,7 +166,7 @@
             </div>
             <div class="panel-body">
                 <ul class="list">
-                    
+
                     <li>
                         <a href="/topics/2776" class="popover-with-html"
                            data-content="今天看了一篇文章 大家一起讨论下">

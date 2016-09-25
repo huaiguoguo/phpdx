@@ -16,6 +16,7 @@ use yii\web\IdentityInterface;
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
+ * @property string $github_name
  * @property string $email_public
  * @property string $mobile
  * @property string $auth_key
@@ -61,7 +62,7 @@ class User extends ActiveRecord implements IdentityInterface
             ['email_public', 'default', 'value' => 1],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
-            [['introduction', 'realname', 'city', 'company', 'weibo_name', 'weibo_link', 'twitter_account'], 'string'],
+            [['introduction', 'realname', 'city', 'company', 'weibo_name', 'weibo_link','github_name', 'twitter_account'], 'string'],
             [['email_public'], 'integer']
         ];
     }
