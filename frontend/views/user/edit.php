@@ -40,10 +40,10 @@ use yii\helpers\Html;
                 class="close"
                 data-dismiss="alert"
                 aria-hidden="true">&times;</button>
-<?php echo $successMsg;?>
-        成功登录，Chrome 用户可使用 <a target="_blank"
-                             href="https://chrome.google.com/webstore/detail/fcopfkdgikhodlcjkjdppdfkbhmehdon">PHPHub
-            插件</a> 实时接收消息提醒。
+<?= $successMsg;?>
+<!--        成功登录，Chrome 用户可使用 <a target="_blank"-->
+<!--                             href="https://chrome.google.com/webstore/detail/fcopfkdgikhodlcjkjdppdfkbhmehdon">PHPdx-->
+<!--            插件</a> 实时接收消息提醒。-->
     </div>
     <?php else:?>
     <?php endif;?>
