@@ -15,19 +15,18 @@ class UserController extends Controller
 {
 
 
-
     public function actionIndex()
     {
         $data = [];
 
-        if(Yii::$app->request->get('id') == 0){
+        if (Yii::$app->request->get('id') == 0) {
             return $this->redirect('/');
         }
 
         $data['userinfo'] = Yii::$app->user->identity;
 
-        if(Yii::$app->user->isGuest  || Yii::$app->request->get('id')){
-            $id = Yii::$app->request->get('id');
+        if (Yii::$app->user->isGuest || Yii::$app->request->get('id')) {
+            $id               = Yii::$app->request->get('id');
             $data['userinfo'] = User::findOne($id);
         }
 
@@ -38,7 +37,7 @@ class UserController extends Controller
     public function actionEdit()
     {
 
-        if(Yii::$app->request->get('id') == 0 || Yii::$app->user->isGuest){
+        if (Yii::$app->request->get('id') == 0 || Yii::$app->user->isGuest) {
             return $this->redirect('/');
         }
 
@@ -49,9 +48,9 @@ class UserController extends Controller
         if (Yii::$app->request->isPost) {
             if ($User->load(Yii::$app->request->post()) && $User->validate()) {
                 if ($User->save()) {
-                    Yii::$app->session->setFlash('success', 'this is success message');
+                    Yii::$app->session->setFlash('success', '保存成功');
                 } else {
-                    Yii::$app->session->setFlash('error', 'this is error message');
+                    Yii::$app->session->setFlash('error', '保存失败');
                 }
             }
         }
@@ -68,13 +67,13 @@ class UserController extends Controller
 
         $data = [];
 
-        $data['list'] = Yii::$app->user->identity->topics;
+        $data['list']     = Yii::$app->user->identity->topics;
         $data['userinfo'] = Yii::$app->user->identity;
-        if(Yii::$app->user->isGuest  || Yii::$app->request->get('id')){
-            $id = Yii::$app->request->get('id');
-            $userinfo = User::find()->with('topics')->where(['id'=>$id])->one();
+        if (Yii::$app->user->isGuest || Yii::$app->request->get('id')) {
+            $id               = Yii::$app->request->get('id');
+            $userinfo         = User::find()->with('topics')->where(['id' => $id])->one();
             $data['userinfo'] = $userinfo;
-            $data['list'] = $userinfo->topics;
+            $data['list']     = $userinfo->topics;
         }
 
         return $this->render('topics', $data);
@@ -82,45 +81,48 @@ class UserController extends Controller
 
     public function actionReplies()
     {
-        $data = [];
-        $data['list'] = Yii::$app->user->identity->comments;
+        $data             = [];
+        $data['list']     = Yii::$app->user->identity->comments;
         $data['userinfo'] = Yii::$app->user->identity;
-        if(Yii::$app->user->isGuest || Yii::$app->request->get('id')){
-            $id = Yii::$app->request->get('id');
-            $userinfo = User::find()->with('comments')->where(['id'=>$id])->one();
+        if (Yii::$app->user->isGuest || Yii::$app->request->get('id')) {
+            $id               = Yii::$app->request->get('id');
+            $userinfo         = User::find()->with('comments')->where(['id' => $id])->one();
             $data['userinfo'] = $userinfo;
-            $data['list'] = $userinfo->comments;
+            $data['list']     = $userinfo->comments;
         }
+
         return $this->render('replies', $data);
     }
 
 
     public function actionFollower()
     {
-        $data = [];
-        $data['list'] = Yii::$app->user->identity->followers;
+        $data             = [];
+        $data['list']     = Yii::$app->user->identity->followers;
         $data['userinfo'] = Yii::$app->user->identity;
-        if(Yii::$app->user->isGuest  || Yii::$app->request->get('id')){
-            $id = Yii::$app->request->get('id');
-            $userinfo = User::find()->with('followers')->where(['id'=>$id])->one();
+        if (Yii::$app->user->isGuest || Yii::$app->request->get('id')) {
+            $id               = Yii::$app->request->get('id');
+            $userinfo         = User::find()->with('followers')->where(['id' => $id])->one();
             $data['userinfo'] = $userinfo;
-            $data['list'] = $userinfo->followers;
+            $data['list']     = $userinfo->followers;
         }
+
         return $this->render('followers', $data);
     }
 
 
     public function actionFollowing()
     {
-        $data = [];
-        $data['list'] = Yii::$app->user->identity->followings;
+        $data             = [];
+        $data['list']     = Yii::$app->user->identity->followings;
         $data['userinfo'] = Yii::$app->user->identity;
-        if(Yii::$app->user->isGuest  || Yii::$app->request->get('id')){
-            $id = Yii::$app->request->get('id');
-            $userinfo = User::find()->with('followings')->where(['id'=>$id])->one();
+        if (Yii::$app->user->isGuest || Yii::$app->request->get('id')) {
+            $id               = Yii::$app->request->get('id');
+            $userinfo         = User::find()->with('followings')->where(['id' => $id])->one();
             $data['userinfo'] = $userinfo;
-            $data['list'] = $userinfo->followings;
+            $data['list']     = $userinfo->followings;
         }
+
         return $this->render('following', $data);
     }
 
@@ -128,14 +130,15 @@ class UserController extends Controller
     {
         $data = [];
 
-        $data['list'] = Yii::$app->user->identity->votes;
+        $data['list']     = Yii::$app->user->identity->votes;
         $data['userinfo'] = Yii::$app->user->identity;
-        if(Yii::$app->user->isGuest  || Yii::$app->request->get('id')){
-            $id = Yii::$app->request->get('id');
-            $userinfo = User::find()->with('votes')->where(['id'=>$id])->one();
+        if (Yii::$app->user->isGuest || Yii::$app->request->get('id')) {
+            $id               = Yii::$app->request->get('id');
+            $userinfo         = User::find()->with('votes')->where(['id' => $id])->one();
             $data['userinfo'] = $userinfo;
-            $data['list'] = $userinfo->votes;
+            $data['list']     = $userinfo->votes;
         }
+
         return $this->render('votes', $data);
     }
 
