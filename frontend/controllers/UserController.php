@@ -38,7 +38,7 @@ class UserController extends Controller
     public function actionEdit()
     {
 
-        if(Yii::$app->request->get('id') == 0){
+        if(Yii::$app->request->get('id') == 0 || Yii::$app->user->isGuest){
             return $this->redirect('/');
         }
 
