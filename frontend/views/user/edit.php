@@ -35,7 +35,7 @@ use yii\helpers\Html;
 
 
     <?php if($successMsg = Yii::$app->session->getFlash('success')):?>
-    <div class="alert alert-success">
+    <div class="alert alert-success" style="text-align: center">
         <button type="button"
                 class="close"
                 data-dismiss="alert"
