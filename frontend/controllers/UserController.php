@@ -67,13 +67,19 @@ class UserController extends Controller
 
         $data = [];
 
-        $data['list']     = Yii::$app->user->identity->topics;
-        $data['userinfo'] = Yii::$app->user->identity;
-        if (Yii::$app->user->isGuest || Yii::$app->request->get('id')) {
+
+        if (Yii::$app->request->get('id')) {
             $id               = Yii::$app->request->get('id');
             $userinfo         = User::find()->with('topics')->where(['id' => $id])->one();
             $data['userinfo'] = $userinfo;
             $data['list']     = $userinfo->topics;
+        }else{
+            if(!Yii::$app->user->isGuest){
+                $data['list']     = Yii::$app->user->identity->topics;
+                $data['userinfo'] = Yii::$app->user->identity;
+            }else{
+                return $this->redirect('/');
+            }
         }
 
         return $this->render('topics', $data);
@@ -82,13 +88,18 @@ class UserController extends Controller
     public function actionReplies()
     {
         $data             = [];
-        $data['list']     = Yii::$app->user->identity->comments;
-        $data['userinfo'] = Yii::$app->user->identity;
-        if (Yii::$app->user->isGuest || Yii::$app->request->get('id')) {
+        if (Yii::$app->request->get('id')) {
             $id               = Yii::$app->request->get('id');
             $userinfo         = User::find()->with('comments')->where(['id' => $id])->one();
             $data['userinfo'] = $userinfo;
             $data['list']     = $userinfo->comments;
+        }else{
+            if(!Yii::$app->user->isGuest){
+                $data['list']     = Yii::$app->user->identity->comments;
+                $data['userinfo'] = Yii::$app->user->identity;
+            }else{
+                return $this->redirect('/');
+            }
         }
 
         return $this->render('replies', $data);
@@ -98,13 +109,18 @@ class UserController extends Controller
     public function actionFollower()
     {
         $data             = [];
-        $data['list']     = Yii::$app->user->identity->followers;
-        $data['userinfo'] = Yii::$app->user->identity;
         if (Yii::$app->user->isGuest || Yii::$app->request->get('id')) {
             $id               = Yii::$app->request->get('id');
             $userinfo         = User::find()->with('followers')->where(['id' => $id])->one();
             $data['userinfo'] = $userinfo;
             $data['list']     = $userinfo->followers;
+        }else{
+            if(!Yii::$app->user->isGuest){
+                $data['list']     = Yii::$app->user->identity->followers;
+                $data['userinfo'] = Yii::$app->user->identity;
+            }else{
+                return $this->redirect('/');
+            }
         }
 
         return $this->render('followers', $data);
@@ -121,6 +137,13 @@ class UserController extends Controller
             $userinfo         = User::find()->with('followings')->where(['id' => $id])->one();
             $data['userinfo'] = $userinfo;
             $data['list']     = $userinfo->followings;
+        }else{
+            if(!Yii::$app->user->isGuest){
+                $data['list']     = Yii::$app->user->identity->followings;
+                $data['userinfo'] = Yii::$app->user->identity;
+            }else{
+                return $this->redirect('/');
+            }
         }
 
         return $this->render('following', $data);
@@ -130,13 +153,18 @@ class UserController extends Controller
     {
         $data = [];
 
-        $data['list']     = Yii::$app->user->identity->votes;
-        $data['userinfo'] = Yii::$app->user->identity;
         if (Yii::$app->user->isGuest || Yii::$app->request->get('id')) {
             $id               = Yii::$app->request->get('id');
             $userinfo         = User::find()->with('votes')->where(['id' => $id])->one();
             $data['userinfo'] = $userinfo;
             $data['list']     = $userinfo->votes;
+        }else{
+            if(!Yii::$app->user->isGuest){
+                $data['list']     = Yii::$app->user->identity->votes;
+                $data['userinfo'] = Yii::$app->user->identity;
+            }else{
+                return $this->redirect('/');
+            }
         }
 
         return $this->render('votes', $data);
