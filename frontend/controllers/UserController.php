@@ -109,7 +109,7 @@ class UserController extends Controller
     public function actionFollower()
     {
         $data             = [];
-        if (Yii::$app->user->isGuest || Yii::$app->request->get('id')) {
+        if (Yii::$app->request->get('id')) {
             $id               = Yii::$app->request->get('id');
             $userinfo         = User::find()->with('followers')->where(['id' => $id])->one();
             $data['userinfo'] = $userinfo;
@@ -130,9 +130,7 @@ class UserController extends Controller
     public function actionFollowing()
     {
         $data             = [];
-        $data['list']     = Yii::$app->user->identity->followings;
-        $data['userinfo'] = Yii::$app->user->identity;
-        if (Yii::$app->user->isGuest || Yii::$app->request->get('id')) {
+        if (Yii::$app->request->get('id')) {
             $id               = Yii::$app->request->get('id');
             $userinfo         = User::find()->with('followings')->where(['id' => $id])->one();
             $data['userinfo'] = $userinfo;
@@ -153,7 +151,7 @@ class UserController extends Controller
     {
         $data = [];
 
-        if (Yii::$app->user->isGuest || Yii::$app->request->get('id')) {
+        if (Yii::$app->request->get('id')) {
             $id               = Yii::$app->request->get('id');
             $userinfo         = User::find()->with('votes')->where(['id' => $id])->one();
             $data['userinfo'] = $userinfo;
