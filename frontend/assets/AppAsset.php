@@ -29,7 +29,7 @@ class AppAsset extends AssetBundle
     public $js = [
 
 //        "js/jquery-2.1.1.js",
-//"js/jquery-1.11.1.js",
+"js/jquery-1.11.1.js",
 //        "js/bootstrap.min.js",
 //        "js/plugins/metisMenu/jquery.metisMenu.js",
 //        "js/plugins/slimscroll/jquery.slimscroll.min.js",
