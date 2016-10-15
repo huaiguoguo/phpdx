@@ -55,7 +55,7 @@ class SiteController extends Controller
             ],
             [
                 'class'      => 'yii\filters\PageCache',
-                'duration'   => 10,
+                'duration'   => 300,
                 'only'       => ['index'],
                 'dependency' => [
                     'class' => 'yii\caching\DbDependency',
