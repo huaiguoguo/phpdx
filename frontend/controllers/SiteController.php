@@ -80,7 +80,13 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $data['topiclist'] = Topic::find()->where(['<', 'status', 5])->with('user')->with('looks')->limit(20)->all();
+        $topiclist = Topic::find()->select(['id','title', 'category_id', 'created_by'])
+            ->where(['<', 'status', 5])
+            ->with('user')->with('votes')->with('comments')
+            ->limit(20)
+            ->all();
+        
+        $data['topiclist'] = $topiclist;
 
         return $this->render('index', $data);
     }
