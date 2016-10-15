@@ -26,8 +26,10 @@ class SiteController extends Controller
      * @inheritdoc
      */
     public $layout = 'main';
+
     public function behaviors()
     {
+
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -51,6 +53,15 @@ class SiteController extends Controller
                     'logout' => ['post', 'get'],
                 ],
             ],
+            [
+                'class'      => 'yii\filters\PageCache',
+                'duration'   => 360,
+                'only'       => ['index'],
+                'dependency' => [
+                    'class' => 'yii\caching\DbDependency',
+                    'sql'   => 'SELECT count(*) FROM dx_topic;SELECT count(*) FROM dx_vote; SELECT count(*) FROM dx_topic;'
+                ]
+            ]
         ];
     }
 
@@ -73,6 +84,7 @@ class SiteController extends Controller
         ];
     }
 
+
     /**
      * Displays homepage.
      *
@@ -80,18 +92,16 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $topiclist = Topic::find()->select(['id','title', 'category_id', 'created_by'])
+        $topiclist = Topic::find()->select(['id', 'title', 'category_id', 'created_by'])
             ->where(['<', 'status', 5])
             ->with('user')->with('votes')->with('comments')
             ->limit(20)
             ->all();
-        
+
         $data['topiclist'] = $topiclist;
 
         return $this->render('index', $data);
     }
-
-
 
 
     /**

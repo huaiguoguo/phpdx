@@ -16,6 +16,7 @@ return [
         'request'      => [
             'csrfParam' => 'csrf_frontend',
         ],
+        'cache'=>[ ],
         'user'         => [
             'identityClass'   => 'common\models\User',
             'enableAutoLogin' => true,
