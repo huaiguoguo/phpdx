@@ -26,17 +26,17 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title); ?>tttt</title>
     <script>
         Config = {
-//            'cdnDomain': 'https://dn-phphub.qbox.me/',
-//            'user_id': 0,
-//            'user_avatar': "",
-//            'user_link': "",
-//            'routes': {
-//                'notificationsCount': 'https://abc.org/notifications/count',
-//                'upload_image': 'https://abc.org/upload_image'
-//            },
-//            'token': 'K7sMA0lwNF91wxuJnByQtf5zMUyksrYaIOn1BpGB',
-//            'environment': 'production',
-//            'following_users': []
+            'cdnDomain': 'https://dn-phphub.qbox.me/',
+            'user_id': 0,
+            'user_avatar': "",
+            'user_link': "",
+            'routes': {
+                'notificationsCount': 'https://abc.org/notifications/count',
+                'upload_image': '/upload_image'
+            },
+            'token': 'K7sMA0lwNF91wxuJnByQtf5zMUyksrYaIOn1BpGB',
+            'environment': 'production',
+            'following_users': []
         };
 
         var ShowCrxHint = 'no';

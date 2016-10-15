@@ -14,24 +14,6 @@ $comments = $detail->comments;
 ?>
 
 
-<script>
-    Config = {
-        'cdnDomain': 'https://dn-phphub.qbox.me/',
-        'user_id': 1427,
-        'user_avatar': "https://dn-phphub.qbox.me/uploads/avatars/1427_1436517055.jpeg?imageView2/1/w/100/h/100",
-        'user_link': "https://abc.org/users/1427",
-        'routes': {
-//            'notificationsCount': 'https://abc.org/notifications/count',
-            'upload_image': 'https://abc.org/upload_image'
-        },
-        'token': 'K7sMA0lwNF91wxuJnByQtf5zMUyksrYaIOn1BpGB',
-        'environment': 'production',
-        'following_users': []
-    };
-
-    var ShowCrxHint = 'no';
-</script>
-
 <style>
     .topics-show .ribbon .ribbon-anchored {
         background: #fff2f2;
@@ -516,23 +498,4 @@ $comments = $detail->comments;
     });
 
 </script>
-
-<script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-53903425-6', 'auto');
-    ga('send', 'pageview');
-
-</script>
-
 

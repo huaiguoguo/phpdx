@@ -10,6 +10,24 @@ $this->title = 'phpdx';
 ?>
 
 
+<script>
+    Config = {
+        'cdnDomain': 'https://dn-phphub.qbox.me/',
+        'user_id': 1427,
+        'user_avatar': "/img/a4.jpg",
+        'user_link': "/users/1427",
+        'routes': {
+//            'notificationsCount': '/notifications/count',
+            'upload_image': '/upload_image'
+        },
+        'token': 'K7sMA0lwNF91wxuJnByQtf5zMUyksrYaIOn1BpGB',
+        'environment': 'production',
+        'following_users': []
+    };
+
+    var ShowCrxHint = 'no';
+</script>
+
 <div class="container main-container">
     <div class="box text-center site-intro rm-link-color">
         我们是积极向上的 PHP & Yii2 开发者社区

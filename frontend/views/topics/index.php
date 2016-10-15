@@ -7,23 +7,6 @@
  */
 ?>
 
-<script>
-    Config = {
-        'cdnDomain': 'https://dn-phphub.qbox.me/',
-        'user_id': 1427,
-        'user_avatar': "https://dn-phphub.qbox.me/uploads/avatars/1427_1436517055.jpeg?imageView2/1/w/100/h/100",
-        'user_link': "/users/1427",
-        'routes': {
-//            'notificationsCount': '/notifications/count',
-            'upload_image': '/upload_image'
-        },
-        'token': 'K7sMA0lwNF91wxuJnByQtf5zMUyksrYaIOn1BpGB',
-        'environment': 'production',
-        'following_users': []
-    };
-
-    var ShowCrxHint = 'no';
-</script>
 
 
 <div class="container main-container">
