@@ -59,7 +59,7 @@
 
                             <a class="reply_last_time hidden-xs" href="<?=\yii\helpers\Url::toRoute(['topics/detail', 'id'=>$value->id]);?>">
                                 <img class="user_small_avatar avatar-circle"
-                                     src="https://dn-phphub.qbox.me/uploads/avatars/5662_1472806137.jpeg?imageView2/1/w/100/h/100">
+                                     src="/img/a7.jpg">
 
                                 <span class="timeago"><?=date("Y-m-d H:i:s", $value->created_at);?></span>
                             </a>
@@ -206,26 +206,26 @@
                 <h3 class="panel-title">友情社区</h3>
             </div>
             <div class="panel-body text-center" style="padding-top: 5px;">
-                <a href="https://ruby-china.org" target="_blank" rel="nofollow" title="Ruby China"
+                <a href="http://blog.phpdx.cn" target="_blank" rel="nofollow" title="Ruby China"
                    style="padding: 3px;">
-                    <img src="https://dn-phphub.qbox.me/assets/images/friends/ruby-china.png"
+                    <img src="/img/a1.jpg"
                          style="width:150px; margin: 3px 0;">
                 </a>
-                <a href="http://golangtc.com/" target="_blank" rel="nofollow" title="Golang 中国" style="padding: 3px;">
-                    <img src="https://dn-phphub.qbox.me/assets/images/friends/golangcn.png"
+                <a href="http://che.phpdx.cn" target="_blank" rel="nofollow" title="Golang 中国" style="padding: 3px;">
+                    <img src="/img/a2.jpg"
                          style="width:150px; margin: 3px 0;">
                 </a>
-                <a href="http://cnodejs.org/" target="_blank" rel="nofollow" title="CNode：Node.js 中文社区"
+                <a href="http://che.phpdx.cn" target="_blank" rel="nofollow" title="CNode：Node.js 中文社区"
                    style="padding: 3px;">
-                    <img src="https://dn-phphub.qbox.me/assets/images/friends/cnodejs.png"
+                    <img src="/img/a3.jpg"
                          style="width:150px; margin: 3px 0;">
                 </a>
-                <a href="https://testerhome.com" target="_blank" rel="nofollow" title="Tester Home"
+                <a href="http://che.phpdx.cn" target="_blank" rel="nofollow" title="Tester Home"
                    style="padding: 3px;">
-                    <img src="https://dn-phphub.qbox.me/testerhome-logo.png" style="width:150px; margin: 3px 0;">
+                    <img src="/img/a4.jpg" style="width:150px; margin: 3px 0;">
                 </a>
-                <a href="http://laravel.so/" target="_blank" rel="nofollow" title="Laravel So" style="padding: 3px;">
-                    <img src="https://dn-phphub.qbox.me/uploads/images/201608/13/1/qEgPEq6wft.png"
+                <a href="http://phpdx.cn" target="_blank" rel="nofollow" title="Laravel So" style="padding: 3px;">
+                    <img src="/img/a5.jpg"
                          style="width:150px; margin: 3px 0;">
                 </a>
                 <a href="https://easywechat.org/" target="_blank" rel="nofollow" title="Easy We Chat"

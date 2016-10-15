@@ -55,11 +55,14 @@ class SiteController extends Controller
             ],
             [
                 'class'      => 'yii\filters\PageCache',
-                'duration'   => 360,
+                'duration'   => 10,
                 'only'       => ['index'],
                 'dependency' => [
                     'class' => 'yii\caching\DbDependency',
                     'sql'   => 'SELECT count(*) FROM dx_topic;SELECT count(*) FROM dx_vote; SELECT count(*) FROM dx_topic;'
+                ],
+                'variations' => [
+                    Yii::$app->user->isGuest,
                 ]
             ]
         ];
@@ -111,6 +114,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
