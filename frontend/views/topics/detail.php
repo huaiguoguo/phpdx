@@ -39,25 +39,26 @@ $comments = $detail->comments;
                 <div class="meta inline-block">
 
                     <a href="javascript:void();" class="remove-padding-left">
-                        <i class="fa fa-folder text-md" aria-hidden="true"></i> <?=$detail->category->category_name;?>
+                        <i class="fa fa-folder text-md" aria-hidden="true"></i> <?= $detail->category->category_name; ?>
                     </a>
                     ⋅
 
-                    <a href="<?=\yii\helpers\Url::toRoute(['user/index', 'id'=>$detail->created_by]);?>">
-                         </a>
+                    <a href="<?= \yii\helpers\Url::toRoute(['user/index', 'id' => $detail->created_by]); ?>">
+                    </a>
                     ⋅
                     于 <abbr title="2016-08-27 11:54:01"
                             class="timeago"><?= date("Y-m-d H:i:s", $detail->created_at); ?></abbr>
-                    <?php if(count($comments)):?>
+                    <?php if (count($comments)): ?>
+                        ⋅
+
+                        最后回复由
+                        <a href="https://abc.org/users/2447"> <?= $comments[count($comments) - 1]->user->username; ?> </a>
+                        于 <abbr title="2016-09-02 20:14:10"
+                                class="timeago"><?= date("Y-m-d H:i:s", $comments[count($comments) - 1]->created_at); ?></abbr>
+                    <?php endif; ?>
                     ⋅
 
-                    最后回复由
-                    <a href="https://abc.org/users/2447"> <?=$comments[count($comments)-1]->user->username;?> </a>
-                    于 <abbr title="2016-09-02 20:14:10" class="timeago"><?=date("Y-m-d H:i:s", $comments[count($comments)-1]->created_at);?></abbr>
-                    <?php endif;?>
-                    ⋅
-
-                    <?=count($detail->looks);?> 阅读
+                    <?= count($detail->looks); ?> 阅读
 
                 </div>
                 <div class="clearfix"></div>
@@ -72,15 +73,15 @@ $comments = $detail->comments;
 
                 <div data-lang-excellent="本帖已被设为精华帖！" data-lang-wiki="本帖已被设为社区 Wiki！" class="ribbon-container">
                     <div class="ribbon">
-<!--
-                        <div class="ribbon-excellent">
-                            <i class="fa fa-trophy"></i> 本帖已被设为精华帖！
-                        </div>
+                        <!--
+                                                <div class="ribbon-excellent">
+                                                    <i class="fa fa-trophy"></i> 本帖已被设为精华帖！
+                                                </div>
 
-                        <div class="ribbon-anchored">
-                            <i class="fa fa-anchor"></i> 此贴已被下沉，请查看 <a href="https://abc.org/topics/2802">下沉说明</a> 进行修改。
-                        </div>
-                        -->
+                                                <div class="ribbon-anchored">
+                                                    <i class="fa fa-anchor"></i> 此贴已被下沉，请查看 <a href="https://abc.org/topics/2802">下沉说明</a> 进行修改。
+                                                </div>
+                                                -->
                     </div>
                 </div>
 
@@ -106,16 +107,20 @@ $comments = $detail->comments;
                 </div>
 
                 <div class="pull-right actions">
-                    <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity->getId() == $detail->created_by ):?>
-                    <a id="topic-append-button" href="javascript:void(0);" class="admin  popover-with-html" data-toggle="modal" data-target="#exampleModal" data-content="帖子附言，添加附言后所有参与讨论的用户都能收到消息提醒，包括点赞和评论的用户" data-original-title="" title="">
-                        <i class="fa fa-plus"></i>
-                    </a>
+                    <?php if (!Yii::$app->user->isGuest && Yii::$app->user->identity->getId() == $detail->created_by): ?>
+                        <a id="topic-append-button" href="javascript:void(0);" class="admin  popover-with-html"
+                           data-toggle="modal" data-target="#exampleModal"
+                           data-content="帖子附言，添加附言后所有参与讨论的用户都能收到消息提醒，包括点赞和评论的用户" data-original-title="" title="">
+                            <i class="fa fa-plus"></i>
+                        </a>
 
-                    <a id="topic-edit-button" href="<?=\yii\helpers\Url::toRoute(['topics/edit', 'id'=>$detail->id]);?>" data-content="编辑" class="admin  popover-with-html" data-original-title="" title="">
-                        <i class="fa fa-pencil-square-o"></i>
-                    </a>
+                        <a id="topic-edit-button"
+                           href="<?= \yii\helpers\Url::toRoute(['topics/edit', 'id' => $detail->id]); ?>"
+                           data-content="编辑" class="admin  popover-with-html" data-original-title="" title="">
+                            <i class="fa fa-pencil-square-o"></i>
+                        </a>
 
-                    <?php endif;?>
+                    <?php endif; ?>
 
                 </div>
                 <div class="clearfix"></div>
@@ -167,24 +172,24 @@ $comments = $detail->comments;
 
                 <div class="btn-group">
 
-                    <?php if(!Yii::$app->user->isGuest):?>
-                    <a data-ajax="post" href="javascript:void(0);"
-                       data-url="<?= \yii\helpers\Url::toRoute(['topics/upvote']); ?>"
-                       title="Up Vote"
-                       data-csrf_param= '<?= Yii::$app->request->csrfParam; ?>'
-                       data-csrf_token = '<?= Yii::$app->request->csrfToken; ?>'
-                    data-content="点赞相当于收藏，可以在个人页面的「赞过的话题」导航里查看"
-                    id="up-vote"
-                    class="vote btn btn-primary btn-inverted popover-with-html ">
-                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                    点赞
-                    </a>
-                        <?php else:?>
+                    <?php if (!Yii::$app->user->isGuest): ?>
+                        <a data-ajax="post" href="javascript:void(0);"
+                           data-url="<?= \yii\helpers\Url::toRoute(['topics/upvote']); ?>"
+                           title="Up Vote"
+                           data-csrf_param='<?= Yii::$app->request->csrfParam; ?>'
+                           data-csrf_token='<?= Yii::$app->request->csrfToken; ?>'
+                           data-content="点赞相当于收藏，可以在个人页面的「赞过的话题」导航里查看"
+                           id="up-vote"
+                           class="vote btn btn-primary btn-inverted popover-with-html ">
+                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                            点赞
+                        </a>
+                    <?php else: ?>
                         <a class="vote btn btn-primary btn-inverted popover-with-html">
 
                             登录点赞
                         </a>
-                        <?php endif;?>
+                    <?php endif; ?>
 
                 </div>
 
@@ -194,14 +199,15 @@ $comments = $detail->comments;
 
                         <?php
                         $votes = $detail->votes;
-                        foreach ($votes as $key=>$value):
-                        ?>
-                        <a href="<?=\yii\helpers\Url::toRoute(['user/index', 'id'=>$value->created_by]);?>" data-userId="438">
-                            <img class="img-thumbnail avatar avatar-middle"
-                                 src="<?=$value->user->avatar;?>"
-                                 style="width:48px;height:48px;">
-                        </a>
-                        <?php endforeach;?>
+                        foreach ($votes as $key => $value):
+                            ?>
+                            <a href="<?= \yii\helpers\Url::toRoute(['user/index', 'id' => $value->created_by]); ?>"
+                               data-userId="438">
+                                <img class="img-thumbnail avatar avatar-middle"
+                                     src="<?= $value->user->avatar; ?>"
+                                     style="width:48px;height:48px;">
+                            </a>
+                        <?php endforeach; ?>
                     </div>
                     <a class="voted-template" href="" data-userId="" style="display:none">
                         <img class="img-thumbnail avatar avatar-middle" src="" style="width:48px;height:48px;">
@@ -214,69 +220,76 @@ $comments = $detail->comments;
         <!-- Reply List -->
         <div class="replies panel panel-default list-panel replies-index padding-md">
             <div class="panel-heading">
-                <div class="total">回复数量: <b><?=count($detail->comments);?></b></div>
+                <div class="total">回复数量: <b><?= count($detail->comments); ?></b></div>
             </div>
 
             <div class="panel-body">
                 <?php
                 $list = $detail->comments;
-                if($list):
-                ?>
-                <ul class="list-group row">
+                if ($list):
+                    ?>
+                    <ul class="list-group row">
 
-                    <?php foreach ($list as $key => $value): ?>
-                        <li class="list-group-item media" style="margin-top: 0px;">
+                        <?php foreach ($list as $key => $value): ?>
+                            <li class="list-group-item media" style="margin-top: 0px;">
 
-                            <div class="avatar pull-left">
-                                <a href="<?=\yii\helpers\Url::toRoute(['user/index', 'id'=>$value->created_by]);?>">
-                                    <img class="media-object img-thumbnail avatar avatar-middle"
-                                         alt="<?=$value->user->username;?>"
-                                         src="<?=$value->user->avatar;?>"
-                                         style="width:48px;height:48px;"/>
-                                </a>
-                            </div>
-
-                            <div class="infos">
-                                <div class="media-heading">
-                                    <a href="<?=\yii\helpers\Url::toRoute(['user/index', 'id'=>$value->created_by]);?>" title="<?=$value->user->username;?>"
-                                       class="remove-padding-left author">
-                                        <?=$value->user->username;?>
+                                <div class="avatar pull-left">
+                                    <a href="<?= \yii\helpers\Url::toRoute(['user/index', 'id' => $value->created_by]); ?>">
+                                        <img class="media-object img-thumbnail avatar avatar-middle"
+                                             alt="<?= $value->user->username; ?>"
+                                             src="<?= $value->user->avatar; ?>"
+                                             style="width:48px;height:48px;"/>
                                     </a>
-                                    <span class="introduction"><?=$value->user->introduction;?></span>
-                                    <span class="operate pull-right">
-                                      <a class="comment-vote" data-ajax="post" id="reply-up-vote-12827" href="javascript:void(0);" data-url="https://abc.org/replies/12827/vote" title="Vote Up">
+                                </div>
+
+                                <div class="infos">
+                                    <div class="media-heading">
+                                        <a href="<?= \yii\helpers\Url::toRoute(['user/index', 'id' => $value->created_by]); ?>"
+                                           title="<?= $value->user->username; ?>"
+                                           class="remove-padding-left author">
+                                            <?= $value->user->username; ?>
+                                        </a>
+                                        <span class="introduction"><?= $value->user->introduction; ?></span>
+                                        <span class="operate pull-right">
+                                      <a class="comment-vote" data-ajax="post" id="reply-up-vote-12827"
+                                         href="javascript:void(0);" data-url="https://abc.org/replies/12827/vote"
+                                         title="Vote Up">
                                          <i class="fa fa-thumbs-o-up" style="font-size:14px;"></i>
                                          <span class="vote-count"></span>
                                       </a>
                                       <span> ⋅  </span>
-                                      <a class="fa fa-reply" href="javascript:void(0)" onclick="replyOne('<?=$value->user->username;?>');" title="回复 <?=$value->user->username;?>"></a>
+                                      <a class="fa fa-reply" href="javascript:void(0)"
+                                         onclick="replyOne('<?= $value->user->username; ?>');"
+                                         title="回复 <?= $value->user->username; ?>"></a>
                                     </span>
-                                    <div class="meta">
-                                        <a name="reply<?=$key+1;?>" class="anchor" href="#reply<?=$key+1;?>" aria-hidden="true">#<?=$key+1;?></a>
-                                        <span> ⋅  </span>
-                                        <abbr class="timeago" title="<?=date("Y-m-d H:i:s", $value->created_at);?>"><?=date("Y-m-d H:i:s", $value->created_at);?></abbr>
+                                        <div class="meta">
+                                            <a name="reply<?= $key + 1; ?>" class="anchor" href="#reply<?= $key + 1; ?>"
+                                               aria-hidden="true">#<?= $key + 1; ?></a>
+                                            <span> ⋅  </span>
+                                            <abbr class="timeago"
+                                                  title="<?= date("Y-m-d H:i:s", $value->created_at); ?>"><?= date("Y-m-d H:i:s", $value->created_at); ?></abbr>
+                                        </div>
+                                    </div>
+
+                                    <div class="media-body markdown-reply content-body">
+                                        <p>
+
+                                            <?= $value->content; ?>
+                                        </p>
                                     </div>
                                 </div>
+                            </li>
 
-                                <div class="media-body markdown-reply content-body">
-                                    <p>
+                        <?php endforeach; ?>
+                        <a name="last-reply" class="anchor" href="#last-reply" aria-hidden="true"></a>
+                    </ul>
 
-                                        <?=$value->content;?>
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-
-                    <?php endforeach; ?>
-                    <a name="last-reply" class="anchor" href="#last-reply" aria-hidden="true"></a>
-                </ul>
-
-                <?php else:?>
+                <?php else: ?>
 
 
-                <div id="replies-empty-block" class="empty-block hide">暂无评论~~</div>
+                    <div id="replies-empty-block" class="empty-block hide">暂无评论~~</div>
 
-                <?php endif;?>
+                <?php endif; ?>
 
                 <!-- Pager -->
                 <div class="pull-right" style="padding-right:20px">
@@ -289,9 +302,11 @@ $comments = $detail->comments;
         <div class="reply-box form box-block">
 
 
-            <form method="POST" action="<?=\yii\helpers\Url::toRoute(['topics/replies']);?>" accept-charset="UTF-8" id="reply-form">
-                <input type="hidden" name="<?=Yii::$app->request->csrfParam;?>" value="<?=Yii::$app->request->csrfToken;?>">
-                <input type="hidden" name="topic_id" value="<?=$detail->id;?>"/>
+            <form method="POST" action="<?= \yii\helpers\Url::toRoute(['topics/replies']); ?>" accept-charset="UTF-8"
+                  id="reply-form">
+                <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>"
+                       value="<?= Yii::$app->request->csrfToken; ?>">
+                <input type="hidden" name="topic_id" value="<?= $detail->id; ?>"/>
 
                 <div id="reply_notice" class="box">
                     <ul class="helpblock list">
@@ -312,8 +327,10 @@ $comments = $detail->comments;
                 </div>
 
                 <div class="form-group">
-                        <textarea class="form-control" <?php if(Yii::$app->user->isGuest):?> disabled="disabled" placeholder="需要登录后才能发表评论." <?php endif;?> rows="5" placeholder="请使用 Markdown 格式书写 ;-)"
-                                  style="overflow:hidden" id="reply_content" name="body" cols="50"></textarea>
+                        <textarea
+                            class="form-control" <?php if (Yii::$app->user->isGuest): ?> disabled="disabled" placeholder="需要登录后才能发表评论." <?php endif; ?>
+                            rows="5" placeholder="请使用 Markdown 格式书写 ;-)"
+                            style="overflow:hidden" id="reply_content" name="body" cols="50"></textarea>
                 </div>
 
                 <div class="form-group reply-post-submit">
@@ -341,18 +358,18 @@ $comments = $detail->comments;
             <div class="panel-body text-center topic-author-box">
 
 
+                <?php if (!Yii::$app->user->isGuest && Yii::$app->user->identity->getId() == $detail->created_by): ?>
+                    <a class="pull-right popover-with-html text-lg animated rubberBand edit-btn"
+                       href="<?= \yii\helpers\Url::toRoute(['user/edit', 'id' => $detail->created_by]); ?>"
+                       data-content="编辑个人资料" data-original-title="" title="">
+                        <i class="fa fa-cog"></i>
+                    </a>
+                <?php endif; ?>
 
-                <?php if(!Yii::$app->user->isGuest && Yii::$app->user->identity->getId() == $detail->created_by ):?>
-                <a class="pull-right popover-with-html text-lg animated rubberBand edit-btn" href="<?=\yii\helpers\Url::toRoute(['user/edit', 'id'=>$detail->created_by]);?>" data-content="编辑个人资料" data-original-title="" title="">
-                    <i class="fa fa-cog"></i>
-                </a>
-                <?php endif;?>
-
-                <a href="<?=\yii\helpers\Url::toRoute(['user/index', 'id'=>$detail->created_by]);?>">
+                <a href="<?= \yii\helpers\Url::toRoute(['user/index', 'id' => $detail->created_by]); ?>">
                     <img src="<?= $detail->user->avatar; ?>" style="width:80px; height:80px;margin:5px;"
                          class="img-thumbnail avatar"/>
                 </a>
-
 
 
                 <div class="media-body padding-top-sm">
@@ -394,12 +411,15 @@ $comments = $detail->comments;
                     <?php
                     $topics = $detail->user->topics;
                     foreach ($topics as $key => $value):?>
-                        <li>
-                            <a href="https://abc.org/topics/2702" class="popover-with-html"
-                               data-content="<?= $value->title; ?>">
-                                <?= $value->title; ?>
-                            </a>
-                        </li>
+                        <?php if ($value->id != Yii::$app->request->get('id')): ?>
+                            <li>
+                                <a href="<?= \yii\helpers\Url::toRoute(['topics/detail', 'id' => $value->id]); ?>"
+                                   class="popover-with-html"
+                                   data-content="<?= $value->title; ?>">
+                                    <?= $value->title; ?>
+                                </a>
+                            </li>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </ul>
             </div>
