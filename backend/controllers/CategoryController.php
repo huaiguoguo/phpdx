@@ -16,10 +16,38 @@ use yii\helpers\Json;
 use yii\base\Exception;
 use common\helper\Dump;
 use common\extend\EController;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 
 
 class CategoryController extends EController
 {
+
+
+
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index', 'add', 'edit', 'del', 'space'],
+                        'allow'   => true,
+                        'roles'   => ['@'],
+                    ]
+                ],
+            ],
+            'verbs'  => [
+                'class'   => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post', 'get'],
+                ],
+            ]
+        ];
+    }
+
+
     public function actionIndex()
     {
         $data         = [];

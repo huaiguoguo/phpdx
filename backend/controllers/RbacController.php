@@ -28,36 +28,36 @@ class RbacController extends yii\web\Controller
     public $authManager;
 
 
-//    public function behaviors()
-//    {
-//        return [
-//            'access' => [
-//                'class' => AccessControl::className(),
-//                'rules' => [
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
 //                    [
 //                        'actions' => ['login', 'index', 'error'],
 //                        'allow'   => true,
 //                    ],
-//                    [
-//                        'actions' => [
-//                            'getpermissions', 'getpowerbylevel', 'role', 'addrole', 'delrole', 'checkrolename', 'updaterole',
-//                            'getrolebylevel', 'getrole', 'user', 'adduser', 'getuser', 'updateuser', 'checkuser',
-//                            'checkusername', 'getlevelrole', 'getnextarea', 'getnexthouse', 'updatemainpassword', 'edituser',
-//                            'permission', 'deletepermission', 'add-permission'
-//                        ],
-//                        'allow'   => true,
-//                        'roles'   => ['@'],
-//                    ],
-//                ],
-//            ],
-//            'verbs'  => [
-//                'class'   => VerbFilter::className(),
-//                'actions' => [
-//                    'delete' => ['post'],
-//                ],
-//            ],
-//        ];
-//    }
+                    [
+                        'actions' => [
+                            'index','getpermissions', 'getpowerbylevel', 'role', 'addrole', 'delrole', 'checkrolename', 'updaterole',
+                            'getrolebylevel', 'getrole', 'user', 'adduser', 'getuser', 'updateuser', 'checkuser',
+                            'checkusername', 'getlevelrole', 'getnextarea', 'getnexthouse', 'updatemainpassword', 'edituser',
+                            'permission', 'deletepermission', 'add-permission'
+                        ],
+                        'allow'   => true,
+                        'roles'   => ['@'],
+                    ],
+                ],
+            ],
+            'verbs'  => [
+                'class'   => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['post'],
+                ],
+            ],
+        ];
+    }
 
 
     public function init()
@@ -72,10 +72,10 @@ class RbacController extends yii\web\Controller
         $auth = Yii::$app->authManager;
 
 
-        $createPermission              = $auth->createPermission('aaasdfasdfds');
-        $createPermission->description = 'test';
-        $createPermission->level       = 0;
-        $auth->add($createPermission);
+//        $createPermission              = $auth->createPermission('aaasdfasdfds');
+//        $createPermission->description = 'test';
+//        $createPermission->level       = 0;
+//        $auth->add($createPermission);
 
         return $this->render('index', $data);
     }

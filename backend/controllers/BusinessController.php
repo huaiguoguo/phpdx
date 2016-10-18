@@ -9,11 +9,33 @@
 namespace backend\controllers;
 
 use yii;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 
 
 class BusinessController extends yii\web\Controller
 {
-
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index'],
+                        'allow'   => true,
+                        'roles'   => ['@'],
+                    ]
+                ],
+            ],
+            'verbs'  => [
+                'class'   => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post', 'get'],
+                ],
+            ]
+        ];
+    }
 
     public function actionIndex()
     {

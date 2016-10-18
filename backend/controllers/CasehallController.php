@@ -14,9 +14,34 @@ use yii;
 use common\extend\EController;
 use common\models\Casehall;
 use yii\web\UploadedFile;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 
 class CasehallController extends EController
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index', 'add', 'edit', 'del', 'addimage', 'upload-image'],
+                        'allow'   => true,
+                        'roles'   => ['@'],
+                    ]
+                ],
+            ],
+            'verbs'  => [
+                'class'   => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post', 'get'],
+                ],
+            ]
+        ];
+    }
+
+
 
     /**
      * @author: 火柴<290559038@qq.com>

@@ -13,9 +13,36 @@ use common\extend\EController;
 use common\models\Topic;
 use yii\db\Exception;
 use yii\web\Response;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 
 class PostController extends EController
 {
+
+
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index', 'delete'],
+                        'allow'   => true,
+                        'roles'   => ['@'],
+                    ]
+                ],
+            ],
+            'verbs'  => [
+                'class'   => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post', 'get'],
+                ],
+            ]
+        ];
+    }
+
+
 
 
     public function actionIndex()

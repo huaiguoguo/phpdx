@@ -20,9 +20,37 @@ use common\models\Packages;
 use common\models\Goods;
 use common\models\PackageGoods;
 use common\helper\Dump;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 
 class PackageController extends EController
 {
+
+
+
+
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index'],
+                        'allow'   => true,
+                        'roles'   => ['@'],
+                    ]
+                ],
+            ],
+            'verbs'  => [
+                'class'   => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post', 'get'],
+                ],
+            ]
+        ];
+    }
+
     public function actionIndex()
     {
         $data                = [];

@@ -21,12 +21,35 @@ use common\models\Goods;
 use yii\web\UploadedFile;
 use common\models\UploadForm;
 use common\core\HoComm;
-
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 
 class GoodsController extends EController
 {
 
 
+
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index', 'add', 'edit', 'del', 'upload'],
+                        'allow'   => true,
+                        'roles'   => ['@'],
+                    ]
+                ],
+            ],
+            'verbs'  => [
+                'class'   => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post', 'get'],
+                ],
+            ]
+        ];
+    }
 
 
     public function actionIndex()
