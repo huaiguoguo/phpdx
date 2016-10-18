@@ -49,7 +49,7 @@ class PostController extends EController
     {
         $data = [];
 
-        $data['post'] = Topic::find()->where(['<', 'status', 5])->with('user')->with('looks')->all();
+        $data['post'] = Topic::find()->where(['<', 'status', 5])->with('user')->all();
 
         return $this->render('index', $data);
     }
