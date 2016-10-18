@@ -27,13 +27,8 @@ class CommentController extends Controller
                         'actions' => ['index'],
                         'allow'   => true,
                         'roles'   => ['@'],
-                    ],
-                    [
-                        'actions' => ['logout'],
-                        'allow'   => true,
-                        'roles'   => ['@'],
-                    ],
-                ],
+                    ]
+                ]
             ],
             'verbs'  => [
                 'class'   => VerbFilter::className(),
