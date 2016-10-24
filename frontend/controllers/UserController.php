@@ -78,14 +78,17 @@ class UserController extends Controller
         }
 
         $uid = Yii::$app->request->get('id');
-        
+
         if ($uid) {
-            $userinfo         = User::find()->with('topics')->where(['id' => $uid])->one();
+            $userinfo = User::find()->with('topics')->where(['id' => $uid])->one();
+            if (!$userinfo) {
+                return $this->redirect('/');
+            }
             $data['userinfo'] = $userinfo;
             $data['list']     = $userinfo->topics;
         } else {
-            $data['list']     = Yii::$app->user->identity->topics;
             $data['userinfo'] = Yii::$app->user->identity;
+            $data['list']     = Yii::$app->user->identity->topics;
         }
 
         return $this->render('topics', $data);
