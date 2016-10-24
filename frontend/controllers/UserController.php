@@ -19,16 +19,22 @@ class UserController extends Controller
     {
         $data = [];
 
-        if (Yii::$app->request->get('id') == 0) {
+        $uid = Yii::$app->request->get('id');
+        if (!$uid) {
             return $this->redirect('/');
         }
 
-        $data['userinfo'] = Yii::$app->user->identity;
-
-        if (Yii::$app->user->isGuest || Yii::$app->request->get('id')) {
-            $id               = Yii::$app->request->get('id');
-            $data['userinfo'] = User::findOne($id);
+        if (Yii::$app->user->isGuest) {
+            $userinfo = User::findOne($uid);
+        } else {
+            $userinfo = Yii::$app->user->identity;
         }
+
+        if (!$userinfo) {
+            return $this->redirect('/');
+        }
+
+        $data['userinfo'] = $userinfo;
 
         return $this->render('index', $data);
     }
@@ -36,8 +42,8 @@ class UserController extends Controller
 
     public function actionEdit()
     {
-
-        if (Yii::$app->request->get('id') == 0 || Yii::$app->user->isGuest) {
+        $uid = Yii::$app->request->get('id');
+        if (!$uid || Yii::$app->user->isGuest) {
             return $this->redirect('/');
         }
 
@@ -67,19 +73,19 @@ class UserController extends Controller
 
         $data = [];
 
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect('/');
+        }
 
-        if (Yii::$app->request->get('id')) {
-            $id               = Yii::$app->request->get('id');
-            $userinfo         = User::find()->with('topics')->where(['id' => $id])->one();
+        $uid = Yii::$app->request->get('id');
+        
+        if ($uid) {
+            $userinfo         = User::find()->with('topics')->where(['id' => $uid])->one();
             $data['userinfo'] = $userinfo;
             $data['list']     = $userinfo->topics;
-        }else{
-            if(!Yii::$app->user->isGuest){
-                $data['list']     = Yii::$app->user->identity->topics;
-                $data['userinfo'] = Yii::$app->user->identity;
-            }else{
-                return $this->redirect('/');
-            }
+        } else {
+            $data['list']     = Yii::$app->user->identity->topics;
+            $data['userinfo'] = Yii::$app->user->identity;
         }
 
         return $this->render('topics', $data);
@@ -87,17 +93,17 @@ class UserController extends Controller
 
     public function actionReplies()
     {
-        $data             = [];
+        $data = [];
         if (Yii::$app->request->get('id')) {
             $id               = Yii::$app->request->get('id');
             $userinfo         = User::find()->with('comments')->where(['id' => $id])->one();
             $data['userinfo'] = $userinfo;
             $data['list']     = $userinfo->comments;
-        }else{
-            if(!Yii::$app->user->isGuest){
+        } else {
+            if (!Yii::$app->user->isGuest) {
                 $data['list']     = Yii::$app->user->identity->comments;
                 $data['userinfo'] = Yii::$app->user->identity;
-            }else{
+            } else {
                 return $this->redirect('/');
             }
         }
@@ -108,17 +114,17 @@ class UserController extends Controller
 
     public function actionFollower()
     {
-        $data             = [];
+        $data = [];
         if (Yii::$app->request->get('id')) {
             $id               = Yii::$app->request->get('id');
             $userinfo         = User::find()->with('followers')->where(['id' => $id])->one();
             $data['userinfo'] = $userinfo;
             $data['list']     = $userinfo->followers;
-        }else{
-            if(!Yii::$app->user->isGuest){
+        } else {
+            if (!Yii::$app->user->isGuest) {
                 $data['list']     = Yii::$app->user->identity->followers;
                 $data['userinfo'] = Yii::$app->user->identity;
-            }else{
+            } else {
                 return $this->redirect('/');
             }
         }
@@ -129,17 +135,17 @@ class UserController extends Controller
 
     public function actionFollowing()
     {
-        $data             = [];
+        $data = [];
         if (Yii::$app->request->get('id')) {
             $id               = Yii::$app->request->get('id');
             $userinfo         = User::find()->with('followings')->where(['id' => $id])->one();
             $data['userinfo'] = $userinfo;
             $data['list']     = $userinfo->followings;
-        }else{
-            if(!Yii::$app->user->isGuest){
+        } else {
+            if (!Yii::$app->user->isGuest) {
                 $data['list']     = Yii::$app->user->identity->followings;
                 $data['userinfo'] = Yii::$app->user->identity;
-            }else{
+            } else {
                 return $this->redirect('/');
             }
         }
@@ -156,11 +162,11 @@ class UserController extends Controller
             $userinfo         = User::find()->with('votes')->where(['id' => $id])->one();
             $data['userinfo'] = $userinfo;
             $data['list']     = $userinfo->votes;
-        }else{
-            if(!Yii::$app->user->isGuest){
+        } else {
+            if (!Yii::$app->user->isGuest) {
                 $data['list']     = Yii::$app->user->identity->votes;
                 $data['userinfo'] = Yii::$app->user->identity;
-            }else{
+            } else {
                 return $this->redirect('/');
             }
         }
