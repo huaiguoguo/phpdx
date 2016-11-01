@@ -98,6 +98,34 @@ class WechatController extends yii\web\Controller
 
     }
 
+    public function actionGetAccessToken(){
+        $appid = "wxa25fb4f0180cfb59";
+        $appsecret = "d020cff1db67b9b7425be30d0c369aa2";
+        $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$appid."&secret=".$appsecret;
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $access_token = curl_exec($ch);
+        curl_close($ch);
+        if(curl_errno($ch)){
+            var_dump(curl_error($ch));
+        }
+        $arr = json_decode($access_token,true);
+        dump($arr);
+    }
+
+
+    public function actionHttpcurl(){
+        $ch = curl_init();
+        $url = "http://www.qq.com";
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $output = curl_exec($ch);
+        curl_close($ch);
+        print_r($output);
+    }
+
 
     public function TemplatePicText()
     {
