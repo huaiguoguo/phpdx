@@ -15,7 +15,7 @@ class WechatController extends yii\web\Controller
     public function actionIndex()
     {
         $data = [];
-        if (!$echostr = $this->check()) {
+        if ($echostr = $this->check()) {
             return $echostr;
         }
         return $this->render('index', $data);
