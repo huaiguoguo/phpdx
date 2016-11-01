@@ -68,6 +68,30 @@ class WechatController extends yii\web\Controller
             }
         }
 
+        if (strtolower($postObj->MsgType) == 'text') {
+
+            if($postObj->Content == 'imooc'){
+                $toUser   = $postObj->FromUserName;
+                $fromUser = $postObj->ToUserName;
+                $time     = time();
+                $MsgType  = 'text';
+                $Content  = "you are very good";
+                $template = "
+                                <xml>
+                                <ToUserName><![CDATA[%s]]></ToUserName>
+                                <FromUserName><![CDATA[%s]]></FromUserName>
+                                <CreateTime>%s</CreateTime>
+                                <MsgType><![CDATA[%s]]></MsgType>
+                                <Content><![CDATA[%s]]></Content>
+                                </xml>
+                            ";
+                return sprintf($template, $toUser, $fromUser, $time, $MsgType, $Content);
+            }
+
+        }
+
+
+
     }
 
 
