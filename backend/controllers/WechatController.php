@@ -24,6 +24,7 @@ class WechatController extends yii\web\Controller
 //    }
 
     public $enableCsrfValidation = false;
+
     public function actionIndex()
     {
         $echoStr = Yii::$app->request->get('echostr');
@@ -53,7 +54,7 @@ class WechatController extends yii\web\Controller
                 $fromUser = $postObj->ToUserName;
                 $time     = time();
                 $MsgType  = 'text';
-                $Content  = "公众账号:".$postObj->ToUserName."\n微信用户:".$postObj->FromUserName;
+                $Content  = "公众账号:" . $postObj->ToUserName . "\n微信用户:" . $postObj->FromUserName;
                 $template = "
                                 <xml>
                                 <ToUserName><![CDATA[%s]]></ToUserName>
@@ -63,14 +64,15 @@ class WechatController extends yii\web\Controller
                                 <Content><![CDATA[%s]]></Content>
                                 </xml>
                             ";
-                $info = sprintf($template, $toUser, $fromUser, $time, $MsgType, $Content);
+                $info     = sprintf($template, $toUser, $fromUser, $time, $MsgType, $Content);
+
                 return $info;
             }
         }
 
         if (strtolower($postObj->MsgType) == 'text') {
 
-            if($postObj->Content == 'imooc'){
+            if ($postObj->Content == 'imooc') {
                 $toUser   = $postObj->FromUserName;
                 $fromUser = $postObj->ToUserName;
                 $time     = time();
@@ -85,12 +87,52 @@ class WechatController extends yii\web\Controller
                                 <Content><![CDATA[%s]]></Content>
                                 </xml>
                             ";
-                return sprintf($template, $toUser, $fromUser, $time, $MsgType, $Content);
-            }
 
+                return sprintf($template, $toUser, $fromUser, $time, $MsgType, $Content);
+            }elseif ($postObj->Content == 'tuwen1') {
+                $toUser   = $postObj->FromUserName;
+                $fromUser = $postObj->ToUserName;
+                return sprintf($this->TemplatePicText(), $toUser, $fromUser, time(), "news");
+            }
+        }
+
+    }
+
+
+    public function TemplatePicText()
+    {
+        $arr = [
+            [
+                'title'       => '火柴',
+                'description' => '火柴描述',
+                'picUrl'      => 'http://www.imooc.com/static/img/common/logo.png',
+                'url'         => 'http://www.imooc.com'
+            ]
+        ];
+
+        $template = "
+                        <xml>
+                        <ToUserName><![CDATA[%s]]></ToUserName>
+                        <FromUserName><![CDATA[%s]]></FromUserName>
+                        <CreateTime>%s</CreateTime>
+                        <MsgType><![CDATA[%s]]></MsgType>
+                        <ArticleCount>" . count($arr) . "</ArticleCount>
+                        <Articles>";
+
+        foreach ($arr as $key => $value) {
+            $template .= "<item>
+                        <Title><![CDATA[" . $value['title'] . "]></Title>
+                        <Description><![CDATA[" . $value['description'] . "]]></Description>
+                        <PicUrl><![CDATA[" . $value['picUrl'] . "]]></PicUrl>
+                        <Url><![CDATA[" . $value['url'] . "]]></Url>
+                        </item>";
         }
 
 
+        $template .= "</Articles>
+                        </xml>";
+
+        return $template;
 
     }
 
