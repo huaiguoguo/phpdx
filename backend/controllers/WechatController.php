@@ -39,15 +39,6 @@ class WechatController extends yii\web\Controller
     {
         $postAtr = $GLOBALS['HTTP_RAW_POST_DATA'];
         // 2.处理消息类型
-        /*
-        <xml>
-        <ToUserName><![CDATA[toUser]]></ToUserName>
-        <FromUserName><![CDATA[FromUser]]></FromUserName>
-        <CreateTime>123456789</CreateTime>
-        <MsgType><![CDATA[event]]></MsgType>
-        <Event><![CDATA[subscribe]]></Event>
-        </xml>
-        */
         $postObj = simplexml_load_string($postAtr);
 //        $postObj->ToUserName = '';
 //        $postObj->FromUserName = '';
@@ -62,16 +53,7 @@ class WechatController extends yii\web\Controller
                 $fromUser = $postObj->ToUserName;
                 $time     = time();
                 $MsgType  = 'text';
-                $Content  = "欢迎关注";
-                /*
-<xml>
-<ToUserName><![CDATA[toUser]]></ToUserName>
-<FromUserName><![CDATA[fromUser]]></FromUserName>
-<CreateTime>12345678</CreateTime>
-<MsgType><![CDATA[text]]></MsgType>
-<Content><![CDATA[你好]]></Content>
-</xml>
- */
+                $Content  = "公众账号:".$postObj->ToUserName."\n微信用户:".$postObj->FromUserName;
                 $template = "
                                 <xml>
                                 <ToUserName><![CDATA[%s]]></ToUserName>
