@@ -23,7 +23,7 @@ class WechatController extends yii\web\Controller
 //        return parent::beforeAction($action);
 //    }
 
-
+    public $enableCsrfValidation = false;
     public function actionIndex()
     {
         $echoStr = Yii::$app->request->get('echostr');
