@@ -121,7 +121,7 @@ class WechatController extends yii\web\Controller
 
         foreach ($arr as $key => $value) {
             $template .= "<item>
-                        <Title><![CDATA[" . $value['title'] . "]></Title>
+                        <Title><![CDATA[" . $value['title'] . "]]></Title>
                         <Description><![CDATA[" . $value['description'] . "]]></Description>
                         <PicUrl><![CDATA[" . $value['picUrl'] . "]]></PicUrl>
                         <Url><![CDATA[" . $value['url'] . "]]></Url>
