@@ -15,7 +15,11 @@ class WechatController extends yii\web\Controller
     public function actionIndex()
     {
         $data = [];
-
+        $myfile = fopen("newfile3.txt", "w") or die("Unable to open file!");
+        $txt = "test";
+        fwrite($myfile, $txt);
+        fclose($myfile);
+        exit;
 
         $signature = $_GET['signature'];
         $timestamp = $_GET['timestamp'];
