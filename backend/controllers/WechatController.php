@@ -26,8 +26,14 @@ class WechatController extends yii\web\Controller
         $tmpstr = sha1($tmpstr);
         if ($tmpstr == $signature) {
             $echostr = Yii::$app->request->get('echostr');
-            echo $echostr;
+            $myfile = fopen("newfile1.txt", "w") or die("Unable to open file!");
+            $txt = $signature."++".$timestamp."++".$nonce. "+++".$tmpstr."++++".$echostr;
+            fwrite($myfile, $txt);
+            fclose($myfile);
+            return $echostr;
             exit;
+        }else{
+
         }
         return $this->render('index', $data);
     }
