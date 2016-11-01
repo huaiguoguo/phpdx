@@ -30,6 +30,7 @@ class WechatController extends yii\web\Controller
             $txt = $signature."++".$timestamp."++".$nonce. "+++".$tmpstr."++++".$echostr;
             fwrite($myfile, $txt);
             fclose($myfile);
+            echo $echostr;
             exit;
         }else{
             $myfile = fopen("newfile2.txt", "w") or die("Unable to open file!");
