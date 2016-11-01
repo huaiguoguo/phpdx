@@ -16,17 +16,26 @@ class WechatController extends yii\web\Controller
     {
         $data = [];
 
+        $signature = Yii::$app->request->get('signature');
         $timestamp = Yii::$app->request->get('timestamp');
         $nonce     = Yii::$app->request->get('nonce');
         $token     = "haowai";
-        $signature = Yii::$app->request->get('signature');
         $tmparray  = array($timestamp, $nonce, $token);
         sort($tmparray);
         $tmpstr = implode("", $tmparray);
         $tmpstr = sha1($tmpstr);
         if ($tmpstr == $signature) {
-            echo Yii::$app->request->get('echostr');
+            $echostr = Yii::$app->request->get('echostr');
+            $myfile = fopen("newfile1.txt", "w") or die("Unable to open file!");
+            $txt = $signature."++".$timestamp."++".$nonce. "+++".$tmpstr."++++".$echostr;
+            fwrite($myfile, $txt);
+            fclose($myfile);
             exit;
+        }else{
+            $myfile = fopen("newfile2.txt", "w") or die("Unable to open file!");
+            $txt = $signature."++".$timestamp."++".$nonce. "+++".$tmpstr."++++";
+            fwrite($myfile, $txt);
+            fclose($myfile);
         }
         return $this->render('index', $data);
     }
