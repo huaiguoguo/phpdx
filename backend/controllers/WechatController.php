@@ -103,10 +103,22 @@ class WechatController extends yii\web\Controller
     {
         $arr = [
             [
-                'title'       => '火柴',
-                'description' => '火柴描述',
-                'picUrl'      => 'http://www.imooc.com/static/img/common/logo.png',
-                'url'         => 'http://www.imooc.com'
+                'title'       => '淘宝',
+                'description' => '淘宝描述',
+                'picUrl'      => 'https://img.alicdn.com/tps/i4/TB1iTkVLFXXXXXNaXXXAF6IGpXX-160-66.png_80x80.jpg',
+                'url'         => 'http://www.taobao.com'
+            ],
+            [
+                'title'       => '百度',
+                'description' => '百度描述',
+                'picUrl'      => 'https://www.baidu.com/img/bd_logo1.png',
+                'url'         => 'http://www.baidu.com'
+            ],
+            [
+                'title'       => '腾讯',
+                'description' => '腾讯描述',
+                'picUrl'      => 'http://mat1.gtimg.com/www/images/qq2012/qqlogo_2x.png',
+                'url'         => 'http://www.qq.com'
             ]
         ];
 
