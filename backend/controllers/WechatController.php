@@ -115,6 +115,23 @@ class WechatController extends yii\web\Controller
         dump($arr);
     }
 
+    public function actionGetWxServiceIp(){
+        $access_token = "WmKwR23DgKVSassakpbHseedCYjAexfSmWsN-_Y53-rfir0LU2Xj8rZJcf_yBZ3-W2R0Nn-AdmANYn4xQTVdf7b6lZVOjVqJDUFo9xRgvW-bKJfLDybn-_bSZd-8Iw9yTKXdAFAPGT";
+        $url  = "https://api.weixin.qq.com/cgi-bin/getcallbackip?access_token=".$access_token;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $ip = curl_exec($ch);
+        if(curl_errno($ch)){
+            var_dump(curl_error($ch));
+        }
+        curl_close($ch);
+        $arr = json_decode($ip,true);
+        dump($arr);
+    }
+
+
+
 
     public function actionHttpcurl(){
         $ch = curl_init();
