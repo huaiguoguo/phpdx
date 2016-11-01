@@ -15,7 +15,14 @@ class WechatController extends yii\web\Controller
     public function actionIndex()
     {
         $data = [];
+        if (!$echostr = $this->check()) {
+            return $echostr;
+        }
+        return $this->render('index', $data);
+    }
 
+
+    public function check(){
         $signature = Yii::$app->request->get('signature');
         $timestamp = Yii::$app->request->get('timestamp');
         $nonce     = Yii::$app->request->get('nonce');
@@ -27,7 +34,11 @@ class WechatController extends yii\web\Controller
         if ($tmpstr == $signature) {
             $echostr = Yii::$app->request->get('echostr');
             return $echostr;
+        }else{
+            return false;
         }
-        return $this->render('index', $data);
     }
+
+
+
 }
