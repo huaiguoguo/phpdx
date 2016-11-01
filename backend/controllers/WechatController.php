@@ -16,9 +16,9 @@ class WechatController extends yii\web\Controller
     {
         $data = [];
 
-        $signature = Yii::$app->request->get('signature');
-        $timestamp = Yii::$app->request->get('timestamp');
-        $nonce     = Yii::$app->request->get('nonce');
+        $signature = $_GET['signature'];
+        $timestamp = $_GET['timestamp'];
+        $nonce     = $_GET['nonce'];
         $token     = "haowai";
         $tmparray  = array($timestamp, $nonce, $token);
         sort($tmparray);
