@@ -26,6 +26,7 @@ class WechatController extends yii\web\Controller
         $tmpstr = sha1($tmpstr);
         if ($tmpstr == $signature) {
             echo Yii::$app->request->get('echostr');
+            exit;
         }
         return $this->render('index', $data);
     }
