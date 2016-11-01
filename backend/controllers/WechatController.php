@@ -20,7 +20,7 @@ class WechatController extends yii\web\Controller
         $nonce     = Yii::$app->request->get('nonce');
         $token     = "haowai";
         $signature = Yii::$app->request->get('signature');
-        $tmparray  = [$timestamp, $nonce, $token];
+        $tmparray  = array($timestamp, $nonce, $token);
         sort($tmparray);
         $tmpstr = implode("", $tmparray);
         $tmpstr = sha1($tmpstr);
