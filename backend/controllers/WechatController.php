@@ -15,34 +15,15 @@ class WechatController extends yii\web\Controller
     public function actionIndex()
     {
         $data = [];
-        $myfile = fopen("newfile3.txt", "w") or die("Unable to open file!");
-        $txt = "test";
-        fwrite($myfile, $txt);
-        fclose($myfile);
-        exit;
 
-        $signature = $_GET['signature'];
-        $timestamp = $_GET['timestamp'];
-        $nonce     = $_GET['nonce'];
+        $signature = Yii::$app->request->get('signature');
+        $timestamp = Yii::$app->request->get('timestamp');
+        $nonce     = Yii::$app->request->get('nonce');
         $token     = "haowai";
-
-        $echostr = Yii::$app->request->get('echostr');
-        $myfile = fopen("newfile3.txt", "w") or die("Unable to open file!");
-        $txt = $signature."++".$timestamp."++".$nonce. "+++".$echostr;
-        fwrite($myfile, $txt);
-        fclose($myfile);
-
         $tmparray  = array($timestamp, $nonce, $token);
         sort($tmparray);
         $tmpstr = implode("", $tmparray);
         $tmpstr = sha1($tmpstr);
-
-        $echostr = Yii::$app->request->get('echostr');
-        $myfile = fopen("newfile3.txt", "w") or die("Unable to open file!");
-        $txt = $signature."++".$timestamp."++".$nonce. "+++".$tmpstr."++++".$echostr;
-        fwrite($myfile, $txt);
-        fclose($myfile);
-
         if ($tmpstr == $signature) {
             $echostr = Yii::$app->request->get('echostr');
             $myfile = fopen("newfile1.txt", "w") or die("Unable to open file!");
@@ -55,6 +36,7 @@ class WechatController extends yii\web\Controller
             $txt = $signature."++".$timestamp."++".$nonce. "+++".$tmpstr."++++";
             fwrite($myfile, $txt);
             fclose($myfile);
+            exit;
         }
         return $this->render('index', $data);
     }
