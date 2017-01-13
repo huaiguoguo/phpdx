@@ -12,6 +12,11 @@ return [
     'bootstrap'           => ['log'],
     'language'           => 'zh-CN',
     'controllerNamespace' => 'frontend\controllers',
+    'modules'=>[
+        'v1'=>[
+            'class'=>'app\modules\v1\Module'
+        ]
+    ],
     'components'          => [
         'request'      => [
             'csrfParam' => 'csrf_frontend',
@@ -49,9 +54,9 @@ return [
             'showScriptName'  => false,
             'suffix'          => '.html',
             'rules'           => [
-            ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'default']
+            ]
         ]
-
     ],
-    'params'              => $params,
+    'params'              => $params
 ];

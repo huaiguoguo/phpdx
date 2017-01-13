@@ -41,11 +41,6 @@ class WechatController extends yii\web\Controller
         $postAtr = $GLOBALS['HTTP_RAW_POST_DATA'];
         // 2.处理消息类型
         $postObj = simplexml_load_string($postAtr);
-//        $postObj->ToUserName = '';
-//        $postObj->FromUserName = '';
-//        $postObj->CreateTime = '';
-//        $postObj->MsgType = '';
-//        $postObj->Event = '';
         if (strtolower($postObj->MsgType) == 'event') {
             //如果是关注事件 ：subscribe
             if ($postObj->Event == 'subscribe') {
@@ -93,14 +88,29 @@ class WechatController extends yii\web\Controller
                 $toUser   = $postObj->FromUserName;
                 $fromUser = $postObj->ToUserName;
                 return sprintf($this->TemplatePicText(), $toUser, $fromUser, time(), "news");
+            }else if($postObj->Content == '天气'){
+
             }
         }
 
     }
 
+
+    public function actionCreateItem(){
+
+    }
+
+
+    public function getWxAccessToken(){
+    }
+
+
+
     public function actionGetAccessToken(){
-        $appid = "wxa25fb4f0180cfb59";
-        $appsecret = "d020cff1db67b9b7425be30d0c369aa2";
+//        $appid = "wxa25fb4f0180cfb59";
+//        $appsecret = "d020cff1db67b9b7425be30d0c369aa2";
+        $appid = "wx14b4165730ea6547";
+        $appsecret = "4b8cda25ebc1898e4ec5b3014c64b5ca";
         $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$appid."&secret=".$appsecret;
 
         $ch = curl_init();
