@@ -56,7 +56,7 @@ class TopicsController extends Controller
         $topList = $topListFindObj->offset($pages->offset)->limit($pages->limit)->with('user')->all();
 
         $data['list'] = $topList;
-        $data['page'] = $pages;
+        $data['pages'] = $pages;
 
         return $this->render('index', $data);
     }
