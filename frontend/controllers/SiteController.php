@@ -97,12 +97,13 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $TopicListFindObj = Topic::find()->select(['id', 'title', 'category_id', 'created_by'])
-            ->where(['<', 'status', 5])
-            ->with('user')->with('votes')->with('comments');
+            ->where(['<', 'status', 5]);
 
         $pages = new Pagination(['totalCount' => $TopicListFindObj->count(), 'pageSize' => '2']);
-        $topiclist = $TopicListFindObj->offset($pages->offset)->limit($pages->limit)->all();
-        
+        $topiclist = $TopicListFindObj->offset($pages->offset)
+            ->with('user')->with('votes')->with('comments')
+            ->limit($pages->limit)->all();
+
         $data['topiclist'] = $topiclist;
         return $this->render('index', $data);
     }
