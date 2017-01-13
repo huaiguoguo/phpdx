@@ -5,6 +5,7 @@
  * Date: 2016/9/4
  * Time: 8:04
  */
+use yii\widgets\LinkPager;
 ?>
 
 
@@ -82,6 +83,8 @@
                 </ul>
 
             </div>
+
+            <?= LinkPager::widget(['pagination' => $pages]); ?>
 
             <div class="panel-footer text-right remove-padding-horizontal pager-footer">
                 <!-- Pager -->

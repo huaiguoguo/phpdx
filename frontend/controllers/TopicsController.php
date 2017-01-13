@@ -8,13 +8,14 @@
 
 namespace frontend\controllers;
 
-use common\models\Category;
-use common\models\Looks;
 use yii;
 use yii\web\Response;
+use yii\web\Controller;
+use yii\data\Pagination;
 use common\models\Comment;
 use common\models\Topic;
-use yii\web\Controller;
+use common\models\Looks;
+use common\models\Category;
 
 class TopicsController extends Controller
 {
@@ -50,7 +51,12 @@ class TopicsController extends Controller
             return $this->render('index');
         }
 
-        $data['list'] = Topic::find()->where(['<', 'status', 5])->with('user')->all();
+        $topListFindObj = Topic::find()->where(['<', 'status', 5]);
+        $pages   = new Pagination(['totalCount' => $topListFindObj->count(), 'pageSize' => '20']);
+        $topList = $data->offset($pages->offset)->limit($pages->limit)->with('user')->all();
+
+        $data['list'] = $topList;
+        $data['page'] = $pages;
 
         return $this->render('index', $data);
     }
