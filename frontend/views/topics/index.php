@@ -84,10 +84,12 @@ use yii\widgets\LinkPager;
 
             </div>
 
-            <?= LinkPager::widget(['pagination' => $pages]); ?>
+
 
             <div class="panel-footer text-right remove-padding-horizontal pager-footer">
+                <?= LinkPager::widget(['pagination' => $pages]); ?>
                 <!-- Pager -->
+                <!--
                 <ul class="pagination">
                     <li class="disabled"><span>&laquo;</span></li>
                     <li class="active"><span>1</span></li>
@@ -103,6 +105,7 @@ use yii\widgets\LinkPager;
                     <li><a href="/topics?page=13">13</a></li>
                     <li><a href="/topics?page=2" rel="next">&raquo;</a></li>
                 </ul>
+                -->
             </div>
 
 
