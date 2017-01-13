@@ -16,6 +16,7 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use common\models\Topic;
 use common\models\Comment;
+use yii\data\Pagination;
 
 /**
  * Site controller
@@ -95,14 +96,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $topiclist = Topic::find()->select(['id', 'title', 'category_id', 'created_by'])
+        $TopicListFindObj = Topic::find()->select(['id', 'title', 'category_id', 'created_by'])
             ->where(['<', 'status', 5])
-            ->with('user')->with('votes')->with('comments')
-            ->limit(20)
-            ->all();
+            ->with('user')->with('votes')->with('comments');
 
+        $pages = new Pagination(['totalCount' => $TopicListFindObj->count(), 'pageSize' => '2']);
+        $topiclist = $TopicListFindObj->offset($pages->offset)->limit($pages->limit)->all();
+        
         $data['topiclist'] = $topiclist;
-
         return $this->render('index', $data);
     }
 
