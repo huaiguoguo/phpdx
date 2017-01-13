@@ -53,7 +53,7 @@ class TopicsController extends Controller
 
         $topListFindObj = Topic::find()->where(['<', 'status', 5]);
         $pages   = new Pagination(['totalCount' => $topListFindObj->count(), 'pageSize' => '20']);
-        $topList = $data->offset($pages->offset)->limit($pages->limit)->with('user')->all();
+        $topList = $topListFindObj->offset($pages->offset)->limit($pages->limit)->with('user')->all();
 
         $data['list'] = $topList;
         $data['page'] = $pages;
